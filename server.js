@@ -1,4 +1,4 @@
-//placeholder, taken from 01-19-22
+
 require('dotenv').config()
 
 const express = require('express')
@@ -35,4 +35,5 @@ app.get('*', (req, res) => res.sendFile(join(__dirname, 'client', 'build', 'inde
 
 require('./db')
   .then(() => app.listen(process.env.PORT || 3001))
+
   .catch(err => console.log(err))
