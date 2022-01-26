@@ -3,23 +3,23 @@ const { Actual, User } = require('../models')
 const passport = require('passport')
 
 router.get('/actuals', passport.authenticate('jwt'), async function (req, res) {
-  const songs = await Song.find({})
-  res.json(songs)
+  const actuals = await Actual.find({})
+  res.json(actuals)
 })
 
 router.post('/actuals', passport.authenticate('jwt'), async function (req, res) {
-  const song = await Actual.create(req.body)
-  await User.findByIdAndUpdate(req.user._id, { $push: { actuals: actuals._id } })
-  res.json(song)
+  const actual = await Actual.create(req.body)
+  await User.findByIdAndUpdate(req.user._id, { $push: { actuals: actual._id } })
+  res.json(actual)
 })
 
 router.put('/actuals/:id', passport.authenticate('jwt'), async function (req, res) {
-  await Song.findByIdAndUpdate(req.params.id, req.body)
+  await Actual.findByIdAndUpdate(req.params.id, req.body)
   res.sendStatus(200)
 })
 
-router.delete('/songs/:id', passport.authenticate('jwt'), async function (req, res) {
-  await Song.findByIdAndDelete(req.params.id)
+router.delete('/actuals/:id', passport.authenticate('jwt'), async function (req, res) {
+  await Actual.findByIdAndDelete(req.params.id)
   res.sendStatus(200)
 })
 
