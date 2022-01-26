@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Goal, User } = require('../models')
+const { Actual, User, Goal, Category } = require('../models')
 const passport = require('passport')
 
 router.get('/goals', passport.authenticate('jwt'), async function (req, res) {
