@@ -3,7 +3,7 @@ import { useContext } from 'react'
 
 const ExpenseForm = () => {
   const {
-    title,
+    category,
     goalValue,
     actualValue
   } = useContext(ExpenseContext)
@@ -11,12 +11,12 @@ const ExpenseForm = () => {
   return (
     <Form>
       <div className="mb-3">
-        <Label htmlFor="title">Title</Label>
+        <Label htmlFor="title">Category</Label>
         <Input
           type="text"
           className="form-control"
-          name="title"
-          value={title}
+          name="category"
+          value={category}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
