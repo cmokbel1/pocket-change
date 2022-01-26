@@ -1,13 +1,13 @@
 import { Card, CardTitle, CardText } from 'reactstrap'
 
-const SongCard = ({ Category, actualValue, goalValue }) => {
+const ExpenseCard = ({ title, goalValue, actualValue }) => {
   return (
     <Card body color="info">
-      <CardTitle tag="h5">{Category}</CardTitle>
-      <CardText>Actual: {actualValue}</CardText>
+      <CardTitle tag="h5">{title}</CardTitle>
       <CardText>Goal: {goalValue}</CardText>
+      <CardText>Actual: {actualValue}</CardText>
     </Card>
   )
 }
 
-export default SongCard
+export default ExpenseCard

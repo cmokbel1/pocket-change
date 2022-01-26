@@ -1,15 +1,12 @@
 import { Form, Label, Input, Button } from 'reactstrap'
 import { useContext } from 'react'
-import SongContext from '../../utils/SongContext'
 
-const SongForm = () => {
+const ExpenseForm = () => {
   const {
     title,
-    artist,
-    album,
-    handleInputChange,
-    handleAddSong
-  } = useContext(SongContext)
+    goalValue,
+    actualValue
+  } = useContext(ExpenseContext)
 
   return (
     <Form>
@@ -23,30 +20,30 @@ const SongForm = () => {
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <Label htmlFor="artist">Artist</Label>
+        <Label htmlFor="goal">Goal</Label>
         <Input
           type="text"
           className="form-control"
-          name="artist"
-          value={artist}
+          name="goal"
+          value={goalValue}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <Label htmlFor="album">Album</Label>
+        <Label htmlFor="actual">Actual</Label>
         <Input
           type="text"
           className="form-control"
-          name="album"
-          value={album}
+          name="goal"
+          value={actualValue}
           onChange={handleInputChange} />
       </div>
       <Button
         color="primary"
-        onClick={handleAddSong} >
-        Add Song
+        onClick={handleAddExpense} >
+        Add Expense
       </Button>
     </Form>
   )
 }
 
-export default SongForm
+export default ExpenseForm
