@@ -8,7 +8,8 @@ router.get('/actuals', passport.authenticate('jwt'), async function (req, res) {
 })
 // create 1
 router.post('/actuals', passport.authenticate('jwt'), async function (req, res) {
-  const actual = await Actual.create(req.body)
+  const actual = await Actual.create({ ...req.body, user: req.user._id, catergory: req.body.categoryid })
+  await Category.findByIdAndUpdate(req.body.categoryid, { $push: { actuals: actual._id } })
   await User.findByIdAndUpdate(req.user._id, { $push: { actuals: actual._id } })
   res.json(actual)
 })
