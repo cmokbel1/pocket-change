@@ -1,12 +1,14 @@
 import { Card, CardTitle, CardText } from 'reactstrap'
 
-const ExpenseCard = ({ title, goalValue, actualValue }) => {
+const ExpenseCard = ({ category, goalValue, actualValue }) => {
   return (
+    <div>
     <Card body color="info">
-      <CardTitle tag="h5">{title}</CardTitle>
+      <CardTitle tag="h5">{category}</CardTitle>
       <CardText>Goal: {goalValue}</CardText>
       <CardText>Actual: {actualValue}</CardText>
     </Card>
+    </div>
   )
 }
 
