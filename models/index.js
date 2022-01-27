@@ -1,5 +1,7 @@
 module.exports = {
   User: require('./User.js'),
-  Song: require('./Song.js')
+  Goal: require('./Goal.js'),
+  Actual: require('./Actual.js'),
+  Category: require('./Category.js')
 }
 
