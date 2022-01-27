@@ -9,7 +9,6 @@ import Home from './pages/Home'
 import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import AppBar from './components/AppBar'
-import Button from './components/Button'
 
 const App = () => {
   return (
