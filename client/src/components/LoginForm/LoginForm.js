@@ -1,42 +1,43 @@
-// import { useState, useContext } from 'react'
-// import UserAPI from '../../utils/UserAPI'
-// import AuthContext from '../../utils/AuthContext'
+import { useState, useContext } from 'react'
+import UserAPI from '../../utils/UserAPI'
+import AuthContext from '../../utils/AuthContext'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
 
-// const LoginForm = () => {
-//   const {
-//     lUsername,
-//     lPassword,
-//     handleInputChange,
-//     handleLoginUser
-//   } = useContext(AuthContext)
+const LoginForm = () => {
+  const {
+    lUsername,
+    lPassword,
+    handleInputChange,
+    handleLoginUser
+  } = useContext(AuthContext)
 
-//   return (
-//     <Form>
-//       <div className="mb-3">
-//         <Label htmlFor="username">Username</Label>
-//         <Input
-//           type="text"
-//           className="form-control"
-//           name="lUsername"
-//           value={lUsername}
-//           onChange={handleInputChange} />
-//       </div>
-//       <div className="mb-3">
-//         <Label htmlFor="password">Password</Label>
-//         <Input
-//           type="password"
-//           className="form-control"
-//           name="lPassword"
-//           value={lPassword}
-//           onChange={handleInputChange} />
-//       </div>
-//       <Button
-//         color="primary"
-//         onClick={handleLoginUser} >
-//         Log In
-//       </Button>
-//     </Form>
-//   )
-// }
+  return (
+    <Container row>
+      <TextField
+        required
+        id="filled-required"
+        label="Required"
+        defaultValue="Username"
+        variant="filled"
+      />
+        <TextField
+          required
+          id="filled-required"
+          label="Required"
+          defaultValue="Email"
+          variant="filled"
+        />
+      <TextField
+        id="filled-password-input"
+        label="Required Password"
+        type="password"
+        autoComplete="current-password"
+        variant="filled"
+      />
+    </Container>
+  );
+};
 
-// export default LoginForm
+export default LoginForm
