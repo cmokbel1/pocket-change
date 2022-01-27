@@ -6,11 +6,13 @@ const ExpenseForm = () => {
     category,
     goalValue,
     actualValue,
-    handleInputChange
+    handleInputChange,
+    handleAddExpense,
   } = useContext(ExpenseContext)
 
   const handleInputChange = ({ target: { name, value } }) => setMovieState({ ...movieState, [name]: value })
-  
+  const handleAddExpense = ({})
+
   return (
     <Form>
       <div className="mb-3">
