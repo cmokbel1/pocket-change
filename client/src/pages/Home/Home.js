@@ -1,9 +1,9 @@
-import AppBar from './../../components/AppBar'
+import NavBar from '../../components/NavBar'
 
 const Home = () => {
   return (
     <>
-      <AppBar></AppBar>
+      <NavBar></NavBar>
       <h1>This is the Home Page</h1>
     </>
   )

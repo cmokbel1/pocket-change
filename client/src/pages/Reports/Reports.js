@@ -1,9 +1,9 @@
-import AppBar from './../../components/AppBar'
+import NavBar from '../../components/NavBar'
 
 const Reports = () => {
   return (
     <>
-    <AppBar></AppBar>
+    <NavBar></NavBar>
     <h1>This is the Reports Page</h1>
     </>
   )

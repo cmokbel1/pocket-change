@@ -1,9 +1,9 @@
-import AppBar from './../../components/AppBar'
+import NavBar from '../../components/NavBar'
 
 const Budget = () => {
   return (
     <>
-      <AppBar></AppBar>
+      <NavBar></NavBar>
       <h1>This is the Budget Page</h1>
     </>
   )

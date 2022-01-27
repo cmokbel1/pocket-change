@@ -8,12 +8,10 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Budget from './pages/Budget'
 import Reports from './pages/Reports'
-import AppBar from './components/AppBar'
 
 const App = () => {
   return (
     <Router>
-      <AppBar />
       <Routes>
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
