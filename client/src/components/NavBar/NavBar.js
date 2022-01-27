@@ -15,7 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 const pages = ['Budget', 'Reports', 'Logout'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const AppBar = () => {
+const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -137,4 +137,4 @@ const AppBar = () => {
     </AppBar>
   );
 };
-export default AppBar;
+export default NavBar;
