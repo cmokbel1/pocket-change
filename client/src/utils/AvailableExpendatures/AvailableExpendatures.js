@@ -1,6 +1,7 @@
 function calcAvail(cashFlow, savingsGoal) {
-  let percentAsNum = cashFlow * savingsGoal;
+  let numAsPercent = savingsGoal / 100;
+  let percentAsNum = numAsPercent * cashFlow;
   return cashFlow - percentAsNum;
 };
 
-module.exports = calcAvail;
+export { calcAvail }
