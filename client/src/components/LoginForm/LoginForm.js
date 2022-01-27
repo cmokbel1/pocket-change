@@ -4,8 +4,16 @@ import AuthContext from '../../utils/AuthContext'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
+import FilledInput from '@mui/material/FilledInput';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { palette } from '@mui/system';
 import './LoginForm.css';
-const LoginForm = () => {
+
+const LoginForm = (props) => {
   const {
     lUsername,
     lPassword,
@@ -16,25 +24,31 @@ const LoginForm = () => {
   return (
     <Container row>
       <TextField
+        label="Required Username" 
+        color="primary" 
+        focused
+        sx={{ input: { color: 'white' } }}
         required
         id="filled-required"
-        label="Required"
         defaultValue="Username"
-        variant="filled"
+        
       />
-        <TextField
-          required
-          id="filled-required"
-          label="Required"
-          defaultValue="Email"
-          variant="filled"
-        />
       <TextField
-        id="filled-password-input"
+        label="Required Email"
+        color="primary"
+        focused
+        sx={{ input: { color: 'white' } }}
+        required
+        id="filled-required"
+        defaultValue="Email"
+      />
+      <TextField
+        id="filled-required"
         label="Required Password"
         type="password"
         autoComplete="current-password"
-        variant="filled"
+        color="primary"
+        focused
       />
     </Container>
   );
