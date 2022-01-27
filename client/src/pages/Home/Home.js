@@ -1,3 +1,20 @@
+import AppBar from './../../components/AppBar'
+
+const Home = () => {
+  return (
+    <>
+      <AppBar></AppBar>
+      <h1>This is the Home Page</h1>
+    </>
+  )
+}
+
+export default Home
+
+
+
+
+
 // import { useEffect, useState } from 'react'
 // import SongForm from '../../components/SongForm'
 // import SongCard from '../../components/SongCard'
