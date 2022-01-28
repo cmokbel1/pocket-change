@@ -1,12 +1,12 @@
-import { Card, CardTitle, CardText } from 'reactstrap'
+import { Card, CardHeader, CardContent } from '@mui/material';
 
 const ExpenseCard = ({ category, goalValue, actualValue }) => {
   return (
     <div>
     <Card body color="info">
-      <CardTitle tag="h5">{category}</CardTitle>
-      <CardText>Goal: {goalValue}</CardText>
-      <CardText>Actual: {actualValue}</CardText>
+      <CardHeader tag="h5">{category}</CardHeader>
+      <CardContent>Goal: {goalValue}</CardContent>
+      <CardContent>Actual: {actualValue}</CardContent>
     </Card>
     </div>
   )
