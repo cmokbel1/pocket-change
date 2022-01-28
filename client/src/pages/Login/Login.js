@@ -15,7 +15,7 @@ const Login = () => {
 
   authState.handleInputChange = ({ target: { name, value } }) => setAuthState({ ...authState, [name]: value })
 
-  authState.handleLoginUser = event => {
+  const handleLoginUser = event => {
     event.preventDefault()
     UserAPI.login({
       username: authState.lUsername,

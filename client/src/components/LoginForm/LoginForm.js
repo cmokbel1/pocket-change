@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
-import AuthContext from '../../utils/AuthContext'
+// import loginContext from '../../utils/loginContext'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
@@ -11,15 +11,31 @@ import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { palette } from '@mui/system';
+import BasicButton from './../../components/BasicButton'
 import './LoginForm.css';
 
 const LoginForm = (props) => {
-  const {
-    lUsername,
-    lPassword,
-    handleInputChange,
-    handleLoginUser
-  } = useContext(AuthContext)
+  const [loginState, setLoginState] = useState({
+    lUsername: '',
+    lPassword: ''
+  })
+
+  const handleInputChange = ({ target: { name, value } }) => {setLoginState({ ...loginState, [name]: value })
+    console.log(value)
+  }
+
+  const handleLoginUser = event => {
+    event.preventDefault()
+    UserAPI.login({
+      username: loginState.lUsername,
+      password: loginState.lPassword
+    })
+      .then(token => {
+        localStorage.setItem('user', token)
+        setLoginState({ ...loginState, lUsername: '', lPassword: '' })
+        window.location = '/'
+      })
+  }
 
   return (
     <Container row>
@@ -31,16 +47,9 @@ const LoginForm = (props) => {
         required
         id="filled-required"
         defaultValue="Username"
+        value={loginState.lUsername}
+        onChange={handleInputChange}
         
-      />
-      <TextField
-        label="Required Email"
-        color="primary"
-        focused
-        sx={{ input: { color: 'white' } }}
-        required
-        id="filled-required"
-        defaultValue="Email"
       />
       <TextField
         id="filled-required"
@@ -49,7 +58,10 @@ const LoginForm = (props) => {
         autoComplete="current-password"
         color="primary"
         focused
+        value={loginState.lPassword}
+        onChange={handleInputChange}
       />
+      <BasicButton onClick={handleLoginUser}>Submit</BasicButton>
     </Container>
   );
 };
