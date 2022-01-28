@@ -8,7 +8,7 @@ const User = new Schema({
     ref: 'Category'
   }
 }, { timestamps: true })
-
+console.log(user)
 User.plugin(require('passport-local-mongoose'));
 
 module.exports = model('User', User)
