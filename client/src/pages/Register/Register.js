@@ -1,83 +1,52 @@
 import { useState } from 'react'
+import RegisterForm from "../../components/RegisterForm"
 import UserAPI from '../../utils/UserAPI'
-// import loginContext from '../../utils/loginContext'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Container from '@mui/material/Container';
-import FilledInput from '@mui/material/FilledInput';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { palette } from '@mui/system';
-import BasicButton from './../../components/BasicButton'
-//import './RegisterForm.css';
-
-const RegisterForm = (props) => {
+//import "./Register.css";
+``
+const Register = () => {
   const [registerState, setRegisterState] = useState({
+    email: '',
+    username: '',
+    password: '',
     rUsername: '',
     rEmail: '',
-    rPassword: '',
+    rPassword: ''
   })
 
-  const handleInputChange = ({ target: { name, value } }) => {
-    setRegisterState({ ...registerState, [name]: value })
-    console.log(value)
-  }
+  registerState.handleInputChange = ({ target: { name, value } }) => setRegisterState({ ...registerState, [name]: value })
 
   const handleRegisterUser = event => {
     event.preventDefault()
     UserAPI.login({
       username: registerState.rUsername,
       email: registerState.rEmail,
-      password: registerState.rPassword
+      password: registaerState.rPassword
     })
       .then(token => {
-        setRegisterState({ ...registerState, rUsername: '', rEmail: '', rPassword: '' })
-        window.location = '/login'
+      setRegisterState({ ...loginState, rUsername: '', rEmail, rPassword: '' })
+      window.location = '/login'
       })
   }
 
   return (
-    <Container row>
-      <TextField
-        label="Required Username"
-        color="primary"
-        focused
-        sx={{ input: { color: 'white' } }}
-        required
-        id="filled-required"
-        defaultValue="Username"
-        value={registerState.rUsername}
-        onChange={handleInputChange}
+    <div>
+      <registerState.value={registerState}>
+      <div className="container">
+        <div className="row bg-dark p-5 rounded-lg m-3">
+          <h1 className="display-4">Pocket Change</h1>
+          <p className="lead">Please register your account to begin.</p>
+          <hr className="my-4" />
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <h5>Register Your Account</h5>
+            <hr />
+          </div>
+        </div>
+      </div>
+      <RegisterForm />
+    </div>
+  )
+}
 
-      />
-      <TextField
-        label="Required Email"
-        color="primary"
-        focused
-        sx={{ input: { color: 'white' } }}
-        required
-        id="filled-required"
-        defaultValue="Email"
-        value={registerState.rEmail}
-        onChange={handleInputChange}
-
-      />
-      <TextField
-        id="filled-required"
-        label="Required Password"
-        type="password"
-        autoComplete="current-password"
-        color="primary"
-        focused
-        value={registerState.rPassword}
-        onChange={handleInputChange}
-      />
-      <BasicButton onClick={handleRegisterUser}>Submit</BasicButton>
-    </Container>
-  );
-};
-
-export default RegisterForm
+export default Register

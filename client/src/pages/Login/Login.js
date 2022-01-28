@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import LoginForm from "../../components/LoginForm"
 import UserAPI from '../../utils/UserAPI'
-import AuthContext from '../../utils/AuthContext'
 import "./Login.css";
 const Login = () => {
-  const [authState, setAuthState] = useState({
-    name: '',
+  const [loginState, setLoginState] = useState({
     email: '',
     username: '',
     password: '',
@@ -13,29 +11,28 @@ const Login = () => {
     lPassword: ''
   })
 
-  authState.handleInputChange = ({ target: { name, value } }) => setAuthState({ ...authState, [name]: value })
+  loginState.handleInputChange = ({ target: { name, value } }) => setLoginState({ ...loginState, [name]: value })
 
   const handleLoginUser = event => {
     event.preventDefault()
     UserAPI.login({
-      username: authState.lUsername,
-      password: authState.lPassword
+      username: loginState.lUsername,
+      password: loginState.lPassword
     })
       .then(token => {
         localStorage.setItem('user', token)
-        setAuthState({ ...authState, lUsername: '', lPassword: '' })
+        setLoginState({ ...loginState, lUsername: '', lPassword: '' })
         window.location = '/'
       })
   }
 
   return (
     <div>
-    <AuthContext.Provider value={authState}>
+      <value={loginState}>
       <div className="container">
         <div className="row bg-dark p-5 rounded-lg m-3">
-          <h1 className="display-4">Song App</h1>
-          <p className="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex a inventore quis laboriosam, quae nihil. Veritatis, aut voluptatem! Minima consectetur, modi consequuntur qui neque expedita? Beatae omnis ipsa quos dolor.
-            Corrupti dolor repellat non accusamus nostrum necessitatibus, dicta libero. Dolorum blanditiis incidunt similique nesciunt laudantium est maiores deleniti consequatur debitis ipsam, animi eligendi alias suscipit error, doloremque facilis! Quod, saepe?</p>
+          <h1 className="display-4">Pocket Change</h1>
+          <p className="lead">Please provide your login information below</p>
           <hr className="my-4" />
         </div>
         <div className="row">
@@ -46,7 +43,6 @@ const Login = () => {
         </div>
       </div>
       <LoginForm />
-    </AuthContext.Provider>
     </div>
   )
 }
