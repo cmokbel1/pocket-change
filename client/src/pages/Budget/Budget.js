@@ -10,23 +10,21 @@ const Budget = () => {
     categoriesToAdd,
     setCategoriesToAdd,
   ] = React.useState(1);
+  const [
+    committedCategoriesToAdd,
+    setCommittedCategoriesToAdd,
+  ] = React.useState(0);
 
-
-  const displayCategories = (event) => {
-    console.log('dingdong')
-    event.preventDefault();
-    console.log(event)
+  const addExpense = () => {
+    console.log('yepp')
   }
 
-  const categoryForm = () => [
+  const CategoryForm = () => [
     <FormControl>
-      <InputLabel htmlFor="category">Category</InputLabel>
       <Input name="category" aria-describedby="expense category" />
       <FormHelperText id="my-helper-text">expense category</FormHelperText>
-      <InputLabel htmlFor="actualValue">Actual</InputLabel>
       <Input type="number" name="actualValue" aria-describedby="actual value" />
       <FormHelperText id="my-helper-text">actual expense</FormHelperText>
-      <InputLabel htmlFor="goalValue">Goal</InputLabel>
       <Input type="number" name="goalValue" aria-describedby="goal value" />
       <FormHelperText id="my-helper-text">goal expense</FormHelperText>
       <Button onClick={addExpense}>Add</Button>
@@ -42,10 +40,17 @@ const Budget = () => {
           setCategoriesToAdd(
             parseInt(e.currentTarget.value, 10))} />
         <FormHelperText id="my-helper-text">How Many Categories Would You Like to Use</FormHelperText>
-        <Button type="submit" onClick={displayCategories}>Confirm</Button>
+        <Button
+          onClick={() => {
+            setCommittedCategoriesToAdd(
+              categoriesToAdd
+            );
+          }}
+        >Confirm</Button>
       </FormControl>
       <div className="container">
-
+        {[...Array(committedCategoriesToAdd)].map((value: undefined, index: number) => (
+        <CategoryForm id={index + 1} key={index} />))}
       </div>
       <h1>This is the Budget Page</h1>
     </>
