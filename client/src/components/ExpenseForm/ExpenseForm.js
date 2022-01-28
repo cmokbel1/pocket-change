@@ -1,7 +1,9 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { Form, Label, Input, Button } from '@mui/material'
 import ExpenseContext from '../../utils/ExpenseContext'
+import { useContext } from 'react'
 
 const ExpenseForm = () => {
   const {
@@ -12,8 +14,6 @@ const ExpenseForm = () => {
     handleAddExpense,
   } = useContext(ExpenseContext)
 
-  const handleInputChange = ({ target: { name, value } }) => setMovieState({ ...movieState, [name]: value })
-  const handleAddExpense = ({})
 
   return (
     <Form>
