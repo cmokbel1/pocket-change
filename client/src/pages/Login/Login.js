@@ -11,24 +11,8 @@ const Login = () => {
     lPassword: ''
   })
 
-  loginState.handleInputChange = ({ target: { name, value } }) => setLoginState({ ...loginState, [name]: value })
-
-  const handleLoginUser = event => {
-    event.preventDefault()
-    UserAPI.login({
-      username: loginState.lUsername,
-      password: loginState.lPassword
-    })
-      .then(token => {
-        localStorage.setItem('user', token)
-        setLoginState({ ...loginState, lUsername: '', lPassword: '' })
-        window.location = '/'
-      })
-  }
-
   return (
     <div>
-      <value={loginState}>
       <div className="container">
         <div className="row bg-dark p-5 rounded-lg m-3">
           <h1 className="display-4">Pocket Change</h1>

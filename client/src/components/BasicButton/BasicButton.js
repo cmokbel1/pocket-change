@@ -7,7 +7,7 @@ export default function BasicButton() {
     <Stack spacing={2} direction="row">
       {/* <Button variant="text">Text</Button>
       <Button variant="contained">Contained</Button> */}
-      <Button variant="outlined"></Button>
+      <Button variant="outlined">Submit</Button>
     </Stack>
   );
 }

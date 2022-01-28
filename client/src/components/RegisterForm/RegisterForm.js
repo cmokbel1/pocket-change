@@ -15,7 +15,6 @@ import BasicButton from './../BasicButton'
 
 const RegisterForm = (props) => {
   const [registerState, setRegisterState] = useState({
-    rName: '',
     rUsername: '',
     rEmail: '',
     rPassword: ''
@@ -29,44 +28,19 @@ const RegisterForm = (props) => {
   const handleRegisterUser = event => {
     event.preventDefault()
     UserAPI.register({
-      name: registerState.rName,
       email: registerState.rEmail,
       username: registerState.rUsername,
       password: registerState.rPassword
     })
-    .then(() => {
-      setRegisterState({ ...registerState, rEmail: '', rUsername: '', rPassword: '' })
-      window.location = '/login'
-    })
+      .then(() => {
+        setRegisterState({ ...registerState, rEmail: '', rUsername: '', rPassword: '' })
+        window.location = '/login'
+      })
   }
 
 
   return (
     <Container row>
-      <TextField
-        label="Required Name"
-        color="primary"
-        focused
-        sx={{ input: { color: 'white' } }}
-        required
-        id="filled-required"
-        defaultValue="Username"
-        value={registerState.rName}
-        onChange={handleInputChange}
-
-      />
-      <TextField
-        label="Required Email"
-        color="primary"
-        focused
-        sx={{ input: { color: 'white' } }}
-        required
-        id="filled-required"
-        defaultValue="Username"
-        value={registerState.rEmail}
-        onChange={handleInputChange}
-
-      />
       <TextField
         label="Required Username"
         color="primary"
@@ -77,8 +51,23 @@ const RegisterForm = (props) => {
         defaultValue="Username"
         value={registerState.rUsername}
         onChange={handleInputChange}
+        name="rUsername"
 
       />
+      <TextField
+        label="Required Email"
+        color="primary"
+        focused
+        sx={{ input: { color: 'white' } }}
+        required
+        id="filled-required"
+        defaultValue="Email"
+        value={registerState.rEmail}
+        onChange={handleInputChange}
+        name="rEmail"
+
+      />
+
       <TextField
         id="filled-required"
         label="Required Password"
@@ -88,8 +77,9 @@ const RegisterForm = (props) => {
         focused
         value={registerState.rPassword}
         onChange={handleInputChange}
+        name="rPassword"
       />
-      <BasicButton onClick={handleRegisterUser}>Submit</BasicButton>
+      <BasicButton onClick={handleRegisterUser}></BasicButton>
     </Container>
   );
 };
