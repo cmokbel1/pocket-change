@@ -1,7 +1,6 @@
-import { Form, Label, Input, Button } from 'reactstrap'
-import { useContext } from 'react'
-import  ExpenseContext  from '../../utils/ExpenseContext'
-
+import React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 const ExpenseForm = () => {
   const {
     category,
@@ -11,12 +10,13 @@ const ExpenseForm = () => {
     handleAddExpense,
   } = useContext(ExpenseContext)
 
-
+  const handleInputChange = ({ target: { name, value } }) => setMovieState({ ...movieState, [name]: value })
+  const handleAddExpense = ({})
 
   return (
     <Form>
       <div className="mb-3">
-        <Label htmlFor="category">Category</Label>
+        <Label htmlFor="title">Category</Label>
         <Input
           type="text"
           className="form-control"
