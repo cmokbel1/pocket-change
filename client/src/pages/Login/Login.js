@@ -12,14 +12,15 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Footer from '../../components/Footer'
-import Logo from '../../Assets/Pocket_Change_logo_02.png'
+import Logo from '../../Assets/small_logo.png'
 import Register from '../Register'
+import Home from '../../pages/Home'
 const Login = () => {
  
   return (
     <>
       <Container className='top'>
-        <br></br><br></br><br></br><br></br>
+        <a href="/"> <img src={Logo} alt="logo"></img></a> 
         <Grid container spacing={2}>
           <Grid item xs={0} md={1}>
           </Grid>
