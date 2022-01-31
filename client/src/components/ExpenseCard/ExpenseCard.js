@@ -4,12 +4,14 @@ import { Grid } from '@mui/material'
 const ExpenseCard = ({ category, goalValue, actualValue, result }) => {
   return (
     <div>
-    <Card body color="info">
-      <CardContent tag="h5">Category: {category}</CardContent>
-      <CardContent>Goal: {goalValue}</CardContent>
-      <CardContent>Actual: {actualValue}</CardContent>
-      <CardContent>Result: {result}</CardContent>
-    </Card>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1 }}>
+        <Card body color="info">
+          <h6 tag="h5">Category: {category}</h6>
+          <CardContent>Goal: {goalValue}</CardContent>
+          <CardContent>Actual: {actualValue}</CardContent>
+          <CardContent>Result: {result}</CardContent>
+        </Card>
+      </Grid>
     </div>
   )
 }

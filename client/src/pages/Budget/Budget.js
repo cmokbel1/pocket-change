@@ -20,12 +20,12 @@ const Budget = () => {
   
   // by building out the states in the budget page we have negated the need to use an expenseContext and import it, removing confusion. doing this also allows us to compile the functions that we need to use to handle changes in the form.
   const handleAddExpense =  (category, actualValue, goalValue) => {
-    let result = categoryResult(actualValue, goalValue);
     const expenses = JSON.parse(JSON.stringify(expenseState.expenses))
-
+    let result = categoryResult(actualValue, goalValue);
     expenses.push({ category, goalValue, actualValue, result })
     setExpenseState({ ...expenseState, result, expenses });
   }
+
 
 
   const handleInputChange = ({ target: { name, value } }) => setExpenseState({ ...expenseState, [name]: value })
@@ -37,6 +37,7 @@ const Budget = () => {
     <>
       <Navbar />
       <hr />
+      <h1>Create Your Expense Report</h1>
       <FormControl>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1 }}>
           <Grid item xs={2}>
@@ -55,18 +56,20 @@ const Budget = () => {
             <Button onClick={
               () => {
                 handleAddExpense(expenseState.category, expenseState.actualValue, expenseState.goalValue)
-              }}>Add</Button>
+              }} disabled={expenseState.category <1 || expenseState.actualValue <1 || expenseState.goalValue <1}>Add</Button>
           </Grid>
         </Grid>
       </FormControl>
-      <h1>This is the Budget Page</h1>
+      <hr />
+      <br />
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1 }}>
       {
         expenseState.expenses.map(expense => (
-          <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} />
+          <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result}/>
         )
         )
-      
       }
+      </Grid>
     </>
   )}
 
