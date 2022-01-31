@@ -12,6 +12,7 @@ import Footer from '../../components/Footer'
 import Logo from '../../Assets/Pocket_Change_logo_02.png'
 import Login from '../Login'
 import Register from '../Register'
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
