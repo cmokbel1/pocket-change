@@ -3,25 +3,19 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import * as React from 'react';
-
+import './Footer.css'
 export default function Footer() {
   return (
     <footer>
-      <Box
+      <Box className='boxes'
         px={{ xs: 3, sm: 10 }}
         py={{ xs: 5, sm: 10 }}
-        bgcolor="text.secondary"
         color="white"
       >
         <Container maxWidth="lg">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Help</Box>
-              <Box>
-                <Link href="/" color="inherit">
-                  Contact
-                </Link>
-              </Box>
               <Box>
                 <Link href="/" color="inherit">
                   Support
@@ -47,26 +41,16 @@ export default function Footer() {
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Messages</Box>
+              <Box borderBottom={1}>Contact</Box>
               <Box>
                 <Link href="/" color="inherit">
-                  Backup
-                </Link>
-              </Box>
-              <Box>
-                <Link href="/" color="inherit">
-                  History
-                </Link>
-              </Box>
-              <Box>
-                <Link href="/" color="inherit">
-                  Roll
+                  About Us
                 </Link>
               </Box>
             </Grid>
           </Grid>
           <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-            Material UI Workshop &reg; {new Date().getFullYear()}
+            Created By: Claude Mokbel, Jazmine Jose, Malia Pringle, Oliver Hoang, Rachel Hoelscher, Timmothy Duran with lots of EMOTIONAL DAMAGE &reg; {new Date().getFullYear()}
           </Box>
         </Container>
       </Box>
