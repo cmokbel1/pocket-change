@@ -3,6 +3,9 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import * as React from 'react';
+import Login from '../../pages/Login'
+import Register from '../../pages/Register'
+
 export default function Footer() {
   return (
     <footer>
@@ -29,12 +32,12 @@ export default function Footer() {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Account</Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/Login" color="inherit">
                   Login
                 </Link>
               </Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/Register" color="inherit">
                   Register
                 </Link>
               </Box>
