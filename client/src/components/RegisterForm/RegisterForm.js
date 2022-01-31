@@ -1,63 +1,87 @@
-// import { useState, useContext } from 'react'
-// import { Form, Label, Input, Button } from 'reactstrap'
-// import UserAPI from '../../utils/UserAPI'
-// import AuthContext from '../../utils/AuthContext'
+import { useState } from 'react'
+import UserAPI from '../../utils/UserAPI'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+import FilledInput from '@mui/material/FilledInput';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { palette } from '@mui/system';
+import BasicButton from './../BasicButton'
+//import './RegisterForm.css';
 
-// const RegisterForm = () => {
-//   const {
-//     name,
-//     username,
-//     email,
-//     password,
-//     handleInputChange,
-//     handleRegisterUser
-//   } = useContext(AuthContext)
+const RegisterForm = (props) => {
+  const [registerState, setRegisterState] = useState({
+    rUsername: '',
+    rEmail: '',
+    rPassword: ''
+  })
 
-//   return (
-//     <Form>
-//       <div className="mb-3">
-//         <Label htmlFor="name">Name</Label>
-//         <Input
-//           type="text"
-//           className="form-control"
-//           name="name"
-//           value={name}
-//           onChange={handleInputChange} />
-//       </div>
-//       <div className="mb-3">
-//         <Label htmlFor="email">Email</Label>
-//         <Input
-//           type="email"
-//           className="form-control"
-//           name="email"
-//           value={email}
-//           onChange={handleInputChange} />
-//       </div>
-//       <div className="mb-3">
-//         <Label htmlFor="username">Username</Label>
-//         <Input
-//           type="text"
-//           className="form-control"
-//           name="username"
-//           value={username}
-//           onChange={handleInputChange} />
-//       </div>
-//       <div className="mb-3">
-//         <Label htmlFor="password">Password</Label>
-//         <Input
-//           type="password"
-//           className="form-control"
-//           name="password"
-//           value={password}
-//           onChange={handleInputChange} />
-//       </div>
-//       <Button
-//         color="primary"
-//         onClick={handleRegisterUser} >
-//         Register
-//       </Button>
-//     </Form>
-//   )
-// }
+  const handleInputChange = ({ target: { name, value } }) => {
+    setRegisterState({ ...registerState, [name]: value })
+    console.log(value)
+  }
 
-// export default RegisterForm
+  const handleRegisterUser = event => {
+    event.preventDefault()
+    UserAPI.register({
+      email: registerState.rEmail,
+      username: registerState.rUsername,
+      password: registerState.rPassword
+    })
+      .then(() => {
+        setRegisterState({ ...registerState, rEmail: '', rUsername: '', rPassword: '' })
+        window.location = '/login'
+      })
+  }
+
+
+  return (
+    <Container row>
+      <TextField
+        label="Required Username"
+        color="primary"
+        focused
+        sx={{ input: { color: 'white' } }}
+        required
+        id="filled-required"
+        defaultValue="Username"
+        value={registerState.rUsername}
+        onChange={handleInputChange}
+        name="rUsername"
+
+      />
+      <TextField
+        label="Required Email"
+        color="primary"
+        focused
+        sx={{ input: { color: 'white' } }}
+        required
+        id="filled-required"
+        defaultValue="Email"
+        value={registerState.rEmail}
+        onChange={handleInputChange}
+        name="rEmail"
+
+      />
+
+      <TextField
+        id="filled-required"
+        label="Required Password"
+        type="password"
+        autoComplete="current-password"
+        color="primary"
+        focused
+        value={registerState.rPassword}
+        onChange={handleInputChange}
+        name="rPassword"
+      />
+      <BasicButton onClick={handleRegisterUser}></BasicButton>
+    </Container>
+  );
+};
+
+export default RegisterForm
