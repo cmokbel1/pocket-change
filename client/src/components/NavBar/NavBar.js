@@ -13,8 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link} from 'react-router-dom'
 
-const pages = ['Budget', 'Reports', 'Logout'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Budget', 'Reports', 'Login'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Login'];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

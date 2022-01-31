@@ -12,7 +12,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button'
 import { palette } from '@mui/system';
 import BasicButton from './../../components/BasicButton'
-//import './LoginForm.css';
 
 const LoginForm = (props) => {
   const [loginState, setLoginState] = useState({
@@ -43,7 +42,7 @@ const LoginForm = (props) => {
         label="Required Username" 
         color="primary" 
         focused
-        sx={{ input: { color: 'white' } }}
+        // sx={{ input: { color: 'white' } }}
         required
         id="filled-required"
         defaultValue="Username"

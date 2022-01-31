@@ -7,9 +7,9 @@ const Register = () => {
   return (
     <div>
       <div className="container">
-        <div className="row bg-dark p-5 rounded-lg m-3">
+        <div className="row p-5 rounded-lg m-3">
           <h1 className="display-4">Pocket Change</h1>
-          <p className="lead">Please register your account to begin.</p>
+          <p className="lead">Please register your account to begin</p>
           <hr className="my-4" />
         </div>
         <div className="row">

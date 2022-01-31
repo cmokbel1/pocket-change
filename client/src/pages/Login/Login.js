@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div>
       <div className="container">
-        <div className="row bg-dark p-5 rounded-lg m-3">
+        <div className="row p-5 rounded-lg m-3">
           <h1 className="display-4">Pocket Change</h1>
           <p className="lead">Please provide your login information below</p>
           <hr className="my-4" />

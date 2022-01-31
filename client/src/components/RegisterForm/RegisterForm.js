@@ -12,7 +12,6 @@ import Button from '@mui/material/Button'
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { palette } from '@mui/system';
 import BasicButton from './../BasicButton'
-//import './RegisterForm.css';
 
 const RegisterForm = (props) => {
   const [registerState, setRegisterState] = useState({
@@ -46,7 +45,7 @@ const RegisterForm = (props) => {
         label="Required Username"
         color="primary"
         focused
-        sx={{ input: { color: 'white' } }}
+        // sx={{ input: { color: 'white' } }}
         required
         id="filled-required"
         defaultValue="Username"
@@ -59,7 +58,7 @@ const RegisterForm = (props) => {
         label="Required Email"
         color="primary"
         focused
-        sx={{ input: { color: 'white' } }}
+        // sx={{ input: { color: 'white' } }}
         required
         id="filled-required"
         defaultValue="Email"
