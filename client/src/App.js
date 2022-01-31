@@ -15,21 +15,21 @@ import NavBar from './components/NavBar'
 const App = () => {
   return (
     <>
-    <Router>
-      <div>
-        <Link to='/'>Home</Link>
-        <Link to='/budget'>Budget</Link>
-        <Link to='/reports'>Reports</Link>
-      </div>
-      <Routes>
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Home />} />
-        <Route path='/budget' element={<Budget />} />
-        <Route path='/reports' element={<Reports />} />
-        <Route path='/Profile' element={<Profile />} />
-      </Routes>
-    </Router>
+      <Router>
+        <div>
+          <Link to='/'>Home</Link>
+          <Link to='/budget'>Budget</Link>
+          <Link to='/reports'>Reports</Link>
+        </div>
+        <Routes>
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/budget' element={<Budget />} />
+          <Route path='/reports' element={<Reports />} />
+          <Route path='/Profile' element={<Profile />} />
+        </Routes>
+      </Router>
     </>
   )
 }
