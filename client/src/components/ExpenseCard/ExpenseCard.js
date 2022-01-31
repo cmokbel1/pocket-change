@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardContent } from '@mui/material';
+import { Grid } from '@mui/material'
 
 const ExpenseCard = ({ category, goalValue, actualValue }) => {
   return (

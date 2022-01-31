@@ -9,9 +9,9 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import Button from '@mui/material/Button'
 import { palette } from '@mui/system';
 import BasicButton from './../BasicButton'
+//import './RegisterForm.css';
 
 const RegisterForm = (props) => {
   const [registerState, setRegisterState] = useState({
@@ -79,7 +79,7 @@ const RegisterForm = (props) => {
         onChange={handleInputChange}
         name="rPassword"
       />
-      <Button onClick={handleRegisterUser}>Submit</Button>
+      <BasicButton onClick={handleRegisterUser}></BasicButton>
     </Container>
   );
 };
