@@ -1,52 +1,56 @@
-import { Form, Label, Input, Button } from 'reactstrap'
+import React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { FormControl, InputLabel, Input, Button } from '@mui/material'
+import ExpenseContext from '../../utils/ExpenseContext'
 import { useContext } from 'react'
-import SongContext from '../../utils/SongContext'
 
-const SongForm = () => {
+const ExpenseForm = () => {
   const {
-    title,
-    artist,
-    album,
+    category,
+    goalValue,
+    actualValue,
     handleInputChange,
-    handleAddSong
-  } = useContext(SongContext)
+    handleAddExpense,
+  } = useContext(ExpenseContext)
+
 
   return (
-    <Form>
+    <FormControl>
       <div className="mb-3">
-        <Label htmlFor="title">Title</Label>
+        <InputLabel htmlFor="title">Category</InputLabel>
         <Input
           type="text"
           className="form-control"
-          name="title"
-          value={title}
+          name="category"
+          value={category}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <Label htmlFor="artist">Artist</Label>
+        <InputLabel htmlFor="goal">Goal</InputLabel>
         <Input
           type="text"
           className="form-control"
-          name="artist"
-          value={artist}
+          name="goal"
+          value={goalValue}
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <Label htmlFor="album">Album</Label>
+        <InputLabel htmlFor="actual">Actual</InputLabel>
         <Input
           type="text"
           className="form-control"
-          name="album"
-          value={album}
+          name="goal"
+          value={actualValue}
           onChange={handleInputChange} />
       </div>
       <Button
         color="primary"
-        onClick={handleAddSong} >
-        Add Song
+        onClick={handleAddExpense} >
+        Add Expense
       </Button>
-    </Form>
+    </FormControl>
   )
 }
 
-export default SongForm
+export default ExpenseForm

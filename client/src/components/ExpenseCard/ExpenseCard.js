@@ -1,13 +1,15 @@
-import { Card, CardTitle, CardText } from 'reactstrap'
+import { Card, CardHeader, CardContent } from '@mui/material';
 
-const SongCard = ({ title, artist, album }) => {
+const ExpenseCard = ({ category, goalValue, actualValue }) => {
   return (
+    <div>
     <Card body color="info">
-      <CardTitle tag="h5">{title}</CardTitle>
-      <CardText>By {artist}</CardText>
-      <CardText>Album: {album}</CardText>
+      <CardHeader tag="h5">{category}</CardHeader>
+      <CardContent>Goal: {goalValue}</CardContent>
+      <CardContent>Actual: {actualValue}</CardContent>
     </Card>
+    </div>
   )
 }
 
-export default SongCard
+export default ExpenseCard

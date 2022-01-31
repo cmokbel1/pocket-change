@@ -1,3 +1,4 @@
+
 require('dotenv').config()
 
 const express = require('express')
@@ -24,7 +25,7 @@ passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.SECRET
 }, ({ id }, cb) => User.findById(id)
-  .populate('songs')
+  .populate('category')
   .then(user => cb(null, user))
   .catch(err => cb(err))))
 
@@ -34,4 +35,5 @@ app.get('*', (req, res) => res.sendFile(join(__dirname, 'client', 'build', 'inde
 
 require('./db')
   .then(() => app.listen(process.env.PORT || 3001))
+
   .catch(err => console.log(err))
