@@ -2,7 +2,6 @@ import NavBar from '../../components/NavBar'
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import './Home.css'
