@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import Footer from '../../components/Footer'
 import Logo from '../../Assets/Pocket_Change_logo_02.png'
 import Login from '../Login'
+import Register from '../Register'
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -36,7 +37,7 @@ const Home = () => {
               <br></br>
               <h4>Login, Categorize, and Budget.</h4>
               <br></br>
-              <a href="/login" > <Button variant="contained" color="success">
+              <a href="/Register" > <Button variant="contained" color="success">
               Get Started
               </Button></a>
               </div>
