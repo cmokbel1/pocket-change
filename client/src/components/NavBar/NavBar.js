@@ -15,6 +15,7 @@ import {Link} from 'react-router-dom'
 
 const pages = ['Budget', 'Reports', 'Logout'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const links = ['/Budget', '']
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

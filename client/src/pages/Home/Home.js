@@ -8,6 +8,8 @@ import Grid from '@mui/material/Grid';
 import './Home.css'
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import Footer from '../../components/Footer'
+import Logo from '../../Assets/Pocket_Change_logo_02.png'
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -22,7 +24,7 @@ const Home = () => {
     <>
       <h1 className='title'>Welcome To Pocket-Change</h1>
       <br></br>
-      <Container className='top' maxWidth="xl">
+      <Container className='top'>
         <Grid container spacing={2}>
           <Grid item xs={0} md={1}>
           </Grid>
@@ -42,7 +44,7 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} md={4}> 
             <div className='paper'>
-              <img className='pic' src='https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4b8647a-09e8-4576-95de-e622dcc38d72_1280x720.jpeg' alt='stonkMeme'></img>
+              <img className='pic' src={Logo} alt='stonkMeme'></img>
             </div>
           </Grid>
         </Grid>
@@ -59,8 +61,6 @@ const Home = () => {
               <p>In under 5 mins, you will find out your budget and how much did you spend throughout the month.</p>
             </div>
           </Grid>
-          <Grid item xs={0} md={1} >
-          </Grid>
           <Grid item xs={12} md={4} >
             <Item className='paper'>
             <h3>Easy</h3>
@@ -74,7 +74,11 @@ const Home = () => {
           </Item>
           </Grid>
         </Grid>
+          <Grid item xs={0} md={1} >
+          </Grid>
     </Container>
+    <br></br>
+    <Footer></Footer>
     </>
   )
 }

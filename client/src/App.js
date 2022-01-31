@@ -17,7 +17,6 @@ import './App.css'
 const App = () => {
   return (
     <>
-    <Container maxWidth="lg">
     <Router>
       <div>
         <Link to='/'>Home</Link>
@@ -33,7 +32,6 @@ const App = () => {
         <Route path='/Profile' element={<Profile />} />
       </Routes>
     </Router>
-    </Container>
     </>
   )
 }
