@@ -4,14 +4,13 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import Register from './pages/Reports/Register'
+import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
-
 
 const App = () => {
   return (
