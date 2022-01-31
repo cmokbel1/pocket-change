@@ -10,7 +10,7 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Footer from '../../components/Footer'
 import Logo from '../../Assets/Pocket_Change_logo_02.png'
-
+import Login from '../Login'
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -22,7 +22,8 @@ const Item = styled(Paper)(({ theme }) => ({
 const Home = () => {
   return (
     <>
-      <h1 className='title'>Welcome To Pocket-Change</h1>
+      <h1 className='title'>Welcome To Pocket Change</h1>
+      <br></br>
       <br></br>
       <Container className='top'>
         <Grid container spacing={2}>
@@ -33,11 +34,11 @@ const Home = () => {
               <br></br>
               <h1>You Know Where Your Money Is Spent.</h1>
               <br></br>
-              <h4>Login, Cartegorize, and Budget.</h4>
+              <h4>Login, Categorize, and Budget.</h4>
               <br></br>
-              <Button variant="contained" color="success">
+              <a href="/login" > <Button variant="contained" color="success">
               Get Started
-              </Button>
+              </Button></a>
               </div>
           </Grid>
           <Grid item xs={0} md={1} >
@@ -49,7 +50,7 @@ const Home = () => {
           </Grid>
         </Grid>
     </Container>
-      <br></br>    <br></br>
+      <br></br>  <hr className='line'></hr>   <br></br>
     <Container className='bottom' maxWidth="xl">
         <Grid container spacing={2}>
 
@@ -57,12 +58,12 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} md={6}>
             <div className='paper'>
-              <h1>Know Where You Spent!</h1>
-              <p>In under 5 mins, you will find out your budget and how much did you spend throughout the month.</p>
+              <h1>Check Your Spendings!</h1>
+              <p>In under 5 mins, Stay on track to reach your financial goals</p>
             </div>
           </Grid>
           <Grid item xs={12} md={4} >
-            <Item className='paper'>
+            <div className='paper'>
             <h3>Easy</h3>
             <p> You can Keep track of your spending without doing any calculation. </p>
             <hr></hr>
@@ -71,7 +72,7 @@ const Home = () => {
             <hr></hr>
             <h3>Trusted</h3>
             <p> Your information will never be leaked, we will never share it to anyone else.</p>
-          </Item>
+          </div>
           </Grid>
         </Grid>
           <Grid item xs={0} md={1} >
