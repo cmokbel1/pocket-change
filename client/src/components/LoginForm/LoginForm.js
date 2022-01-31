@@ -1,6 +1,5 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
-import AuthContext from '../../utils/AuthContext'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
@@ -10,16 +9,33 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import Button from '@mui/material/Button'
 import { palette } from '@mui/system';
-import './LoginForm.css';
+import BasicButton from './../../components/BasicButton'
+//import './LoginForm.css';
 
 const LoginForm = (props) => {
-  const {
-    lUsername,
-    lPassword,
-    handleInputChange,
-    handleLoginUser
-  } = useContext(AuthContext)
+  const [loginState, setLoginState] = useState({
+    lUsername: '',
+    lPassword: ''
+  })
+
+  const handleInputChange = ({ target: { name, value } }) => {setLoginState({ ...loginState, [name]: value })
+    console.log(value)
+  }
+
+  const handleLoginUser = event => {
+    event.preventDefault()
+    UserAPI.login({
+      username: loginState.lUsername,
+      password: loginState.lPassword
+    })
+      .then(token => {
+        localStorage.setItem('user', token)
+        setLoginState({ ...loginState, lUsername: '', lPassword: '' })
+        window.location = '/'
+      })
+  }
 
   return (
     <Container row>
@@ -31,16 +47,9 @@ const LoginForm = (props) => {
         required
         id="filled-required"
         defaultValue="Username"
-        
-      />
-      <TextField
-        label="Required Email"
-        color="primary"
-        focused
-        sx={{ input: { color: 'white' } }}
-        required
-        id="filled-required"
-        defaultValue="Email"
+        value={loginState.lUsername}
+        onChange={handleInputChange}
+        name="lUsername"
       />
       <TextField
         id="filled-required"
@@ -49,7 +58,11 @@ const LoginForm = (props) => {
         autoComplete="current-password"
         color="primary"
         focused
+        value={loginState.lPassword}
+        onChange={handleInputChange}
+        name="lPassword"
       />
+      <Button onClick={handleLoginUser}>Submit</Button>
     </Container>
   );
 };
