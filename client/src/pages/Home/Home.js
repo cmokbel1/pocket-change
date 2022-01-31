@@ -1,10 +1,15 @@
 import NavBar from '../../components/NavBar'
+import "./Home.css"
 
 const Home = () => {
   return (
     <>
       <NavBar></NavBar>
-      <h1>This is the Home Page</h1>
+      
+      <h1>Welcome</h1>
+      <p>Have you ever wanted to visualize your finances and have an easy-to-use way to manage your money?
+        Our team has wanted an app like this to help with better budgeting, so we've created a tool to help others keep their financial affairs in order.
+        PocketChange is a sleek yet simple application to keep track of your expenses as well as create monthly reports to help you meet your goals! Sign up now to get started!</p>
     </>
   )
 }
