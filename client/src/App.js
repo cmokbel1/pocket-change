@@ -11,11 +11,13 @@ import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
-
+import Container from '@mui/material/Container';
+import './App.css'
 
 const App = () => {
   return (
     <>
+    <Container maxWidth="lg">
     <Router>
       <div>
         <Link to='/'>Home</Link>
@@ -31,6 +33,7 @@ const App = () => {
         <Route path='/Profile' element={<Profile />} />
       </Routes>
     </Router>
+    </Container>
     </>
   )
 }

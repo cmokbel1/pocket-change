@@ -1,92 +1,82 @@
 import NavBar from '../../components/NavBar'
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import './Home.css'
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: 'black',
+}));
+
 
 const Home = () => {
   return (
     <>
-      <NavBar></NavBar>
-      <h1>This is the Home Page</h1>
+      <h1 className='title'>Welcome To Pocket-Change</h1>
+      <br></br>
+      <Container className='top' maxWidth="xl">
+        <Grid container spacing={2}>
+          <Grid item xs={0} md={1}>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <div className='paper'>
+              <br></br>
+              <h1>You Know Where Your Money Is Spent.</h1>
+              <br></br>
+              <h4>Login, Cartegorize, and Budget.</h4>
+              <br></br>
+              <Button variant="contained" color="success">
+              Get Started
+              </Button>
+              </div>
+          </Grid>
+          <Grid item xs={0} md={1} >
+          </Grid>
+          <Grid item xs={12} md={4}> 
+            <div className='paper'>
+              <img className='pic' src='https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4b8647a-09e8-4576-95de-e622dcc38d72_1280x720.jpeg' alt='stonkMeme'></img>
+            </div>
+          </Grid>
+        </Grid>
+    </Container>
+      <br></br>    <br></br>
+    <Container className='bottom' maxWidth="xl">
+        <Grid container spacing={2}>
+
+          <Grid item xs={0} md={1}>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <div className='paper'>
+              <h1>Know Where You Spent!</h1>
+              <p>In under 5 mins, you will find out your budget and how much did you spend throughout the month.</p>
+            </div>
+          </Grid>
+          <Grid item xs={0} md={1} >
+          </Grid>
+          <Grid item xs={12} md={4} >
+            <Item className='paper'>
+            <h3>Easy</h3>
+            <p> You can Keep track of your spending without doing any calculation. </p>
+            <hr></hr>
+            <h3>Smart</h3>
+            <p> Everything will be calculated with different charts. </p>
+            <hr></hr>
+            <h3>Trusted</h3>
+            <p> Your information will never be leaked, we will never share it to anyone else.</p>
+          </Item>
+          </Grid>
+        </Grid>
+    </Container>
     </>
   )
 }
 
 export default Home
-
-
-
-
-
-// import { useEffect, useState } from 'react'
-// import SongForm from '../../components/SongForm'
-// import SongCard from '../../components/SongCard'
-// import SongAPI from '../SongAPI'
-// import UserAPI from '../UserAPI'
-// import { Button } from 'reactstrap'
-// import SongContext from '../SongContext'
-
-// const Home = () => {
-
-//   const [songState, setSongState] = useState({
-//     title: '',
-//     artist: '',
-//     album: '',
-//     songs: []
-//   })
-
-//   songState.handleInputChange = ({ target: { name, value } }) => setSongState({ ...songState, [name]: value })
-
-//   songState.handleAddSong = event => {
-//     event.preventDefault()
-//     SongAPI.createSong({
-//       title: songState.title,
-//       artist: songState.artist,
-//       album: songState.album
-//     })
-//       .then(song => {
-//         console.log(song)
-//         const songs = JSON.parse(JSON.stringify(songState.songs))
-//         songs.push(song)
-//         setSongState({ ...songState, songs, title: '', artist: '', album: '' })
-//       })
-//   }
-
-//   useEffect(() => {
-//     UserAPI.getUser()
-//       .then(user => {
-//         console.log(user)
-//         setSongState({ ...songState, songs: user.songs })
-//       })
-//       .catch(err => {
-//         window.location = '/login'
-//       })
-//   }, [])
-
-//   return (
-//     <SongContext.Provider value={songState}>
-//       <div className="container">
-//         <div className="row bg-light p-5 rounded-lg m-3">
-//           <h1 className="display-4">Song App</h1>
-//           <p className="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex a inventore quis laboriosam, quae nihil. Veritatis, aut voluptatem! Minima consectetur, modi consequuntur qui neque expedita? Beatae omnis ipsa quos dolor.
-//             Corrupti dolor repellat non accusamus nostrum necessitatibus, dicta libero. Dolorum blanditiis incidunt similique nesciunt laudantium est maiores deleniti consequatur debitis ipsam, animi eligendi alias suscipit error, doloremque facilis! Quod, saepe?</p>
-//           <hr className="my-4" />
-//           {/* <Button color="danger">Click Me</Button> */}
-//         </div>
-//         <div className="row">
-//           <div className="col-md-6">
-//             <h5>Add A Song</h5>
-//             <hr />
-//             <SongForm />
-//           </div>
-//           <div className="col-md-6">
-//             <h5>Your Songs</h5>
-//             <hr />
-//             {
-//               songState.songs.map(song => <SongCard key={song._id} title={song.title} artist={song.artist} album={song.album} />)
-//             }
-//           </div>
-//         </div>
-//       </div>
-//     </SongContext.Provider>
-//   )
-// }
-
-// export default Home
