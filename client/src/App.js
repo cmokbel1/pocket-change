@@ -11,6 +11,8 @@ import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
+import Container from '@mui/material/Container';
+import './App.css'
 
 // import * as React from 'react';
 // import Container from '@mui/material/Container';
