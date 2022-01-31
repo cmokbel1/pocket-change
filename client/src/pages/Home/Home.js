@@ -51,19 +51,13 @@ const Home = () => {
           </Grid>
         </Grid>
     </Container>
-      <br></br>  <hr className='line'></hr>   <br></br>
+      <br></br>   <br></br>
     <Container className='bottom' maxWidth="xl">
         <Grid container spacing={2}>
 
-          <Grid item xs={0} md={1}>
+          <Grid item xs={0} md={2}>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <div className='paper'>
-              <h1>Check Your Spendings!</h1>
-              <p>In under 5 mins, Stay on track to reach your financial goals</p>
-            </div>
-          </Grid>
-          <Grid item xs={12} md={4} >
+          <Grid item xs={12} md={8} >
             <div className='paper'>
             <h3>Easy</h3>
             <p> You can Keep track of your spending without doing any calculation. </p>
@@ -76,10 +70,11 @@ const Home = () => {
           </div>
           </Grid>
         </Grid>
-          <Grid item xs={0} md={1} >
+          <Grid item xs={0} md={2} >
           </Grid>
     </Container>
     <br></br>
+      <hr className='line'></hr> 
     <Footer></Footer>
     </>
   )
