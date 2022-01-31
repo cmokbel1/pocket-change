@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import LoginForm from "../../components/LoginForm"
-import UserAPI from '../../utils/UserAPI'
-import AuthContext from '../../utils/AuthContext'
+import { useState } from 'react';
+import LoginForm from "../../components/LoginForm";
+import UserAPI from '../../utils/UserAPI';
+import AuthContext from '../../utils/AuthContext';
 import "./Login.css";
+
 const Login = () => {
   const [authState, setAuthState] = useState({
     name: '',
