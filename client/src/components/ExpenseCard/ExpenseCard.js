@@ -1,13 +1,14 @@
 import { Card, CardHeader, CardContent } from '@mui/material';
 import { Grid } from '@mui/material'
 
-const ExpenseCard = ({ category, goalValue, actualValue }) => {
+const ExpenseCard = ({ category, goalValue, actualValue, result }) => {
   return (
     <div>
     <Card body color="info">
-      <CardHeader tag="h5">{category}</CardHeader>
+      <CardContent tag="h5">Category: {category}</CardContent>
       <CardContent>Goal: {goalValue}</CardContent>
       <CardContent>Actual: {actualValue}</CardContent>
+      <CardContent>Result: {result}</CardContent>
     </Card>
     </div>
   )
