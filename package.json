@@ -1,7 +1,7 @@
 {
   "name": "01-19-22",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -32,6 +32,7 @@
     "express": "^4.17.2",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
+    "mime-db": "^1.51.0",
     "mongoose": "^6.1.7",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",

@@ -1,27 +1,26 @@
 import { useState } from 'react'
-import LoginForm from "../../components/LoginForm"
+import RegisterForm from "../../components/RegisterForm"
 import UserAPI from '../../utils/UserAPI'
-import "./Login.css";
+import "./Register.css";
+const Register = () => {
 
-const Login = () => {
   return (
     <div>
       <div className="container">
         <div className="row bg-dark p-5 rounded-lg m-3">
           <h1 className="display-4">Pocket Change</h1>
-          <p className="lead">Please provide your login information below</p>
+          <p className="lead">Please register your account to begin.</p>
           <hr className="my-4" />
         </div>
         <div className="row">
           <div className="col-md-6">
-            <h5>Log In To Existing Account</h5>
+            <h5>Register Your Account</h5>
             <hr />
           </div>
         </div>
       </div>
-      <LoginForm />
+      <RegisterForm />
     </div>
   )
 }
-
-export default Login
+export default Register
