@@ -9,9 +9,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import Button from '@mui/material/Button'
 import { palette } from '@mui/system';
 import BasicButton from './../../components/BasicButton'
-import './LoginForm.css';
+//import './LoginForm.css';
 
 const LoginForm = (props) => {
   const [loginState, setLoginState] = useState({
@@ -48,7 +49,7 @@ const LoginForm = (props) => {
         defaultValue="Username"
         value={loginState.lUsername}
         onChange={handleInputChange}
-        
+        name="lUsername"
       />
       <TextField
         id="filled-required"
@@ -59,8 +60,9 @@ const LoginForm = (props) => {
         focused
         value={loginState.lPassword}
         onChange={handleInputChange}
+        name="lPassword"
       />
-      <BasicButton onClick={handleLoginUser}>Submit</BasicButton>
+      <Button onClick={handleLoginUser}>Submit</Button>
     </Container>
   );
 };

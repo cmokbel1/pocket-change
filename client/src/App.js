@@ -4,7 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import Register from './pages/Reports/Register'
+import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Budget from './pages/Budget'

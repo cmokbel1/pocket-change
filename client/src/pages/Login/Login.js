@@ -3,14 +3,7 @@ import LoginForm from "../../components/LoginForm"
 import UserAPI from '../../utils/UserAPI'
 import "./Login.css";
 const Login = () => {
-  const [loginState, setLoginState] = useState({
-    email: '',
-    username: '',
-    password: '',
-    lUsername: '',
-    lPassword: ''
-  })
-
+ 
   return (
     <div>
       <div className="container">
