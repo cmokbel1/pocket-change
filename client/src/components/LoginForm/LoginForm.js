@@ -1,42 +1,57 @@
-// import { useState, useContext } from 'react'
-// import UserAPI from '../../utils/UserAPI'
-// import AuthContext from '../../utils/AuthContext'
+import { useState, useContext } from 'react'
+import UserAPI from '../../utils/UserAPI'
+import AuthContext from '../../utils/AuthContext'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+import FilledInput from '@mui/material/FilledInput';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { palette } from '@mui/system';
+import './LoginForm.css';
 
-// const LoginForm = () => {
-//   const {
-//     lUsername,
-//     lPassword,
-//     handleInputChange,
-//     handleLoginUser
-//   } = useContext(AuthContext)
+const LoginForm = (props) => {
+  const {
+    lUsername,
+    lPassword,
+    handleInputChange,
+    handleLoginUser
+  } = useContext(AuthContext)
 
-//   return (
-//     <Form>
-//       <div className="mb-3">
-//         <Label htmlFor="username">Username</Label>
-//         <Input
-//           type="text"
-//           className="form-control"
-//           name="lUsername"
-//           value={lUsername}
-//           onChange={handleInputChange} />
-//       </div>
-//       <div className="mb-3">
-//         <Label htmlFor="password">Password</Label>
-//         <Input
-//           type="password"
-//           className="form-control"
-//           name="lPassword"
-//           value={lPassword}
-//           onChange={handleInputChange} />
-//       </div>
-//       <Button
-//         color="primary"
-//         onClick={handleLoginUser} >
-//         Log In
-//       </Button>
-//     </Form>
-//   )
-// }
+  return (
+    <Container row>
+      <TextField
+        label="Required Username" 
+        color="primary" 
+        focused
+        sx={{ input: { color: 'white' } }}
+        required
+        id="filled-required"
+        defaultValue="Username"
+        
+      />
+      <TextField
+        label="Required Email"
+        color="primary"
+        focused
+        sx={{ input: { color: 'white' } }}
+        required
+        id="filled-required"
+        defaultValue="Email"
+      />
+      <TextField
+        id="filled-required"
+        label="Required Password"
+        type="password"
+        autoComplete="current-password"
+        color="primary"
+        focused
+      />
+    </Container>
+  );
+};
 
-// export default LoginForm
+export default LoginForm
