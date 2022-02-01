@@ -4,4 +4,4 @@ function calcAvail(cashFlow, savingsGoal) {
   return cashFlow - percentAsNum;
 };
 
-export { calcAvail }
+export default calcAvail

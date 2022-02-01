@@ -1,0 +1,17 @@
+body {
+  color: black;
+}
+.container {
+ display: flexbox;
+}
+
+#leftAlign {
+  position:fixed;
+  float: left;
+  display: block;
+}
+
+#rightAlign {
+  float: right;
+  display: flex;
+}
