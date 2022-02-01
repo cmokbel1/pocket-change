@@ -12,6 +12,7 @@ import './Budget.css'
 const Budget = () => {
 
   const [expenseState, setExpenseState] = useState({
+    month: '',
     category: '',
     goalValue: 0,
     actualValue: 0,
@@ -26,10 +27,11 @@ const Budget = () => {
     result: 0,
     available: []
   })
+  
 // handleAddExpense calculates using the imported categoryResult function and then pushes the values to the expenseState
-  const handleAddExpense = (category, actualValue, goalValue) => {
+  const handleAddExpense = (category, actualValue, goalValue, month) => {
     let result = categoryResult(actualValue, goalValue);
-    let newCategory = {name: category, actualValue: actualValue, goalValue: goalValue, result: result, };
+    let newCategory = {name: category, actualValue: actualValue, goalValue: goalValue, result: result, month: month};
     axios.post('/api/categories', newCategory, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('user')}`
@@ -38,8 +40,8 @@ const Budget = () => {
     .then( res => {
       console.log(res.data)
     const expenses = JSON.parse(JSON.stringify(expenseState.expenses))
-    expenses.push({ category, goalValue, actualValue, result })
-    setExpenseState({ ...expenseState, result, expenses, category: '', goalValue: '', actualValue: '' });
+    expenses.push({ category, goalValue, actualValue, result, month })
+    setExpenseState({ ...expenseState, result, expenses, month, category: '', goalValue: '', actualValue: '' });
     })
   }
 
@@ -62,7 +64,7 @@ const Budget = () => {
       <Navbar />
       <hr />
       <div className='container'>
-        <DropDownMenu />
+        <DropDownMenu value={expenseState.month}/>
         <div id="rightAlign">
           {/* goal savings calculator and card inputs */}
           <Grid rowSpacing={1} columnSpacing={{ xs: 1 }}>
@@ -98,7 +100,7 @@ const Budget = () => {
               <Grid item xs={2}>
                 <Button onClick={
                   () => {
-                    handleAddExpense(expenseState.category, expenseState.actualValue, expenseState.goalValue)
+                    handleAddExpense(expenseState.category, expenseState.actualValue, expenseState.goalValue, expenseState.month)
                   }} disabled={expenseState.category < 1 || expenseState.goalValue < 1}>Add</Button>
               </Grid>
             </Grid>

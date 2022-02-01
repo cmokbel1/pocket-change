@@ -1,6 +1,7 @@
 import { Grid, Button } from '@mui/material'
 
 
+
 const ExpenseCard = ({ category, goalValue, actualValue, result }) => {
   return (
     <Grid container rowSpacing={1} columnSpacing={{ xs: 12 }}>
