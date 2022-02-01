@@ -1,5 +1,6 @@
 import LoginForm from "../../components/LoginForm"
 import "./Login.css";
+<<<<<<< HEAD
 import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
 import NavBar from '../../components/NavBar'
@@ -15,8 +16,10 @@ import Footer from '../../components/Footer'
 import Logo from '../../Assets/small_logo.png'
 import Register from '../Register'
 import Home from '../../pages/Home'
+=======
+
+>>>>>>> 18c45e8ed9df7ef0cbb3c90973561cf31eeb7b20
 const Login = () => {
- 
   return (
     <>
       <Container className='top'>
