@@ -1,0 +1,58 @@
+.top {
+  background-color: #2a2e30;
+  text-align: center;
+
+}
+
+h3 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+.line {
+  color: white;
+}
+
+.paper {
+  background-color: #2a2e30 !important;
+  text-align: center;
+  color: white;
+}
+
+.pic {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .pic {
+    max-width: 100% !important;
+  }
+
+  .top {
+    padding: 0;
+    max-width: 100% !important;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .pic {
+    max-width: 100%;
+  }
+
+  .bottom {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+  }
+}

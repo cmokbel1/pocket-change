@@ -1,7 +1,7 @@
-import LoginForm from "../../components/LoginForm"
-import "./Login.css";
 import { useState } from 'react'
+import RegisterForm from "../../components/RegisterForm"
 import UserAPI from '../../utils/UserAPI'
+import "./Register.css";
 import NavBar from '../../components/NavBar'
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -13,10 +13,20 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Footer from '../../components/Footer'
 import Logo from '../../Assets/small_logo.png'
-import Register from '../Register'
-import Home from '../../pages/Home'
-const Login = () => {
- 
+import Login from '../Login'
+import './Register.css'
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: 'black',
+}));
+
+
+
+
+const Register = () => {
+
   return (
     <>
       <Container className='top'>
@@ -25,21 +35,20 @@ const Login = () => {
           <Grid item xs={0} md={1}>
           </Grid>
           <Grid item xs={12} md={10}>
-            <h5 className='title2'>Login To Your Account</h5>
+            <h5 className='title2'>Register Your Account</h5>
             <br></br>
-            <LoginForm />
+            <RegisterForm />
           </Grid>
           <Grid item xs={0} md={1} >
           </Grid>
         </Grid>
-      <br></br>
-      <a href='/Register'>Don't Have An Account?</a>
+        <br></br><br></br>
+      <a href='/login'>Already Have An Account?</a>
       </Container>
-      <br></br><br></br>
+            <br></br><br></br>
       <hr className='line'></hr>
       <Footer></Footer>
     </>
   )
 }
-
-export default Login
+export default Register

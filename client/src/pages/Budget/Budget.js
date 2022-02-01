@@ -1,60 +1,111 @@
 import Navbar from '../../components/NavBar'
 import { FormControl, InputLabel, Input, Button, FormHelperText } from '@mui/material'
-import ExpenseCard from '../../components/ExpenseCard'
+import { ExpenseCard, ResultCard } from '../../components/ExpenseCard'
 import axios from 'axios'
-import React from 'react'
-import  useState  from 'react'
+import { React, useState } from 'react'
+import { Grid } from '@mui/material'
+import { categoryResult, calcSumTotal } from '../../utils/CategoryResult'
+import { calcAvail } from '../../utils/AvailableExpendatures'
+import './Budget.css'
 
 const Budget = () => {
-  const [
-    categoriesToAdd,
-    setCategoriesToAdd,
-  ] = React.useState(1);
-  const [
-    committedCategoriesToAdd,
-    setCommittedCategoriesToAdd,
-  ] = React.useState(0);
 
-  const addExpense = () => {
-    console.log('yepp')
+  const [expenseState, setExpenseState] = useState({
+    category: '',
+    goalValue: 0,
+    actualValue: 0,
+    result: 0,
+    sum: 0,
+    expenses: []
+  })
+
+  const [cashFlowState, setCashFlowState] = useState({
+    cashFlow: 0,
+    goalSavings: 0,
+    result: 0,
+    available: []
+  })
+  // by building out the states in the budget page we have negated the need to use an expenseContext and import it, removing confusion. doing this also allows us to compile the functions that we need to use to handle changes in the form.
+  const handleAddExpense = (category, actualValue, goalValue) => {
+    const expenses = JSON.parse(JSON.stringify(expenseState.expenses))
+    let result = categoryResult(actualValue, goalValue);
+    expenses.push({ category, goalValue, actualValue, result })
+    setExpenseState({ ...expenseState, result, expenses });
   }
 
-  const CategoryForm = () => [
-    <FormControl>
-      <Input name="category" aria-describedby="expense category" />
-      <FormHelperText id="my-helper-text">expense category</FormHelperText>
-      <Input type="number" name="actualValue" aria-describedby="actual value" />
-      <FormHelperText id="my-helper-text">actual expense</FormHelperText>
-      <Input type="number" name="goalValue" aria-describedby="goal value" />
-      <FormHelperText id="my-helper-text">goal expense</FormHelperText>
-      <Button onClick={addExpense}>Add</Button>
-    </FormControl>
-  ]
+  const addAvailableCash = (cashFlow, goalSavings) => {
+    const available = JSON.parse(JSON.stringify(cashFlowState.available))
+    let result = calcAvail(cashFlow, goalSavings)
+    available.push(cashFlow, goalSavings, result)
+    setCashFlowState({ ...cashFlowState, result, available })
+  }
+
+
+  const handleInputChange = ({ target: { name, value } }) => setExpenseState({ ...expenseState, [name]: value })
+  const handleInputChange2 = ({ target: { name, value } }) => setCashFlowState({ ...cashFlowState, [name]: value })
+
+  /// this is basically the expenseform from the components folder but i circumvented the necessity to import it by building it out on the budget page.
+
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <hr />
-      <FormControl>
-        <InputLabel htmlFor="numCategories">Categories</InputLabel>
-        <Input name="categories" value={categoriesToAdd} type="number" aria-describedby="number of categories" onChange={(e) =>
-          setCategoriesToAdd(
-            parseInt(e.currentTarget.value, 10))} />
-        <FormHelperText id="my-helper-text">How Many Categories Would You Like to Use</FormHelperText>
-        <Button
-          onClick={() => {
-            setCommittedCategoriesToAdd(
-              categoriesToAdd
-            );
-          }}
-        >Confirm</Button>
-      </FormControl>
-      <div className="container">
-        {[...Array(committedCategoriesToAdd)].map((value: undefined, index: number) => (
-        <CategoryForm id={index + 1} key={index} />))}
+      <div className='container'>
+        <div id="rightAlign">
+          <Grid rowSpacing={1} columnSpacing={{ xs: 1 }}>
+            <h1>Calculate Cash for Expenses</h1>
+            <FormControl>
+              <Input name="cashFlow" value={cashFlowState.cashFlow} onChange={handleInputChange2} />
+              <FormHelperText>Expendable Income</FormHelperText>
+              <Input name="goalSavings" value={cashFlowState.goalSavings} onChange={handleInputChange2} />
+              <FormHelperText>% To Save(i.e 15% = 15)</FormHelperText>
+              <br />
+              <Button disabled={cashFlowState.cashFlow < 1} onClick={() => { addAvailableCash(cashFlowState.cashFlow, cashFlowState.goalSavings) }}>Calculate Available Cash</Button>
+              <h6>Available for Expenses: {cashFlowState.result}</h6>
+            </FormControl>
+          </Grid>
+        </div>
+        <div id="leftAlign">
+          <h1>Create Your Expense Report</h1>
+          <FormControl>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 8 }}>
+              <Grid item xs={2}>
+                <Input name="category" className="Input" aria-describedby="expense category" value={expenseState.category} onChange={handleInputChange} />
+                <FormHelperText >expense category</FormHelperText>
+              </Grid>
+              <Grid item xs={2}>
+                <Input type="number" name="actualValue" className="Input" aria-describedby="actual value" value={expenseState.actualValue} onChange={handleInputChange} />
+                <FormHelperText >actual expense</FormHelperText>
+              </Grid>
+              <Grid item xs={2}>
+                <Input type="number" name="goalValue" className="Input" aria-describedby="goal value" value={expenseState.goalValue} onChange={handleInputChange} />
+                <FormHelperText >goal expense</FormHelperText>
+              </Grid>
+              <Grid item xs={2}>
+                <Button onClick={
+                  () => {
+                    handleAddExpense(expenseState.category, expenseState.actualValue, expenseState.goalValue)
+                  }} disabled={expenseState.category < 1 || expenseState.goalValue < 1}>Add</Button>
+              </Grid>
+            </Grid>
+          </FormControl>
+          <hr />
+          <br />
+          <br />
+          <Grid container>
+            {
+              expenseState.expenses.map(expense => (
+                <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} />
+              ))
+            }
+          </Grid>
+          <Button>Budget Summary</Button>
+
+        </div>
       </div>
-      <h1>This is the Budget Page</h1>
     </>
   )
 }
 
 export default Budget
+
