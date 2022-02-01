@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 
 const Category = new Schema({
-  category: String,
+  name: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
