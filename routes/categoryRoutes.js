@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Actual, User, Goal, Category } = require('../models')
+const {  User, Category } = require('../models')
 const passport = require('passport')
 
 // get all
