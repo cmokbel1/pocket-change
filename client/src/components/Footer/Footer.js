@@ -45,7 +45,7 @@ export default function Footer() {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Contact</Box>
               <Box>
-                <Link href="/Profile" color="inherit">
+                <Link href="/AboutUs" color="inherit">
                   About Us
                 </Link>
               </Box>
