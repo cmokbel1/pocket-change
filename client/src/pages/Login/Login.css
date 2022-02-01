@@ -1,6 +1,8 @@
-/* body {
-  color: black;
-  background-repeat: no-repeat;
-  background-position: top 50px right 30px;
-  background-size: 100%;
-} */
+.title2 {
+  color: white;
+  font-size: 50px;
+}
+
+.line {
+  color: white;
+}

@@ -12,6 +12,8 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button'
 import { palette } from '@mui/system';
 import BasicButton from './../../components/BasicButton'
+import Grid from '@mui/material/Grid';
+//import './LoginForm.css';
 
 const LoginForm = (props) => {
   const [loginState, setLoginState] = useState({
@@ -37,7 +39,12 @@ const LoginForm = (props) => {
   }
 
   return (
-    <Container row>
+    <Container>
+      <Grid container spacing={2}>
+        <Grid item xs={0} md={1}>
+        </Grid>
+        <Grid item xs={12} md={10}>
+          <h5 className='tags'> Username </h5>
       <TextField
         label="Required Username" 
         color="primary" 
@@ -50,6 +57,18 @@ const LoginForm = (props) => {
         onChange={handleInputChange}
         name="lUsername"
       />
+      <Grid item xs={0} md={1}>
+      </Grid>
+    </Grid>
+      </Grid>
+
+      <br></br>
+      <Grid container spacing={2}>
+        <Grid item xs={0} md={1}>
+        </Grid>
+        <Grid item xs={12} md={10}>
+          <h5 className='tags'> Password </h5>    
+
       <TextField
         id="filled-required"
         label="Required Password"
@@ -61,7 +80,12 @@ const LoginForm = (props) => {
         onChange={handleInputChange}
         name="lPassword"
       />
-      <Button onClick={handleLoginUser}>Submit</Button>
+        <Grid item xs={0} md={1}>
+        </Grid>
+        </Grid>
+      </Grid>
+      <br></br>
+      <Button variant="contained" color="success" onClick={handleLoginUser}>Submit</Button>
     </Container>
   );
 };

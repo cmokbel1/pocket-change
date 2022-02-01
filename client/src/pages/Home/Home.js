@@ -2,7 +2,6 @@ import NavBar from '../../components/NavBar'
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import './Home.css'
@@ -12,6 +11,7 @@ import Footer from '../../components/Footer'
 import Logo from '../../Assets/Pocket_Change_logo_02.png'
 import Login from '../Login'
 import Register from '../Register'
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
