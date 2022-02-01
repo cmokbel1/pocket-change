@@ -1,0 +1,22 @@
+body {
+  color: white;
+}
+
+h1 {
+  color: black;
+}
+
+.container {
+  display: block;
+}
+
+#leftAlign {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+#rightAlign {
+  border: 1px solid black;
+  padding: 15px;
+
+}

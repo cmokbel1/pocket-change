@@ -11,18 +11,18 @@ import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
-import Container from '@mui/material/Container';
+import Container from '@mui/material/Container'
 import './App.css'
 
 const App = () => {
   return (
     <>
       <Router>
-        <div>
+        {/* <div>
           <Link to='/'>Home</Link>
           <Link to='/budget'>Budget</Link>
           <Link to='/reports'>Reports</Link>
-        </div>
+        </div> */}
         <Routes>
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />

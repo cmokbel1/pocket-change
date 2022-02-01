@@ -1,56 +1,16 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { FormControl, InputLabel, Input, Button } from '@mui/material'
-import ExpenseContext from '../../utils/ExpenseContext'
-import { useContext } from 'react'
-
-const ExpenseForm = () => {
-  const {
-    category,
-    goalValue,
-    actualValue,
-    handleInputChange,
-    handleAddExpense,
-  } = useContext(ExpenseContext)
+import { Grid, Button } from '@mui/material'
 
 
+const ExpenseCard = ({ category, goalValue, actualValue, result }) => {
   return (
-    <FormControl>
-      <div className="mb-3">
-        <InputLabel htmlFor="title">Category</InputLabel>
-        <Input
-          type="text"
-          className="form-control"
-          name="category"
-          value={category}
-          onChange={handleInputChange} />
-      </div>
-      <div className="mb-3">
-        <InputLabel htmlFor="goal">Goal</InputLabel>
-        <Input
-          type="text"
-          className="form-control"
-          name="goal"
-          value={goalValue}
-          onChange={handleInputChange} />
-      </div>
-      <div className="mb-3">
-        <InputLabel htmlFor="actual">Actual</InputLabel>
-        <Input
-          type="text"
-          className="form-control"
-          name="goal"
-          value={actualValue}
-          onChange={handleInputChange} />
-      </div>
-      <Button
-        color="primary"
-        onClick={handleAddExpense} >
-        Add Expense
-      </Button>
-    </FormControl>
+    <Grid container rowSpacing={1} columnSpacing={{ xs: 12 }}>
+      <Grid item xs={2}><h6 tag>Category: {category}</h6></Grid>
+      <Grid item xs={2}><span>Actual: {actualValue}</span></Grid>
+      <Grid item xs={2}><span>Goal: {goalValue}</span></Grid>
+      <Grid item xs={2}><span>Result: {result}</span></Grid>
+      <Grid item xs={2}><Button>Remove Expense</Button></Grid>
+    </Grid>
   )
 }
 
-export default ExpenseForm
+export default ExpenseCard
