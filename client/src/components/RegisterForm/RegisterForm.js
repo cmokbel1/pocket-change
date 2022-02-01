@@ -12,7 +12,8 @@ import Button from '@mui/material/Button'
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { palette } from '@mui/system';
 import BasicButton from './../BasicButton'
-//import './RegisterForm.css';
+import Grid from '@mui/material/Grid';
+import './RegisterForm.css';
 
 const RegisterForm = (props) => {
   const [registerState, setRegisterState] = useState({
@@ -41,7 +42,13 @@ const RegisterForm = (props) => {
 
 
   return (
-    <Container row>
+    <Container>
+      <Grid container spacing={2}>
+        <Grid item xs={0} md={1}>
+        </Grid>
+        <Grid item xs={12} md={10}> 
+      <h5 className='tags'> Username </h5>
+
       <TextField
         label="Required Username"
         color="primary"
@@ -53,8 +60,20 @@ const RegisterForm = (props) => {
         value={registerState.rUsername}
         onChange={handleInputChange}
         name="rUsername"
-
       />
+      <Grid item xs={0} md={1}>
+      </Grid>
+     </Grid> 
+    </Grid>
+  
+
+      <br></br>
+      <Grid container spacing={2}>
+        <Grid item xs={0} md={1}>
+        </Grid>
+        <Grid item xs={12} md={10}> 
+          <h5 className='tags'> Email </h5>
+
       <TextField
         label="Required Email"
         color="primary"
@@ -66,8 +85,18 @@ const RegisterForm = (props) => {
         value={registerState.rEmail}
         onChange={handleInputChange}
         name="rEmail"
-
       />
+        <Grid item xs={0} md={1}>
+        </Grid>
+        </Grid>
+      </Grid>
+
+    <br></br>
+      <Grid container spacing={2}>
+        <Grid item xs={0} md={1}>
+        </Grid>
+        <Grid item xs={12} md={10}> 
+          <h5 className='tags'> Password </h5>
 
       <TextField
         id="filled-required"
@@ -80,7 +109,12 @@ const RegisterForm = (props) => {
         onChange={handleInputChange}
         name="rPassword"
       />
-      <Button onClick={handleRegisterUser}>Submit</Button>
+        <Grid item xs={0} md={1}>
+        </Grid>
+        </Grid>
+      </Grid>
+      <br></br>
+      <Button variant="contained" color="success" onClick={handleRegisterUser}>Submit</Button>
     </Container>
   );
 };
