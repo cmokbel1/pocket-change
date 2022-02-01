@@ -2,13 +2,14 @@ const { Schema, model } = require('mongoose')
 
 const Category = new Schema({
   name: String,
-  actualValue: {
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  actual: {
     type: Number
   },
-  goalValue: {
-    type: Number
-  },
-  result: {
+  goal: {
     type: Number
   },
   month: {

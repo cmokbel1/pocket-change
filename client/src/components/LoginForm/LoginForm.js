@@ -49,7 +49,7 @@ const LoginForm = (props) => {
         label="Required Username" 
         color="primary" 
         focused
-        sx={{ input: { color: 'white' } }}
+        // sx={{ input: { color: 'white' } }}
         required
         id="filled-required"
         defaultValue="Username"
