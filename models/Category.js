@@ -11,6 +11,10 @@ const Category = new Schema({
   },
   goal: {
     type: Number
+  },
+  month: {
+    type: Schema.Types.ObjectId,
+    ref: 'month'
   }
 }, { timestamps: true })
 
