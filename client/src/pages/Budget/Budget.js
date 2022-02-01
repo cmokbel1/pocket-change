@@ -1,12 +1,14 @@
 import Navbar from '../../components/NavBar'
-import { FormControl, InputLabel, Input, Button, FormHelperText } from '@mui/material'
-import { ExpenseCard, ResultCard } from '../../components/ExpenseCard'
+import { FormControl, Input, Button, FormHelperText } from '@mui/material'
+import { ExpenseCard } from '../../components/ExpenseCard'
+//import DropDownYear from '../../components/DropDownYear'
 import axios from 'axios'
 import { React, useState } from 'react'
 import { Grid } from '@mui/material'
 import { categoryResult, calcSumTotal } from '../../utils/CategoryResult'
-import { calcAvail } from '../../utils/AvailableExpendatures'
+import { calcAvail } from '../../utils/AvailableExpenditures'
 import './Budget.css'
+import DropDownMonth from '../../components/DropDownMonth'
 
 const Budget = () => {
 
@@ -25,14 +27,24 @@ const Budget = () => {
     result: 0,
     available: []
   })
-  // by building out the states in the budget page we have negated the need to use an expenseContext and import it, removing confusion. doing this also allows us to compile the functions that we need to use to handle changes in the form.
+  // handleAddExpense calculates using the imported categoryResult function and then pushes the values to the expenseState
   const handleAddExpense = (category, actualValue, goalValue) => {
-    const expenses = JSON.parse(JSON.stringify(expenseState.expenses))
     let result = categoryResult(actualValue, goalValue);
-    expenses.push({ category, goalValue, actualValue, result })
-    setExpenseState({ ...expenseState, result, expenses });
+    let newCategory = { name: category, actualValue: actualValue, goalValue: goalValue, result: result, };
+    axios.post('/api/categories', newCategory, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    })
+      .then(res => {
+        console.log(res.data)
+        const expenses = JSON.parse(JSON.stringify(expenseState.expenses))
+        expenses.push({ category, goalValue, actualValue, result, _id: res.data._id })
+        setExpenseState({ ...expenseState, result, expenses, category: '', goalValue: '', actualValue: '' });
+      })
   }
 
+  // addAvailableCash calculates the available expendatures by using the imported calcAvail function and then passing it to the cashFlow state
   const addAvailableCash = (cashFlow, goalSavings) => {
     const available = JSON.parse(JSON.stringify(cashFlowState.available))
     let result = calcAvail(cashFlow, goalSavings)
@@ -51,7 +63,9 @@ const Budget = () => {
       <Navbar />
       <hr />
       <div className='container'>
+        <DropDownMonth />
         <div id="rightAlign">
+          {/* goal savings calculator and card inputs */}
           <Grid rowSpacing={1} columnSpacing={{ xs: 1 }}>
             <h1>Calculate Cash for Expenses</h1>
             <FormControl>
@@ -66,6 +80,7 @@ const Budget = () => {
           </Grid>
         </div>
         <div id="leftAlign">
+          {/* category and associated values */}
           <h1>Create Your Expense Report</h1>
           <FormControl>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 8 }}>
@@ -95,7 +110,7 @@ const Budget = () => {
           <Grid container>
             {
               expenseState.expenses.map(expense => (
-                <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} />
+                <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} _id={expense._id}/>
               ))
             }
           </Grid>
