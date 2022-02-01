@@ -11,7 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+<<<<<<< HEAD
 // import Logo from '../../Assets/small_logo.png'
+=======
+import Logo from '../../Assets/small_logo.png'
+>>>>>>> 453f2e91d49115aaad66cca50a2e681b7b843e29
 import './NavBar.css'
 
 const pages = ['Budget', 'Reports', 'Logout'];
@@ -50,23 +54,24 @@ const NavBar = () => {
               component="div"
               sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             >
-              {/* <img className='pictureNav' src={Logo} alt='logo'></img> */}
+              <img className='pictureNav' src={Logo} alt='logo'></img>
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
-
+              
                 className='dropDown'
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-
+                
               >
-                <MenuIcon />
+                <MenuIcon  />
               </IconButton>
               <Menu
+                className="menuNav"
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
@@ -81,15 +86,16 @@ const NavBar = () => {
                 open={Boolean(anchorElNav)}
 
                 onClose={handleCloseNavMenu}
+                
                 sx={{
-                  display: { xs: 'block', md: 'none' },
+                  display: { xs: 'block', md: 'none'},
                 }}
               >
                 <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
                   e.preventDefault();
                   window.location = '/Budget';
                 }}>
-                  <Typography textAlign="center">Budget</Typography>
+                    <Typography textAlign="center">Budget</Typography>
                 </MenuItem>
                 <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
                   e.preventDefault();
@@ -102,8 +108,8 @@ const NavBar = () => {
                     e.preventDefault();
                     window.location = '/';
                   }}>Logout</Typography>
-                </MenuItem>
-
+                  </MenuItem>
+                
               </Menu>
             </Box>
             <Typography
@@ -112,20 +118,20 @@ const NavBar = () => {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
             >
-              {/* <img className='pictureNav' src={Logo} alt='logo'></img> */}
+              <img className='pictureNav' src={Logo} alt='logo'></img>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
-
-              <Button
+              
+                <Button
                 onClick={(e) => {
                   e.preventDefault();
                   window.location = '/Budget';
                 }}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Budget
-              </Button>
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  Budget
+                </Button>
               <Button
                 onClick={(e) => {
                   e.preventDefault();
@@ -148,13 +154,13 @@ const NavBar = () => {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip  title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
               <Menu
-
+              
                 sx={{ mt: '45px' }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}

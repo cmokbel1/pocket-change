@@ -1,11 +1,6 @@
 body {
-  color: white;
-}
-
-h1 {
   color: black;
 }
-
 .container {
   display: block;
 }
