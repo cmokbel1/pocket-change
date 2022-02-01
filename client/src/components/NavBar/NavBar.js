@@ -85,11 +85,25 @@ const NavBar = () => {
                   display: { xs: 'block', md: 'none'},
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem style={{ backgroundColor: "#2a2e30" }} key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/Budget';
+                }}>
+                    <Typography textAlign="center">Budget</Typography>
+                </MenuItem>
+                <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/Report';
+                }}>
+                  <Typography textAlign="center">Report</Typography>
+                </MenuItem>
+                <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/Login';
+                }}>
+                  <Typography textAlign="center">Logout</Typography>
                   </MenuItem>
-                ))}
+                
               </Menu>
             </Box>
             <Typography
@@ -101,15 +115,26 @@ const NavBar = () => {
               <img className='pictureNav' src={Logo} alt='logo'></img>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => (
+              
                 <Button
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                  Budget
                 </Button>
-              ))}
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Report
+              </Button>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Logout
+              </Button>
+
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
