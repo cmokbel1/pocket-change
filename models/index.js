@@ -1,7 +1,6 @@
 module.exports = {
   User: require('./User.js'),
-  Goal: require('./Goal.js'),
-  Actual: require('./Actual.js'),
+  Month: require('./Month.js'),
   Category: require('./Category.js')
 }
 
