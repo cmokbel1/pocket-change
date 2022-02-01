@@ -48,8 +48,7 @@ const AboutUsCard = () => {
             Claude Mokbel
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          A full-stack web developer currently based in Southern California. I've been studying web development for roughly 2 years and intend to continue my studies long into the future. I work effectively with others and display strong leadership skills when needed. Capacity to meet strict deadlines, delegate tasks, and be of assistance to team members at a moments notice. Focus on BackEnd development for this project.
           </Typography>
         </CardContent>
         <CardActions>
@@ -63,7 +62,7 @@ const AboutUsCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="280"
+                height="400"
                 image={Jazz}
               />
               <CardContent>
@@ -86,7 +85,7 @@ const AboutUsCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="260"
+                height="380"
                 image={Malia}
               />
               <CardContent>
