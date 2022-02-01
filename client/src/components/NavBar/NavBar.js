@@ -97,11 +97,11 @@ const NavBar = () => {
                 }}>
                   <Typography textAlign="center">Report</Typography>
                 </MenuItem>
-                <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
-                  e.preventDefault();
-                  window.location.href = '/Login';
-                }}>
-                  <Typography textAlign="center">Logout</Typography>
+                <MenuItem style={{ backgroundColor: "#2a2e30" }}>
+                  <Typography textAlign="center" onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/Login';
+                  }}>Logout</Typography>
                   </MenuItem>
                 
               </Menu>
