@@ -13,11 +13,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
-import ProfileCard from '../../components/ProfileCard';
+import ProfileCard from '../../components/AboutUsCard';
 import Footer from '../../components/Footer'
 
-import './Profile.css'
-const Profile = ()=> {
+
+const AboutUs = ()=> {
   return(
     <>
       <NavBar></NavBar>
@@ -27,4 +27,4 @@ const Profile = ()=> {
   )
 }
 
-export default Profile;
+export default AboutUs;

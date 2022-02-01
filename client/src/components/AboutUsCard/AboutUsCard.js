@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom'
-import project2 from './project2.png';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -24,11 +23,11 @@ import Malia from '../../Assets/Malia.jpg'
 import Rachel from '../../Assets/rachel2.0.jpg'
 import Oliver from '../../Assets/oliver.jpg'
 import Claude from '../../Assets/claude1.png'
-import './ProfileCard.css'
+import './AboutUsCard.css'
 
 // Import query me
 
-const ProfileCard = () => {
+const AboutUsCard = () => {
   // Use the query to swap out the hard coded user info for the logged in user instead
   
   return (
@@ -87,7 +86,7 @@ const ProfileCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="280"
+                height="260"
                 image={Malia}
               />
               <CardContent>
@@ -147,8 +146,7 @@ const ProfileCard = () => {
                   Oliver Hoang
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  An experienced coding bootcamp graduate with extensive background in Javascript, developing, and building mobile first web applications.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -186,4 +184,4 @@ const ProfileCard = () => {
   )
 }
 
-export default ProfileCard;
+export default AboutUsCard;
