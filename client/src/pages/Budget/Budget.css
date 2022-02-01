@@ -2,16 +2,16 @@ body {
   color: black;
 }
 .container {
- display: flexbox;
-}
-
-#leftAlign {
-  position:fixed;
-  float: left;
   display: block;
 }
 
+#leftAlign {
+  border: 1px solid black;
+  padding: 15px;
+}
+
 #rightAlign {
-  float: right;
-  display: flex;
+  border: 1px solid black;
+  padding: 15px;
+
 }
