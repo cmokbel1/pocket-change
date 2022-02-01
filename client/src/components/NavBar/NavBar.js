@@ -67,6 +67,7 @@ const NavBar = () => {
                 <MenuIcon  />
               </IconButton>
               <Menu
+                className="menuNav"
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
@@ -81,6 +82,7 @@ const NavBar = () => {
                 open={Boolean(anchorElNav)}
 
                 onClose={handleCloseNavMenu}
+                
                 sx={{
                   display: { xs: 'block', md: 'none'},
                 }}
