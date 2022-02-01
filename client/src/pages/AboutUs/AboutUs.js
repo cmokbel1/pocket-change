@@ -11,22 +11,20 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom'
-import project2 from './project2.png';
-// Import query me
+import { Link } from 'react-router-dom';
+import NavBar from '../../components/NavBar';
+import ProfileCard from '../../components/AboutUsCard';
+import Footer from '../../components/Footer'
 
-const ProfileCard = () => {
-  // Use the query to swap out the hard coded user info for the logged in user instead
-  
-  return (
+
+const AboutUs = ()=> {
+  return(
     <>
-      <Container>
-        <img src={project2} alt='project 2 pic' width="250px" height="250px" style={{borderRadius: "50%"}}/>
-        <Typography>Username: TimDuran</Typography>
-        <Typography>Email: Email</Typography>
-      </Container>
+      <NavBar></NavBar>
+      <ProfileCard></ProfileCard>
+      <Footer></Footer>
     </>
   )
 }
 
-export default ProfileCard;
+export default AboutUs;

@@ -1,3 +1,2 @@
-import { calcAvail }  from './AvailableExpendatures'
+export { default as calcAvail }  from './AvailableExpendatures'
 
-export { calcAvail }
