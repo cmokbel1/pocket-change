@@ -87,20 +87,20 @@ const NavBar = () => {
               >
                 <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
                   e.preventDefault();
-                  window.location.href = '/Budget';
+                  window.location = '/Budget';
                 }}>
                     <Typography textAlign="center">Budget</Typography>
                 </MenuItem>
                 <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
                   e.preventDefault();
-                  window.location.href = '/Report';
+                  window.location = '/Report';
                 }}>
                   <Typography textAlign="center">Report</Typography>
                 </MenuItem>
                 <MenuItem style={{ backgroundColor: "#2a2e30" }}>
                   <Typography textAlign="center" onClick={(e) => {
                     e.preventDefault();
-                    window.location.href = '/Login';
+                    window.location = '/';
                   }}>Logout</Typography>
                   </MenuItem>
                 
@@ -117,19 +117,28 @@ const NavBar = () => {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               
                 <Button
-                  onClick={handleCloseNavMenu}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location = '/Budget';
+                }}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   Budget
                 </Button>
               <Button
-                onClick={handleCloseNavMenu}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location = '/Report';
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Report
               </Button>
               <Button
-                onClick={handleCloseNavMenu}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location = '/';
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Logout
