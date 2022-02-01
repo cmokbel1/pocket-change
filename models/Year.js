@@ -2,6 +2,9 @@ const { Schema, model } = require('mongoose')
 
 const Year = new Schema({
   name: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'},
   months: [
     {
       type: Schema.Types.ObjectId,
