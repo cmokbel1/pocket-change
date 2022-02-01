@@ -13,6 +13,19 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom'
 import project2 from './project2.png';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
+import Jazz from '../../Assets/jazz.jpg'
+import Timothy from '../../Assets/timothy.jpeg'
+import Malia from '../../Assets/Malia.jpg'
+import Rachel from '../../Assets/rachel2.0.jpg'
+import Oliver from '../../Assets/oliver.jpg'
+import Claude from '../../Assets/claude1.png'
+import './ProfileCard.css'
+
 // Import query me
 
 const ProfileCard = () => {
@@ -20,11 +33,155 @@ const ProfileCard = () => {
   
   return (
     <>
-      <Container>
-        <img src={project2} alt='project 2 pic' width="250px" height="250px" style={{borderRadius: "50%"}}/>
-        <Typography>Username: TimDuran</Typography>
-        <Typography>Email: Email</Typography>
+    <br></br><br></br>
+      <Container className='cardDiv'>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4}>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+          component="img"
+          alt="green iguana"
+          height="280"
+          image={Claude}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Claude Mokbel
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+        <CardActions>
+        <a rel="noopener noreferrer" target="_blank" href='https://github.com/cmokbel1'><Button size="small">Github</Button></a>
+        <a rel="noopener noreferrer" target="_blank" href='https://www.linkedin.com/in/claude-mokbel-aa076788/'><Button size="small">Linkedin</Button></a>
+        </CardActions>
+      </Card>
+        </Grid>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="280"
+                image={Jazz}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Jazmine Jose
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                  species, ranging across all continents except Antarctica
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <a rel="noopener noreferrer" target="_blank" href='https://github.com/jazminejose'><Button size="small">Github</Button></a>
+                <a rel="noopener noreferrer" target="_blank" href='https://google.com'><Button size="small">She ain't got 1</Button></a>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="280"
+                image={Malia}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Malia Pringle
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Recent CSUF graduate and highly motivated aspiring software engineer currently searching for work! I hope you find our app useful. Yes that's right she's only 1 Pringle no S Kekw
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <a rel="noopener noreferrer" target="_blank" href='https://github.com/pringle97'><Button size="small">Github</Button></a>
+                <a rel="noopener noreferrer" target="_blank" href='https://www.linkedin.com/in/malia-pringle-356175189/'><Button size="small">Linkedin</Button></a>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
       </Container>
+
+      <br></br>
+
+      <Container className='cardDiv'>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300"
+                image={Rachel}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Rachel Hoelscher
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                  species, ranging across all continents except Antarctica
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <a rel="noopener noreferrer" target="_blank" href='https://github.com/me0wmerz'><Button size="small">Github</Button></a>
+                <a rel="noopener noreferrer" target="_blank" href='https://www.linkedin.com/in/rachel-hoelscher/'><Button size="small">Linkedin</Button></a>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300"
+                image={Oliver}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Oliver Hoang
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                  species, ranging across all continents except Antarctica
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <a rel="noopener noreferrer" target="_blank" href='https://github.com/LohasOT?tab=repositories'><Button size="small">Gibhub</Button></a>
+                <a rel="noopener noreferrer" target="_blank" href='https://www.linkedin.com/in/oliver-hoang-492b22221/'><Button size="small">Linkedin</Button></a>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="280"
+                image={Timothy}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Timmmmmmothy Duran
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <a rel="noopener noreferrer" target="_blank" href='https://github.com/timduran'><Button size="small">Gibhub</Button></a>
+                <a rel="noopener noreferrer" target="_blank" href='https://www.linkedin.com/in/timothy-duran-402b3a223/'><Button size="small">Linkedin</Button></a>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+
     </>
   )
 }

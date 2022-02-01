@@ -8,7 +8,7 @@ import './Home.css'
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Footer from '../../components/Footer'
-import Logo from '../../Assets/Pocket_Change_logo_02.png'
+import Logo from '../../Assets/Pocket_Change_logo_2.0.png'
 import Login from '../Login'
 import Register from '../Register'
 
@@ -23,14 +23,18 @@ const Item = styled(Paper)(({ theme }) => ({
 const Home = () => {
   return (
     <>
-      <h1 className='title'>Welcome To Pocket Change</h1>
       <br></br>
-      <br></br>
+          <Grid item xs={12} md={12}> 
+            <div className='paper'>
+              <img className='pic' src={Logo} alt='stonkMeme'></img>
+            </div>
+          </Grid>
+      <br></br><br></br><br></br>
       <Container className='top'>
         <Grid container spacing={2}>
           <Grid item xs={0} md={1}>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={10}>
             <div className='paper'>
               <br></br>
               <h1>You Know Where Your Money Is Spent.</h1>
@@ -43,11 +47,6 @@ const Home = () => {
               </div>
           </Grid>
           <Grid item xs={0} md={1} >
-          </Grid>
-          <Grid item xs={12} md={4}> 
-            <div className='paper'>
-              <img className='pic' src={Logo} alt='stonkMeme'></img>
-            </div>
           </Grid>
         </Grid>
     </Container>

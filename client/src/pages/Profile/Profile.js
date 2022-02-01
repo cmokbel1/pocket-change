@@ -14,12 +14,15 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import ProfileCard from '../../components/ProfileCard';
+import Footer from '../../components/Footer'
 
+import './Profile.css'
 const Profile = ()=> {
   return(
     <>
       <NavBar></NavBar>
       <ProfileCard></ProfileCard>
+      <Footer></Footer>
     </>
   )
 }
