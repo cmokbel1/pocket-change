@@ -67,7 +67,6 @@ const NavBar = () => {
                 <MenuIcon  />
               </IconButton>
               <Menu
-              
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
@@ -80,6 +79,7 @@ const NavBar = () => {
                   horizontal: 'left',
                 }}
                 open={Boolean(anchorElNav)}
+
                 onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: 'block', md: 'none'},
@@ -115,6 +115,7 @@ const NavBar = () => {
               <img className='pictureNav' src={Logo} alt='logo'></img>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
               
                 <Button
                 onClick={(e) => {
