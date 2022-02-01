@@ -10,7 +10,7 @@ const Category = new Schema({
   },
   result: {
     type: Number
-  }
+  },
   month: {
     type: Schema.Types.ObjectId,
     ref: 'month'
