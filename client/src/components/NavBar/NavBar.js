@@ -67,6 +67,7 @@ const NavBar = () => {
                 <MenuIcon  />
               </IconButton>
               <Menu
+                className="menuNav"
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
@@ -81,6 +82,7 @@ const NavBar = () => {
                 open={Boolean(anchorElNav)}
 
                 onClose={handleCloseNavMenu}
+                
                 sx={{
                   display: { xs: 'block', md: 'none'},
                 }}
@@ -101,6 +103,9 @@ const NavBar = () => {
                   <Typography textAlign="center" onClick={(e) => {
                     e.preventDefault();
                     window.location = '/';
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('token');
+
                   }}>Logout</Typography>
                   </MenuItem>
                 
@@ -139,6 +144,8 @@ const NavBar = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   window.location = '/';
+                  localStorage.removeItem('user');
+                  localStorage.removeItem('token');
                 }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >

@@ -34,7 +34,7 @@ const LoginForm = (props) => {
       .then(token => {
         localStorage.setItem('user', token)
         setLoginState({ ...loginState, lUsername: '', lPassword: '' })
-        window.location = '/'
+        window.location = '/budget'
       })
   }
 
@@ -49,7 +49,7 @@ const LoginForm = (props) => {
         label="Required Username" 
         color="primary" 
         focused
-        sx={{ input: { color: 'white' } }}
+        // sx={{ input: { color: 'white' } }}
         required
         id="filled-required"
         defaultValue="Username"

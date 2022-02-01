@@ -45,14 +45,14 @@ export default function Footer() {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Contact</Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/AboutUs" color="inherit">
                   About Us
                 </Link>
               </Box>
             </Grid>
           </Grid>
           <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-            Created By: Claude Mokbel, Jazmine Jose, Malia Pringle, Oliver Hoang, Rachel Hoelscher, Timmothy Duran with lots of EMOTIONAL DAMAGE &reg; {new Date().getFullYear()}
+            Created By: Claude Mokbel, Jazmine Jose, Malia Pringle, Oliver Hoang, Rachel Hoelscher, Timothy Duran with lots of EMOTIONAL DAMAGE &reg; {new Date().getFullYear()}
           </Box>
         </Container>
       </Box>
