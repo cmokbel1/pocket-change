@@ -78,7 +78,7 @@ const ProfileCard = () => {
               </CardContent>
               <CardActions>
                 <a rel="noopener noreferrer" target="_blank" href='https://github.com/jazminejose'><Button size="small">Github</Button></a>
-                <a rel="noopener noreferrer" target="_blank" href='https://google.com'><Button size="small">She ain't got 1</Button></a>
+                <a rel="noopener noreferrer" target="_blank" href='https://google.com'><Button size="small">Linkedin</Button></a>
               </CardActions>
             </Card>
           </Grid>
