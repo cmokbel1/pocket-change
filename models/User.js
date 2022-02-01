@@ -5,7 +5,7 @@ const User = new Schema({
   email: String,
   category: {
     type: Schema.Types.ObjectId,
-    ref: 'Category'
+    ref: 'category'
   }
 }, { timestamps: true })
 User.plugin(require('passport-local-mongoose'));
