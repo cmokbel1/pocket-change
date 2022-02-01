@@ -13,9 +13,8 @@ function categoryResult(spent, goal) {
 function calcSumTotal(moneys) {
   let sumTotal = 0
   moneys.forEach(money => {
-    sumTotal += money;
+   return sumTotal += money;
   })
-  return sumTotal
 };
 
 export {
