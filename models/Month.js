@@ -1,31 +1,12 @@
 const { Schema, model } = require('mongoose')
 
 const Month = new Schema({
-  month: String {
-  category: String {
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
-  actual: {
-    type: Integer
-  },
-  goal: {
-    type: Integer
-  },
-  difference: {
-    type: Integer
-  }
-}}
-}, { timestamps: true })
+  name: String, 
+  category: [
+    {type: Schema.Types.ObjectId,
+    ref: 'category'}],
+  }, 
+    { timestamps: true })
 
-module.exports = model('Category', Category)
+module.exports = model('month', Month)
 
-
-
-month: {
-  category: String,
-    actual: Integer,
-      goal: Integer,
-        result: Integer
-},

@@ -1,19 +1,17 @@
 const { Schema, model } = require('mongoose')
 
 const Category = new Schema({
-  title: String,
+  category: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
   actual: {
-    type: Schema.Types.ObjectId,
-    ref: 'Actual'
+    type: Number
   },
   goal: {
-    type: Schema.Types.ObjectId,
-    ref: 'Goal'
+    type: Number
   }
 }, { timestamps: true })
 
-module.exports = model('Category', Category)
+module.exports = model('category', Category)

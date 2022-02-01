@@ -19,14 +19,17 @@ function createData(**category1, **category2, etc) {
   return { ** category1, ** category2, etc };
 }
 
-//function for calculating difference...but the problem is there will be multiple "differences" ??
-const difference = () => {
-  let expenseState.goalValue -
-}
-//ideas...one, make an array of actual & goal values, then use forEach loop to loop through and calculate difference and input it in the table. Use if statement to make it red or black depending on if negative or positive
+//ideas...Use if statement to make it red or black depending on if negative or positive
+
+
+//mapping to get all the information needed for the graph
+
+expenseState.expenses.map(expense => (
+  <CreateData category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} />))
+
 
 const rows = [
-  createData('**category1', expenseState.actualValue, expenseState.goalValue, difference),
+  createData('**category1', expenseState.actualValue, expenseState.goalValue, result),
   createData('**category2', num1, num2, num3),
   createData('**category3', num1, num2, num3),
   createData('**category4', num1, num2, num3),
@@ -137,4 +140,3 @@ const Budget = () => {
 }
 
 export default ReportTable
-
