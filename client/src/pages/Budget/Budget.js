@@ -30,6 +30,7 @@ const Budget = () => {
   })
   // handleAddExpense calculates using the imported categoryResult function and then pushes the values to the expenseState
   const handleAddExpense = (category, actualValue, goalValue) => {
+    console.log(category, actualValue, goalValue)
     let result = categoryResult(actualValue, goalValue);
     let newCategory = { name: category, actualValue: actualValue, goalValue: goalValue, result: result, };
     axios.post('/api/categories', newCategory, {
