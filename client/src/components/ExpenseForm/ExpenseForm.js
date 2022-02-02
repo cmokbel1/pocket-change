@@ -46,7 +46,7 @@ const ExpenseForm = () => {
           onChange={handleInputChange} />
       </div>
       <Button
-        color="primary"
+        variant="outlined"
         onClick={handleAddExpense} >
         Add Expense
       </Button>

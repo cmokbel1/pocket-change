@@ -24,7 +24,7 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
       <Grid item xs={2}><span>Actual: {actualValue}</span></Grid>
       <Grid item xs={2}><span>Goal: {goalValue}</span></Grid>
       <Grid item xs={2}><span>Result: {result}</span></Grid>
-      <Grid item xs={2}><Button onClick = {() => handleRemoveExpense(_id)}>Remove Expense</Button></Grid>
+      <Grid item xs={2}><Button variant="outlined" onClick = {() => handleRemoveExpense(_id)}>Remove Expense</Button></Grid>
     </Grid >
     : null }
     </> 
