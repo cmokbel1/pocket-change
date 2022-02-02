@@ -14,7 +14,6 @@ const ExpenseForm = () => {
     handleAddExpense
   } = useContext(ExpenseContext)
 
-
   return (
     <>
       <FormControl>
