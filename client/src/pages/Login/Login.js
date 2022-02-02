@@ -16,7 +16,6 @@ import Register from '../Register'
 import Home from '../../pages/Home'
 
 const Login = () => {
- 
   return (
     <>
       <Container className='top'>
