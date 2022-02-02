@@ -26,7 +26,7 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
     let updatedExpense = {
       actualValue: editState.actual,
       goalValue: editState.goal,
-      result: JSON.parse(editState.goal - editState.actual)
+
     }
     axios.put(`/api/categories/${id}`, updatedExpense, {
       headers: {
