@@ -32,7 +32,7 @@ const Budget = () => {
   const handleAddExpense = (category, actualValue, goalValue) => {
     console.log(category, actualValue, goalValue)
     let result = categoryResult(actualValue, goalValue);
-    let newCategory = { name: category, actual: actualValue, goal: goalValue, result: result, };
+    let newCategory = { name: category, actualValue, goalValue, result };
     console.log("newCategory: ", newCategory);
     axios.post('/api/categories', newCategory, {
       headers: {
@@ -94,15 +94,15 @@ const Budget = () => {
             <Grid container rowSpacing={1} columnSpacing={{ xs: 8 }}>
               <Grid item xs={2}>
                 <Input name="category" className="Input" aria-describedby="expense category" value={expenseState.category} onChange={handleInputChange} />
-                <FormHelperText >expense category</FormHelperText>
+                <FormHelperText >Expense Category</FormHelperText>
               </Grid>
               <Grid item xs={2}>
                 <Input type="number" name="actualValue" className="Input" aria-describedby="actual value" value={expenseState.actualValue} onChange={handleInputChange} />
-                <FormHelperText >actual expense</FormHelperText>
+                <FormHelperText >Actual Expense</FormHelperText>
               </Grid>
               <Grid item xs={2}>
                 <Input type="number" name="goalValue" className="Input" aria-describedby="goal value" value={expenseState.goalValue} onChange={handleInputChange} />
-                <FormHelperText >goal expense</FormHelperText>
+                <FormHelperText >Goal Expense</FormHelperText>
               </Grid>
               <Grid item xs={2}>
                 <Button variant="outlined" onClick={
@@ -122,7 +122,7 @@ const Budget = () => {
               ))
             }
           </Grid>
-          <Button variant="outlined" onClick={(e) => {
+          <Button variant="outlined" color="success" style={{ color: "#008037"}}  onClick={(e) => {
             e.preventDefault();
             window.location = '/Reports';
           }}>Budget Summary</Button>
