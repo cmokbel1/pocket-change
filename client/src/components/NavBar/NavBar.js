@@ -95,7 +95,7 @@ const NavBar = () => {
                 </MenuItem>
                 <MenuItem style={{ backgroundColor: "#2a2e30" }} onClick={(e) => {
                   e.preventDefault();
-                  window.location = '/Report';
+                  window.location = '/Reports';
                 }}>
                   <Typography textAlign="center">Report</Typography>
                 </MenuItem>
@@ -134,7 +134,7 @@ const NavBar = () => {
               <Button
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location = '/Report';
+                  window.location = '/Reports';
                 }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
