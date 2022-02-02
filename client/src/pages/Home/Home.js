@@ -41,9 +41,12 @@ const Home = () => {
               <br></br>
               <h4>Login, Categorize, and Budget.</h4>
               <br></br>
-              <a href="/Register" > <Button variant="contained" color="success">
+              <Button variant="contained" color="success" onClick={(e) => {
+                e.preventDefault();
+                window.location = '/Register';
+              }}>
               Get Started
-              </Button></a>
+              </Button>
               </div>
           </Grid>
           <Grid item xs={0} md={1} >

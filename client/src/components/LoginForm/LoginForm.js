@@ -46,12 +46,9 @@ const LoginForm = (props) => {
         <Grid item xs={12} md={10}>
           <h5 className='tags'> Username </h5>
       <TextField
-        label="Required Username" 
-        color="primary" 
-        focused
-        // sx={{ input: { color: 'white' } }}
+        style={{ backgroundColor: 'white' }}
+        id="outlined-basic" variant="outlined"
         required
-        id="filled-required"
         defaultValue="Username"
         value={loginState.lUsername}
         onChange={handleInputChange}
@@ -70,12 +67,10 @@ const LoginForm = (props) => {
           <h5 className='tags'> Password </h5>    
 
       <TextField
-        id="filled-required"
-        label="Required Password"
+        style={{ backgroundColor: 'white' }}
+        id="outlined-basic" variant="outlined"
         type="password"
         autoComplete="current-password"
-        color="primary"
-        focused
         value={loginState.lPassword}
         onChange={handleInputChange}
         name="lPassword"
