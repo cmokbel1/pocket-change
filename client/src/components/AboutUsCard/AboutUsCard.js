@@ -20,7 +20,7 @@ import Grid from '@mui/material/Grid';
 import Jazz from '../../Assets/jazz.jpg'
 import Timothy from '../../Assets/timothy.jpeg'
 import Malia from '../../Assets/Malia.jpg'
-import Rachel from '../../Assets/rachel2.0.jpg'
+import Rachel from '../../Assets/rachel01.jpg'
 import Oliver from '../../Assets/oliver.jpg'
 import Claude from '../../Assets/claude1.png'
 import './AboutUsCard.css'
@@ -70,8 +70,7 @@ const AboutUsCard = () => {
                   Jazmine Jose
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -85,7 +84,7 @@ const AboutUsCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="380"
+                height="400"
                 image={Malia}
               />
               <CardContent>
@@ -114,7 +113,7 @@ const AboutUsCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="300"
+                height="280"
                 image={Rachel}
               />
               <CardContent>
@@ -122,8 +121,7 @@ const AboutUsCard = () => {
                   Rachel Hoelscher
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -164,7 +162,7 @@ const AboutUsCard = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Timmmmmmothy Duran
+                  Timothy Duran
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
