@@ -56,9 +56,9 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
       <Grid item xs={2}><TextField name= "actual" onChange= {handleInputChange} defaultValue= {actualValue} label= "Actual" ></TextField></Grid>
       <Grid item xs={2}><TextField name="goal" onChange={handleInputChange} defaultValue={goalValue} label= "Goal"></TextField></Grid>
       <Grid item xs={2}><span>Result: {result}</span></Grid>
-      <Grid item xs={2}><Button variant="outlined" onClick={() => handleEditActual(_id)}>Update Actual</Button></Grid>
-      <Grid item xs={2}><Button variant="outlined" onClick={() => handleEditGoal(_id)}>Update Goal</Button></Grid>
-      <Grid item xs={2}><Button variant="outlined" onClick = {() => handleRemoveExpense(_id)}>Remove Expense</Button></Grid>
+      <Grid item xs={1}><Button variant="outlined" onClick={() => handleEditActual(_id)}>Update Actual</Button></Grid>
+      <Grid item xs={1}><Button variant="outlined" onClick={() => handleEditGoal(_id)}>Update Goal</Button></Grid>
+      <Grid item xs={1}><Button variant="outlined" onClick = {() => handleRemoveExpense(_id)}>Remove Expense</Button></Grid>
     </Grid >
     : null }
     </> 
