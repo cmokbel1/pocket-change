@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+// import Box from '@mui/material/Box';
+// import TextField from '@mui/material/TextField';
 import { FormControl, InputLabel, Input, Button } from '@mui/material'
 import ExpenseContext from '../../utils/ExpenseContext'
 import { useContext } from 'react'
@@ -16,6 +16,7 @@ const ExpenseForm = () => {
 
 
   return (
+    <>
     <FormControl>
       <div className="mb-3">
         <InputLabel htmlFor="title">Category</InputLabel>
@@ -45,11 +46,12 @@ const ExpenseForm = () => {
           onChange={handleInputChange} />
       </div>
       <Button
-        color="primary"
+        variant="outlined"
         onClick={handleAddExpense} >
         Add Expense
       </Button>
     </FormControl>
+    </>
   )
 }
 

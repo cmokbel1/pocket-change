@@ -50,12 +50,10 @@ const RegisterForm = (props) => {
       <h5 className='tags'> Username </h5>
 
       <TextField
-        label="Required Username"
+        id="outlined-basic" variant="outlined"
         color="primary"
-        focused
-        // sx={{ input: { color: 'white' } }}
+            sx={{ input: { color: 'black', backgroundColor: 'white'} }}
         required
-        id="filled-required"
         defaultValue="Username"
         value={registerState.rUsername}
         onChange={handleInputChange}
@@ -75,12 +73,10 @@ const RegisterForm = (props) => {
           <h5 className='tags'> Email </h5>
 
       <TextField
-        label="Required Email"
+        id="outlined-basic" variant="outlined"
         color="primary"
-        focused
-        // sx={{ input: { color: 'white' } }}
+        sx={{ input: { color: 'black', backgroundColor: 'white' } }}
         required
-        id="filled-required"
         defaultValue="Email"
         value={registerState.rEmail}
         onChange={handleInputChange}
@@ -99,12 +95,11 @@ const RegisterForm = (props) => {
           <h5 className='tags'> Password </h5>
 
       <TextField
-        id="filled-required"
-        label="Required Password"
+        style={{ backgroundColor: 'white'}}
+        id="outlined-basic" variant="outlined"
         type="password"
         autoComplete="current-password"
         color="primary"
-        focused
         value={registerState.rPassword}
         onChange={handleInputChange}
         name="rPassword"

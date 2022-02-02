@@ -6,12 +6,11 @@ const Category = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  actual: {
+  actualValue: Number,
+  goalValue: {
     type: Number
   },
-  goal: {
-    type: Number
-  },
+  result: Number,
   month: {
     type: Schema.Types.ObjectId,
     ref: 'month'
