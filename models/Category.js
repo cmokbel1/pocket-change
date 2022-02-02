@@ -14,6 +14,10 @@ const Category = new Schema({
   month: {
     type: Schema.Types.ObjectId,
     ref: 'month'
+  },
+  user: {
+    type:Schema.Types.ObjectId,
+    ref: 'User'
   }
 }, { timestamps: true })
 

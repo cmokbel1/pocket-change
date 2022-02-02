@@ -6,6 +6,10 @@ const User = new Schema({
   category: {
     type: Schema.Types.ObjectId,
     ref: 'category'
+  },
+  month: {
+    type:Schema.Types.ObjectId,
+    ref: 'month'
   }
 }, { timestamps: true })
 User.plugin(require('passport-local-mongoose'));
