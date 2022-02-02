@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import AboutUs from './pages/AboutUs'
+
 import './App.css'
 
 const App = () => {
@@ -23,7 +24,6 @@ const App = () => {
         <Route path='/budget' element={<Budget />} />
         <Route path='/reports' element={<Reports />} />
         <Route path='/AboutUs' element={<AboutUs />} />
-        <Route path='/Contact' element={<Contact />} />
       </Routes>
     </Router>
     </>
