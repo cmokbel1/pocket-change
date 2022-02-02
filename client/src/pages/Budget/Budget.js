@@ -30,7 +30,8 @@ const Budget = () => {
   // handleAddExpense calculates using the imported categoryResult function and then pushes the values to the expenseState
   const handleAddExpense = (category, actualValue, goalValue) => {
     let result = categoryResult(actualValue, goalValue);
-    let newCategory = { name: category, actualValue: actualValue, goalValue: goalValue, result: result, };
+    let newCategory = { name: category, actual: actualValue, goal: goalValue, result: result, };
+    console.log("newCategory: ", newCategory);
     axios.post('/api/categories', newCategory, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('user')}`
@@ -53,7 +54,11 @@ const Budget = () => {
   }
 
 
-  const handleInputChange = ({ target: { name, value } }) => setExpenseState({ ...expenseState, [name]: value })
+  const handleInputChange = ({ target: { name, value } }) => {
+    console.log("expense name: ", name);
+    console.log("Expense value:", value);
+    setExpenseState({ ...expenseState, [name]: value })
+  }
   const handleInputChange2 = ({ target: { name, value } }) => setCashFlowState({ ...cashFlowState, [name]: value })
 
   /// this is basically the expenseform from the components folder but i circumvented the necessity to import it by building it out on the budget page.
@@ -110,7 +115,7 @@ const Budget = () => {
           <Grid container>
             {
               expenseState.expenses.map(expense => (
-                <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} _id={expense._id}/>
+                <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} _id={expense._id} />
               ))
             }
           </Grid>
