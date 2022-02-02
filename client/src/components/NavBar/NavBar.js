@@ -11,11 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-<<<<<<< HEAD
-// import Logo from '../../Assets/small_logo.png'
-=======
 import Logo from '../../Assets/small_logo.png'
->>>>>>> 453f2e91d49115aaad66cca50a2e681b7b843e29
 import './NavBar.css'
 
 const pages = ['Budget', 'Reports', 'Logout'];
