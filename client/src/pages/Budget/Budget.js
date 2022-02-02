@@ -30,6 +30,7 @@ const Budget = () => {
   })
   // handleAddExpense calculates using the imported categoryResult function and then pushes the values to the expenseState
   const handleAddExpense = (category, actualValue, goalValue) => {
+    console.log(category, actualValue, goalValue)
     let result = categoryResult(actualValue, goalValue);
     let newCategory = { name: category, actualValue: actualValue, goalValue: goalValue, result: result, };
     axios.post('/api/categories', newCategory, {
@@ -75,7 +76,8 @@ const Budget = () => {
               <Input name="goalSavings" value={cashFlowState.goalSavings} onChange={handleInputChange2} />
               <FormHelperText>% To Save(i.e 15% = 15)</FormHelperText>
               <br />
-              <Button disabled={cashFlowState.cashFlow < 1} onClick={() => { addAvailableCash(cashFlowState.cashFlow, cashFlowState.goalSavings) }}>Calculate Available Cash</Button>
+              <Button variant="outlined" disabled={cashFlowState.cashFlow < 1} onClick={() => { addAvailableCash(cashFlowState.cashFlow, cashFlowState.goalSavings) }}>Calculate Available Cash</Button>
+              <br/>
               <h6>Available for Expenses: {cashFlowState.result}</h6>
             </FormControl>
           </Grid>
@@ -98,7 +100,7 @@ const Budget = () => {
                 <FormHelperText >goal expense</FormHelperText>
               </Grid>
               <Grid item xs={2}>
-                <Button onClick={
+                <Button variant="outlined" onClick={
                   () => {
                     handleAddExpense(expenseState.category, expenseState.actualValue, expenseState.goalValue)
                   }} disabled={expenseState.category < 1 || expenseState.goalValue < 1}>Add</Button>
@@ -115,7 +117,10 @@ const Budget = () => {
               ))
             }
           </Grid>
-          <Button>Budget Summary</Button>
+          <Button variant="outlined" onClick={(e) => {
+            e.preventDefault();
+            window.location = '/Reports';
+          }}>Budget Summary</Button>
 
         </div>
       </div>
