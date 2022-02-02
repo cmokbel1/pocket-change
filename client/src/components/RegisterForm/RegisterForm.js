@@ -52,7 +52,7 @@ const RegisterForm = (props) => {
       <TextField
         id="outlined-basic" variant="outlined"
         color="primary"
-            sx={{ input: { color: 'white', backgroundColor: 'white'} }}
+            sx={{ input: { color: 'black', backgroundColor: 'white'} }}
         required
         defaultValue="Username"
         value={registerState.rUsername}
@@ -75,7 +75,7 @@ const RegisterForm = (props) => {
       <TextField
         id="outlined-basic" variant="outlined"
         color="primary"
-        sx={{ input: { color: 'white', backgroundColor: 'white' } }}
+        sx={{ input: { color: 'black', backgroundColor: 'white' } }}
         required
         defaultValue="Email"
         value={registerState.rEmail}
