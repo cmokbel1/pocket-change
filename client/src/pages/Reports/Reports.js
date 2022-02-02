@@ -30,6 +30,9 @@ const Reports = () => {
         <thead>
           <tr>
             <th>name</th>
+            <th>actual</th> 
+            <th>goal</th>
+            <th>difference</th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +40,21 @@ const Reports = () => {
             return (<tr>{entry.name}</tr>)
           })}
         </tbody>
-
+        <tbody>
+          {expenses.data.map(entry => {
+            return (<tr>{entry.actual}</tr>)
+          })}
+        </tbody>
+        <tbody>
+          {expenses.data.map(entry => {
+            return (<tr>{entry.goal}</tr>)
+          })}
+        </tbody>
+        <tbody>
+          {expenses.data.map(entry => {
+            return (<tr>{entry.difference}</tr>)
+          })}
+        </tbody>
       </table>
 
     </>
