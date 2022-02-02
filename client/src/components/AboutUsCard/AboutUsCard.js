@@ -70,8 +70,7 @@ const AboutUsCard = () => {
                   Jazmine Jose
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  Moderately motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -122,8 +121,7 @@ const AboutUsCard = () => {
                   Rachel Hoelscher
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -164,7 +162,7 @@ const AboutUsCard = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Timmmmmmothy Duran
+                  Timothy Duran
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
