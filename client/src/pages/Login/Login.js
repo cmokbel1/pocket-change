@@ -15,7 +15,6 @@ import Logo from '../../Assets/small_logo.png'
 import Register from '../Register'
 import Home from '../../pages/Home'
 const Login = () => {
- 
   return (
     <>
       <Container className='top'>
