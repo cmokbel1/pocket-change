@@ -72,7 +72,7 @@ const Budget = () => {
             <FormControl >
               <Input name="cashFlow" value={cashFlowState.cashFlow} onChange={handleInputChange2} />
               <FormHelperText>Expendable Income</FormHelperText>
-              <Input name='goalSavings' value={cashFlowState.goalSavings} onChange={handleInputChange2} />
+              <Input name="goalSavings" value={cashFlowState.goalSavings} onChange={handleInputChange2} />
               <FormHelperText>% To Save(i.e 15% = 15)</FormHelperText>
               <br />
               <Button disabled={cashFlowState.cashFlow < 1} onClick={() => { addAvailableCash(cashFlowState.cashFlow, cashFlowState.goalSavings) }}>Calculate Available Cash</Button>
@@ -80,21 +80,21 @@ const Budget = () => {
             </FormControl>
           </Grid>
         </div>
-        <div id='leftAlign'>
+        <div id="leftAlign">
           {/* category and associated values */}
           <h1>Create Your Expense Report</h1>
           <FormControl>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 8 }}>
               <Grid item xs={2}>
-                <Input name='category' className='Input' aria-describedby='expense category' value={expenseState.category} onChange={handleInputChange} />
+                <Input name="category" className="Input" aria-describedby="expense category" value={expenseState.category} onChange={handleInputChange} />
                 <FormHelperText >expense category</FormHelperText>
               </Grid>
               <Grid item xs={2}>
-                <Input type='number' name='actualValue' className='Input' aria-describedby='actual value' value={expenseState.actualValue} onChange={handleInputChange} />
+                <Input type="number" name="actualValue" className="Input" aria-describedby="actual value" value={expenseState.actualValue} onChange={handleInputChange} />
                 <FormHelperText >actual expense</FormHelperText>
               </Grid>
               <Grid item xs={2}>
-                <Input type='number' name='goalValue' className='Input' aria-describedby='goal value' value={expenseState.goalValue} onChange={handleInputChange} />
+                <Input type="number" name="goalValue" className="Input" aria-describedby="goal value" value={expenseState.goalValue} onChange={handleInputChange} />
                 <FormHelperText >goal expense</FormHelperText>
               </Grid>
               <Grid item xs={2}>
@@ -111,7 +111,7 @@ const Budget = () => {
           <Grid container>
             {
               expenseState.expenses.map(expense => (
-                <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} _id={expense._id}/>
+                <ExpenseCard category={expense.category} goalValue={expense.goalValue} actualValue={expense.actualValue} result={expense.result} _id={expense._id} />
               ))
             }
           </Grid>

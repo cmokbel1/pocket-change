@@ -21,15 +21,12 @@ const Item = styled(Paper)(({ theme }) => ({
   color: 'black',
 }));
 
-
-
-
 const Register = () => {
 
   return (
     <>
       <Container className='top'>
-        <a href="/"> <img src={Logo} alt="logo"></img></a> 
+        <a href="/"> <img src={Logo} alt="logo"></img></a>
         <Grid container spacing={2}>
           <Grid item xs={0} md={1}>
           </Grid>
@@ -42,9 +39,9 @@ const Register = () => {
           </Grid>
         </Grid>
         <br></br><br></br>
-      <a href='/login'>Already Have An Account?</a>
+        <a href='/login'>Already Have An Account?</a>
       </Container>
-            <br></br><br></br>
+      <br></br><br></br>
       <hr className='line'></hr>
       <Footer></Footer>
     </>
