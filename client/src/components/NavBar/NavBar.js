@@ -97,7 +97,7 @@ const NavBar = () => {
                   e.preventDefault();
                   window.location = '/Reports';
                 }}>
-                  <Typography textAlign="center">Report</Typography>
+                  <Typography textAlign="center">Reports</Typography>
                 </MenuItem>
                 <MenuItem style={{ backgroundColor: "#2a2e30" }}>
                   <Typography textAlign="center" onClick={(e) => {
