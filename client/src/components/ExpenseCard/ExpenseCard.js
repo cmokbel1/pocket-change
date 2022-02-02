@@ -3,11 +3,13 @@ import axios from 'axios'
 import {useState} from 'react'
 
 
+
 const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
   const [cardState, setCardState] = useState(true)
   const [editState, setEditState] = useState({
-    actual: '',
-    goal: ''
+    actual: actualValue,
+    goal: goalValue,
+    result: result
   })
   const handleRemoveExpense = (id) => {
   axios.delete(`/api/categories/${id}`, {
@@ -21,7 +23,8 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
 } 
   const handleEditActual = (id) => {
     let updatedActual = {
-      actualValue: editState.actual
+      actualValue: editState.actual,
+      result: JSON.parse(editState.goal - editState.actual)
     }
     axios.put(`/api/categories/${id}`, updatedActual, {
       headers: {
@@ -29,12 +32,14 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
       }
     }).then(res => {
       console.log(res)
+      setEditState({ ...editState, result: JSON.parse(editState.goal - editState.actual) })
     })
 
   } 
   const handleEditGoal = (id) => {
     let updatedGoal = {
-      goalValue: editState.goal
+      goalValue: editState.goal,
+      result: JSON.parse(editState.goal - editState.actual)
     }
     axios.put(`/api/categories/${id}`, updatedGoal, {
       headers: {
@@ -42,6 +47,7 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
       }
     }).then(res => {
       console.log(res)
+      setEditState({ ...editState, result: JSON.parse(editState.goal - editState.actual) })
     })
 
   } 
@@ -55,7 +61,7 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
       <Grid item xs={2}><h6 tag>Category: {category}</h6></Grid>
       <Grid item xs={2}><TextField name= "actual" onChange= {handleInputChange} defaultValue= {actualValue} label= "Actual" ></TextField></Grid>
       <Grid item xs={2}><TextField name="goal" onChange={handleInputChange} defaultValue={goalValue} label= "Goal"></TextField></Grid>
-      <Grid item xs={2}><span>Result: {result}</span></Grid>
+      <Grid item xs={2}><span>Result: {editState.result}</span></Grid>
       <Grid item xs={1}><Button variant="outlined" onClick={() => handleEditActual(_id)}>Update Actual</Button></Grid>
       <Grid item xs={1}><Button variant="outlined" onClick={() => handleEditGoal(_id)}>Update Goal</Button></Grid>
       <Grid item xs={1}><Button variant="outlined" onClick = {() => handleRemoveExpense(_id)}>Remove Expense</Button></Grid>
