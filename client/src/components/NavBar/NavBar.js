@@ -103,6 +103,9 @@ const NavBar = () => {
                   <Typography textAlign="center" onClick={(e) => {
                     e.preventDefault();
                     window.location = '/';
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('token');
+
                   }}>Logout</Typography>
                   </MenuItem>
                 
@@ -141,6 +144,8 @@ const NavBar = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   window.location = '/';
+                  localStorage.removeItem('user');
+                  localStorage.removeItem('token');
                 }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >

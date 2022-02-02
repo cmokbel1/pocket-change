@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import { useState } from 'react'
 
 
-export default function DropDownMenu() {
+export default function DropDownMonth() {
   let January = 'January';
   let February = 'February';
   let March = 'March';

@@ -3,13 +3,42 @@ import { Grid, Button } from '@mui/material'
 
 const ExpenseCard = ({ category, goalValue, actualValue, result }) => {
   return (
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 12 }}>
-      <Grid item xs={2}><h6 tag>Category: {category}</h6></Grid>
-      <Grid item xs={2}><span>Actual: {actualValue}</span></Grid>
-      <Grid item xs={2}><span>Goal: {goalValue}</span></Grid>
-      <Grid item xs={2}><span>Result: {result}</span></Grid>
-      <Grid item xs={2}><Button>Remove Expense</Button></Grid>
-    </Grid>
+    <>
+    <FormControl>
+      <div className="mb-3">
+        <InputLabel htmlFor="title">Category</InputLabel>
+        <Input
+          type="text"
+          className="form-control"
+          name="category"
+          value={category}
+          onChange={handleInputChange} />
+      </div>
+      <div className="mb-3">
+        <InputLabel htmlFor="goal">Goal</InputLabel>
+        <Input
+          type="text"
+          className="form-control"
+          name="goal"
+          value={goalValue}
+          onChange={handleInputChange} />
+      </div>
+      <div className="mb-3">
+        <InputLabel htmlFor="actual">Actual</InputLabel>
+        <Input
+          type="text"
+          className="form-control"
+          name="goal"
+          value={actualValue}
+          onChange={handleInputChange} />
+      </div>
+      <Button
+        color="primary"
+        onClick={handleAddExpense} >
+        Add Expense
+      </Button>
+    </FormControl>
+    </>
   )
 }
 
