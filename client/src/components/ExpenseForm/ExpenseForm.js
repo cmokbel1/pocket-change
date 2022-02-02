@@ -16,6 +16,7 @@ const ExpenseForm = () => {
 
 
   return (
+    <>
     <FormControl>
       <div className="mb-3">
         <InputLabel htmlFor="title">Category</InputLabel>
@@ -50,6 +51,7 @@ const ExpenseForm = () => {
         Add Expense
       </Button>
     </FormControl>
+    </>
   )
 }
 

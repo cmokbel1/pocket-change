@@ -9,6 +9,7 @@ import { categoryResult, calcSumTotal } from '../../utils/CategoryResult'
 import { calcAvail } from '../../utils/AvailableExpenditures'
 import './Budget.css'
 import DropDownMonth from '../../components/DropDownMonth'
+import Footer from '../../components/Footer'
 
 const Budget = () => {
 
@@ -66,14 +67,14 @@ const Budget = () => {
   return (
     <>
       <Navbar />
-      <hr />
+      <br></br>
       <div className='container'>
         <DropDownMonth />
         <div id="rightAlign">
           {/* goal savings calculator and card inputs */}
           <Grid rowSpacing={1} columnSpacing={{ xs: 1 }}>
             <h1>Calculate Cash for Expenses</h1>
-            <FormControl>
+            <FormControl >
               <Input name="cashFlow" value={cashFlowState.cashFlow} onChange={handleInputChange2} />
               <FormHelperText>Expendable Income</FormHelperText>
               <Input name="goalSavings" value={cashFlowState.goalSavings} onChange={handleInputChange2} />
@@ -123,6 +124,7 @@ const Budget = () => {
 
         </div>
       </div>
+      <Footer></Footer>
     </>
   )
 }
