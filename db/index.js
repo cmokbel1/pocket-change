@@ -1,1 +1,1 @@
-module.exports = require('mongoose').connect(process.env.MONGODB_URI || 'mongodb+srv://ClaudeM:fTJj8LJRJhkKDA3!@homeworkstuff.mjead.mongodb.net/pocket_change_db?retryWrites=true&w=majority')
+module.exports = require('mongoose').connect('mongodb+srv://ClaudeM:fTJj8LJRJhkKDA3!@homeworkstuff.mjead.mongodb.net/pocket_change_db?retryWrites=true&w=majority')
