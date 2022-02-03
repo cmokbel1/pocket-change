@@ -120,7 +120,7 @@ const NavBar = () => {
                 <Button
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location = '/Budget';
+                  window.location = '/create';
                 }}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >

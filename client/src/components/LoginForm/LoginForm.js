@@ -34,7 +34,7 @@ const LoginForm = (props) => {
       .then(token => {
         localStorage.setItem('user', token)
         setLoginState({ ...loginState, lUsername: '', lPassword: '' })
-        window.location = '/budget'
+        window.location = '/create'
       })
   }
 
