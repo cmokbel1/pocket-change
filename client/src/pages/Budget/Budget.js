@@ -1,19 +1,23 @@
+import {
+ useParams
+} from 'react-router-dom'
 import Navbar from '../../components/NavBar'
 import { FormControl, Input, Button, FormHelperText } from '@mui/material'
 import { ExpenseCard } from '../../components/ExpenseCard'
 //import DropDownYear from '../../components/DropDownYear'
 import axios from 'axios'
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import { categoryResult, calcSumTotal } from '../../utils/CategoryResult'
 import { calcAvail } from '../../utils/AvailableExpenditures'
 import './Budget.css'
-import DropDownMonth from '../../components/DropDownMonth'
 import Footer from '../../components/Footer'
 
 const Budget = () => {
-
+  const params = useParams()
+  console.log(params);
   const [expenseState, setExpenseState] = useState({
+    month: '',
     category: '',
     goalValue: 0,
     actualValue: 0,
@@ -21,6 +25,23 @@ const Budget = () => {
     sum: 0,
     expenses: []
   })
+
+
+  const renderMonth = () => {
+    axios.get(`/api/months/${params.month}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    }).then(res => {
+      console.log(res);
+      setExpenseState({...expenseState, month: res.data.name})
+    })
+  }
+
+  useEffect(() => {
+    renderMonth();
+  }, [])
+
 
   const [cashFlowState, setCashFlowState] = useState({
     cashFlow: 0,
@@ -32,7 +53,7 @@ const Budget = () => {
   const handleAddExpense = (category, actualValue, goalValue) => {
     console.log(category, actualValue, goalValue)
     let result = categoryResult(actualValue, goalValue);
-    let newCategory = { name: category, actualValue, goalValue, result };
+    let newCategory = { name: category, actualValue, goalValue, result, month: params.month };
     console.log("newCategory: ", newCategory);
     axios.post('/api/categories', newCategory, {
       headers: {
@@ -70,7 +91,7 @@ const Budget = () => {
       <Navbar />
       <br></br>
       <div className='container'>
-        <DropDownMonth />
+        <h1>{expenseState.month}</h1>
         <div id="rightAlign">
           {/* goal savings calculator and card inputs */}
           <Grid rowSpacing={1} columnSpacing={{ xs: 1 }}>
