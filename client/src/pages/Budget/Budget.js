@@ -33,7 +33,7 @@ const Budget = () => {
         'Authorization': `Bearer ${localStorage.getItem('user')}`
       }
     }).then(res => {
-      console.log(res);
+      console.log(res, res.data.name);
       setExpenseState({...expenseState, month: res.data.name})
     })
   }
