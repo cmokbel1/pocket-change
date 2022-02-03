@@ -45,12 +45,13 @@ const ExpenseCard = ({ category, goalValue, actualValue, result, _id }) => {
     <>
       {cardState ?
         <Grid container rowSpacing={1} columnSpacing={{ xs: 12 }} >
-          <Grid item xs={2}><h6 tag>Category: {category}</h6></Grid>
-          <Grid item xs={2}><TextField name="actual" onChange={handleInputChange} defaultValue={actualValue} label="Actual" ></TextField></Grid>
-          <Grid item xs={2}><TextField name="goal" onChange={handleInputChange} defaultValue={goalValue} label="Goal"></TextField></Grid>
-          <Grid item xs={2}><span>Result: {editState.result}</span></Grid>
-          <Grid item xs={1}><Button variant="outlined" onClick={() => handleEdit(_id)}>Update Expense</Button></Grid>
-          <Grid item xs={1}><Button variant="outlined" onClick={() => handleRemoveExpense(_id)}>Remove Expense</Button></Grid>
+          <Grid item xs={12} md={2}><h6 tag>Category: {category}</h6></Grid>
+          <Grid item xs={12} md={2}><TextField name="actual" onChange={handleInputChange} defaultValue={actualValue} label="Actual" ></TextField></Grid>
+          <Grid item xs={12} md={2}><TextField name="goal" onChange={handleInputChange} defaultValue={goalValue} label="Goal"></TextField></Grid>
+          <Grid item xs={12} md={2}><span>Result: {editState.result}</span></Grid>
+          <Grid item xs={12} md={1}><Button variant="outlined" onClick={() => handleEdit(_id)}>Update Expense</Button></Grid>
+          <Grid item xs={12} md={1}><Button variant="outlined" onClick={() => handleRemoveExpense(_id)}>Remove Expense</Button></Grid>
+          <br></br> <br></br>  <br></br>
         </Grid >
         : null}
     </>
