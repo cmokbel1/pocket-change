@@ -48,7 +48,7 @@ const AboutUsCard = () => {
             Claude Mokbel
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          A full-stack web developer currently based in Southern California. I've been studying web development for roughly 2 years and intend to continue my studies long into the future. I work effectively with others and display strong leadership skills when needed. Capacity to meet strict deadlines, delegate tasks, and be of assistance to team members at a moments notice. Focus on BackEnd development for this project.
+          A full-stack web developer currently based in Southern California. I've been studying web development for roughly 2 years and intend to continue my studies long into the future. I work effectively with others and display strong leadership skills when needed. Capacity to meet strict deadlines, delegate tasks, and be of assistance to team members at a moments notice. Focus on Back End development for this project.
           </Typography>
         </CardContent>
         <CardActions>
