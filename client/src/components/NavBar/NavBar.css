@@ -10,3 +10,10 @@
 .dropDown {
   background-color: #2a2e30 !important;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .pictureNav{
+    margin-right: 60px;
+  }
+}

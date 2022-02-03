@@ -35,23 +35,39 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Reports = () => {
-  const [expenses, setExpenses] = useState({ data: [] })
 
-  useEffect(() => {
-    const fetchData = async () => {
 
-      const { data } = await axios.get("/api/categories", {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('user')}`
+  // useEffect(() => {
+  //   const fetchData = async () => {
+
+  //     const { data } = await axios.get("/api/users/profile", {
+  //       headers: {
+  //         'Authorization': `Bearer ${localStorage.getItem('user')}`
+  //       }
+  //     })
+
+  //     console.log("data from /api/users/profile: ", data);
+  //     setUsers(...users, { data: data.categories })
+  //     console.log(users.data)
+  //   }
+
+  //   fetchData();
+  // }, [])
+
+  const [users, setUsers] = useState({ categories: [] })
+      useEffect(() => {
+        axios.get('/api/users/profile', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('user')}`
+          }
         }
-      })
-
-      console.log("data from /api/categories: ", data);
-      setExpenses({ data: data })
-    }
-
-    fetchData();
-  }, [])
+        )
+          .then(res => {
+            console.log(res)
+            setUsers ({...users, categories: res.data.categories})
+            console.log(users.categories)
+          })
+      }, [])
 
   return (
     <>
@@ -59,6 +75,7 @@ const Reports = () => {
       <br></br>      <br></br>
       <h1 style={{ color: "white", textAlign: "center", fontSize: "50px" }}>Budget Summary</h1>
       <br></br>      <br></br>
+
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={0} md={1}>
@@ -76,14 +93,14 @@ const Reports = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {expenses.data.map((entry) => (
-                    <StyledTableRow key={entry.name}>
+                  {users.categories.map(category => (
+                    <StyledTableRow key={category.name}>
                       <StyledTableCell component="th" scope="row">
-                        {entry.name}
+                        {category.name}
                       </StyledTableCell>
-                      <StyledTableCell align="right">{entry.actualValue}</StyledTableCell>
-                      <StyledTableCell align="right">{entry.goalValue}</StyledTableCell>
-                      <StyledTableCell align="right">{entry.result}</StyledTableCell>
+                      <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
+                      <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
+                      <StyledTableCell align="right">{category.result}</StyledTableCell>
                       <StyledTableCell align="right"></StyledTableCell>
                     </StyledTableRow>
                   ))}
