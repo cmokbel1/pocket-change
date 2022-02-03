@@ -18,7 +18,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Jazz from '../../Assets/jazz.jpg'
-import Timothy from '../../Assets/timothy.jpeg'
+import Timothy from '../../Assets/IMG_0705.jpeg'
 import Malia from '../../Assets/Malia.jpg'
 import Rachel from '../../Assets/rachel01.jpg'
 import Oliver from '../../Assets/oliver.jpg'
