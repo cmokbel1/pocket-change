@@ -109,7 +109,7 @@ const RegisterForm = (props) => {
         </Grid>
       </Grid>
       <br></br>
-      <Button variant="contained" color="success" onClick={handleRegisterUser}>Submit</Button>
+      <Button className='continue' variant="contained" color="success" onClick={handleRegisterUser}>Submit</Button>
     </Container>
   );
 };

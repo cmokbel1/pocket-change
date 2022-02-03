@@ -32,7 +32,7 @@ const Budget = () => {
   const handleAddExpense = (category, actualValue, goalValue) => {
     console.log(category, actualValue, goalValue)
     let result = categoryResult(actualValue, goalValue);
-    let newCategory = { name: category, actual: actualValue, goal: goalValue, result: result, };
+    let newCategory = { name: category, actualValue, goalValue, result };
     console.log("newCategory: ", newCategory);
     axios.post('/api/categories', newCategory, {
       headers: {
@@ -82,7 +82,7 @@ const Budget = () => {
               <FormHelperText>% To Save(i.e 15% = 15)</FormHelperText>
               <br />
               <Button variant="outlined" disabled={cashFlowState.cashFlow < 1} onClick={() => { addAvailableCash(cashFlowState.cashFlow, cashFlowState.goalSavings) }}>Calculate Available Cash</Button>
-              <br/>
+              <br />
               <h6>Available for Expenses: {cashFlowState.result}</h6>
             </FormControl>
           </Grid>
@@ -92,19 +92,19 @@ const Budget = () => {
           <h1>Create Your Expense Report</h1>
           <FormControl>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 8 }}>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Input name="category" className="Input" aria-describedby="expense category" value={expenseState.category} onChange={handleInputChange} />
-                <FormHelperText >expense category</FormHelperText>
+                <FormHelperText >Expense Category</FormHelperText>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Input type="number" name="actualValue" className="Input" aria-describedby="actual value" value={expenseState.actualValue} onChange={handleInputChange} />
-                <FormHelperText >actual expense</FormHelperText>
+                <FormHelperText >Actual Expense</FormHelperText>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Input type="number" name="goalValue" className="Input" aria-describedby="goal value" value={expenseState.goalValue} onChange={handleInputChange} />
-                <FormHelperText >goal expense</FormHelperText>
+                <FormHelperText >Goal Expense</FormHelperText>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Button variant="outlined" onClick={
                   () => {
                     handleAddExpense(expenseState.category, expenseState.actualValue, expenseState.goalValue)
@@ -122,7 +122,7 @@ const Budget = () => {
               ))
             }
           </Grid>
-          <Button variant="outlined" onClick={(e) => {
+          <Button variant="outlined" color="success" style={{ color: "#008037" }} onClick={(e) => {
             e.preventDefault();
             window.location = '/Reports';
           }}>Budget Summary</Button>
@@ -135,4 +135,3 @@ const Budget = () => {
 }
 
 export default Budget
-

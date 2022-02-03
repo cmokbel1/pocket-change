@@ -11,8 +11,8 @@ router.get('/categories', passport.authenticate('jwt'), async function (req, res
 // make 1
 router.post('/categories', passport.authenticate('jwt'), async function (req, res) {
   console.log("req.body from POST /api/categories: ", req.body);
-  const categories = await Category.create(req.body)
-  await User.findByIdAndUpdate(req.user._id, { $push: { categories: categories._id } })
+  const categories = await Category.create(...req.body, user:req.user._id)
+  await User.findByIdAndUpdate(req.user._id, { $push: { category: categories._id } })
   res.json(categories)
 })
 

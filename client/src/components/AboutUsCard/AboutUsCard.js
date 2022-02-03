@@ -20,7 +20,7 @@ import Grid from '@mui/material/Grid';
 import Jazz from '../../Assets/jazz.jpg'
 import Timothy from '../../Assets/timothy.jpeg'
 import Malia from '../../Assets/Malia.jpg'
-import Rachel from '../../Assets/rachel2.0.jpg'
+import Rachel from '../../Assets/rachel01.jpg'
 import Oliver from '../../Assets/oliver.jpg'
 import Claude from '../../Assets/claude1.png'
 import './AboutUsCard.css'
@@ -36,11 +36,11 @@ const AboutUsCard = () => {
       <Container className='cardDiv'>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card className='card' sx={{ maxWidth: 345 }}>
         <CardMedia
           component="img"
           alt="green iguana"
-          height="280"
+          height="300"
           image={Claude}
         />
         <CardContent>
@@ -48,7 +48,7 @@ const AboutUsCard = () => {
             Claude Mokbel
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          A full-stack web developer currently based in Southern California. I've been studying web development for roughly 2 years and intend to continue my studies long into the future. I work effectively with others and display strong leadership skills when needed. Capacity to meet strict deadlines, delegate tasks, and be of assistance to team members at a moments notice. Focus on BackEnd development for this project.
+          A full-stack web developer currently based in Southern California. I've been studying web development for roughly 2 years and intend to continue my studies long into the future. I work effectively with others and display strong leadership skills when needed. Capacity to meet strict deadlines, delegate tasks, and be of assistance to team members at a moments notice. Focus on Back End development for this project.
           </Typography>
         </CardContent>
         <CardActions>
@@ -58,11 +58,11 @@ const AboutUsCard = () => {
       </Card>
         </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="400"
+                height="420"
                 image={Jazz}
               />
               <CardContent>
@@ -70,8 +70,7 @@ const AboutUsCard = () => {
                   Jazmine Jose
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  This is my story. Majored in Psychology, switched it up now im an aspiring full stack web developer in the making. I can't wait to use my new found skillset in the world of coding.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -81,11 +80,11 @@ const AboutUsCard = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="380"
+                height="440"
                 image={Malia}
               />
               <CardContent>
@@ -93,7 +92,7 @@ const AboutUsCard = () => {
                   Malia Pringle
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Recent CSUF graduate and highly motivated aspiring software engineer currently searching for work! I hope you find our app useful. Yes that's right she's only 1 Pringle no S Kekw
+                  Recent CSUF graduate and highly motivated aspiring software engineer currently searching for work! I hope you find our app useful.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -110,11 +109,11 @@ const AboutUsCard = () => {
       <Container className='cardDiv'>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="300"
+                height="280"
                 image={Rachel}
               />
               <CardContent>
@@ -122,8 +121,7 @@ const AboutUsCard = () => {
                   Rachel Hoelscher
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -133,7 +131,7 @@ const AboutUsCard = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -155,19 +153,19 @@ const AboutUsCard = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="280"
+                height="300"
                 image={Timothy}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Timmmmmmothy Duran
+                  Timothy Duran
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
+                  Dedicated full-stack web developer with a keen understanding of design and knowledgeable in building robust applications.
                 </Typography>
               </CardContent>
               <CardActions>

@@ -32,22 +32,18 @@ export default function Footer() {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Account</Box>
               <Box>
-                <Link href= {Login} color="inherit">
+                <Link href= "/login" color="inherit">
                   Login
                 </Link>
               </Box>
               <Box>
-                <Link href= {Register} color="inherit">
+                <Link href= "/register" color="inherit">
                   Register
                 </Link>
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>
-                <Link href="/Contact" color="inherit">
-                  Contact
-                </Link>
-              </Box>
+              <Box borderBottom={1}>Contact</Box>
               <Box>
                 <Link href="/AboutUs" color="inherit">
                   About Us
@@ -56,7 +52,7 @@ export default function Footer() {
             </Grid>
           </Grid>
           <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-            Created By: Claude Mokbel, Jazmine Jose, Malia Pringle, Oliver Hoang, Rachel Hoelscher, Timothy Duran with lots of EMOTIONAL DAMAGE &reg; {new Date().getFullYear()}
+            Created By: Claude Mokbel, Jazmine Jose, Malia Pringle, Oliver Hoang, Rachel Hoelscher, and Timothy Duran &reg; {new Date().getFullYear()}
           </Box>
         </Container>
       </Box>

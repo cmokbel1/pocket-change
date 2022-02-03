@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react'
+import axios from 'axios'
 
 
 export default function DropDownMonth() {
@@ -25,6 +26,12 @@ export default function DropDownMonth() {
 
   const handleChange = (event) => {
     setMonth(event.target.value);
+    console.log(event.target.value)
+    axios.post('/api/months', event.target.value, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    })
   };
 
   return (
