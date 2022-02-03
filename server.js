@@ -30,12 +30,6 @@ passport.use(new JWTStrategy({
     path: 'categories',
     model:'category'
     }
-  }).populate({
-    path:'categories',
-    populate: {
-      path: 'month',
-      model: 'month'
-    }
   })
   .then(user => cb(null, user))
   .catch(err => cb(err))))
