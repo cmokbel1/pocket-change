@@ -3,9 +3,9 @@
 # Pocket Change
 
 # Description
-<!-- Add What the applications does here -->
+Pocket Change is a budgeting app that helps users track their expenses on a month to month basis. The user will calculate their income for expenses by inputting their expendable income for the month and percentage that they would like to save for the month. The user will then create their expense report by inputting the category, the goal of how much they would like to spend and what their actual expense was. It will then generate a report. 
 
-<!-- Link to deployed Application -->
+Deployed Link: <a href="https://pocket-changee.herokuapp.com/">Heroku</a><br>
 
 ## Table of Contents
 
@@ -18,30 +18,48 @@
 * [Questions](#questions)
 
 ## Installation
+`npm i` main folder and `cd client` folder and `npm` to get all necessary npm packages.
 
-To install necesary dependencies download the sourced and run 'npm i' in the root of the directory.
+Dependencies:
+
 
 ## Usage
 
-Once the source code has been downloaded and the dependencies have been installed, run 'npm start' to initialize the application. You will need to create a .env file and create the database.
+Once the source code has been downloaded and the dependencies have been installed, run `npm start` to initialize the application. Database will automatically create when you `npm start`. 
 
-## Credits
-<!-- Put all group members names/repos -->
-
+## Credits:
+Creators: <br>
+<a href="https://github.com/me0wmerz">Rachel Hoelscher</a><br>
+<a href="https://github.com/cmokbel1">Claude Mokbel</a><br>
+<a href="https://github.com/LohasOT">Oliver Hoang</a><br>
+<a href="https://github.com/pringle97">Malia Pringle</a><br>
+<a href="https://github.com/timduran">Timothy Duran</a><br>
+<a href="https://github.com/jazminejose">Jazmine Jose</a>
 
 ## Contributing
 
-<!-- What do users need to know about contributing to this repository. -->
+None
 
 ## License
 
 This project is licensed under the MIT License.
 
 ## Technologies
-
-<!-- List out all technologies that were used (i.e css packages, frameworks and etc.) -->
+Technologies used:<br>
+`Mongoose`, `MUI`, `Express`, `Axios`, `React.js`, `Passport`, `dotenv`
 
 ## Questions
 
-For any questions please contact 
-<!-- Group Members Info who would want to be contacted. -->
+For any questions please contact:<br>
+<a href="https://github.com/me0wmerz">Rachel Hoelscher</a><br>
+<a href="https://github.com/cmokbel1">Claude Mokbel</a><br>
+<a href="https://github.com/LohasOT">Oliver Hoang</a><br>
+<a href="https://github.com/pringle97">Malia Pringle</a><br>
+<a href="https://github.com/timduran">Timothy Duran</a><br>
+<a href="https://github.com/jazminejose">Jazmine Jose</a>
+
+## 
+
+<img src="https://user-images.githubusercontent.com/91640571/152278371-86da6352-6cd6-489d-927e-ca93552cf7a7.png"/>
+<img src="https://user-images.githubusercontent.com/91640571/152278428-72bb0894-fe29-42a4-bba2-16fb423f5cd3.png"/>
+<img src="https://user-images.githubusercontent.com/91640571/152278577-18796f2f-e3bf-413a-bb10-dead61d064b2.png"/>
