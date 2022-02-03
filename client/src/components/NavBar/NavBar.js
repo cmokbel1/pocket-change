@@ -14,8 +14,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Logo from '../../Assets/small_logo.png'
 import './NavBar.css'
 
-const pages = ['Budget', 'Reports', 'Logout'];
-const pagesLink = ['/Budget', '/Reports', '/Login']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -50,7 +48,7 @@ const NavBar = () => {
               component="div"
               sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             >
-              <img className='pictureNav' src={Logo} alt='logo'></img>
+              <a href='/' ><img className='pictureNav' src={Logo} alt='logo'></img></a>
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -117,7 +115,7 @@ const NavBar = () => {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
             >
-              <img className='pictureNav' src={Logo} alt='logo'></img>
+              <a href='/' ><img className='pictureNav' src={Logo} alt='logo'></img></a>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 

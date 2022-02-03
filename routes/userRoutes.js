@@ -22,6 +22,7 @@ router.get('/users', passport.authenticate('jwt'), (req, res) => {
   res.json(req.user)
 })
 
+router.get('/users/profile', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
 module.exports = router
 

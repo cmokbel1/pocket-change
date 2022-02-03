@@ -92,19 +92,19 @@ const Budget = () => {
           <h1>Create Your Expense Report</h1>
           <FormControl>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 8 }}>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Input name="category" className="Input" aria-describedby="expense category" value={expenseState.category} onChange={handleInputChange} />
                 <FormHelperText >Expense Category</FormHelperText>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Input type="number" name="actualValue" className="Input" aria-describedby="actual value" value={expenseState.actualValue} onChange={handleInputChange} />
                 <FormHelperText >Actual Expense</FormHelperText>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Input type="number" name="goalValue" className="Input" aria-describedby="goal value" value={expenseState.goalValue} onChange={handleInputChange} />
                 <FormHelperText >Goal Expense</FormHelperText>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={3}>
                 <Button variant="outlined" onClick={
                   () => {
                     handleAddExpense(expenseState.category, expenseState.actualValue, expenseState.goalValue)

@@ -40,7 +40,7 @@ const AboutUsCard = () => {
         <CardMedia
           component="img"
           alt="green iguana"
-          height="280"
+          height="300"
           image={Claude}
         />
         <CardContent>
@@ -62,7 +62,7 @@ const AboutUsCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="400"
+                height="420"
                 image={Jazz}
               />
               <CardContent>
@@ -70,7 +70,7 @@ const AboutUsCard = () => {
                   Jazmine Jose
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
+                  This is my story. Majored in Psychology, switched it up now im an aspiring full stack web developer in the making. I can't wait to use my new found skillset in the world of coding.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -84,7 +84,7 @@ const AboutUsCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="400"
+                height="440"
                 image={Malia}
               />
               <CardContent>
@@ -92,7 +92,7 @@ const AboutUsCard = () => {
                   Malia Pringle
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Recent CSUF graduate and highly motivated aspiring software engineer currently searching for work! I hope you find our app useful. Yes that's right she's only 1 Pringle no S Kekw
+                  Recent CSUF graduate and highly motivated aspiring software engineer currently searching for work! I hope you find our app useful.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -157,7 +157,7 @@ const AboutUsCard = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="280"
+                height="300"
                 image={Timothy}
               />
               <CardContent>
@@ -165,7 +165,7 @@ const AboutUsCard = () => {
                   Timothy Duran
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Highly motivated and results-oriented full-stack web developer who operates with strong sense of urgency and thrives in a fast-paced setting while maintaining high standards.
+                  Dedicated full-stack web developer with a keen understanding of design and knowledgeable in building robust applications.
                 </Typography>
               </CardContent>
               <CardActions>
