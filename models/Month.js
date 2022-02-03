@@ -5,7 +5,7 @@ const Month = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'},
-  category: [
+  categories: [
     {type: Schema.Types.ObjectId,
     ref: 'category'}],
   }, 

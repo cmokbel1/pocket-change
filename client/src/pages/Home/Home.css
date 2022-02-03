@@ -30,6 +30,19 @@ p {
 
 .pic {
   max-width: 100%;
+  transition: 0.3s;
+}
+
+.pic:hover {
+  transform: scale(1.03, 1.03);
+}
+
+.continue {
+  transition: 0.3s;
+}
+
+.continue:hover {
+  transform: scale(1.03, 1.03);
 }
 
 @media only screen and (max-width: 1200px) {
