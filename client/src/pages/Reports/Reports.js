@@ -39,17 +39,17 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const Reports = () => {
 
  //GRAB THE USER PROFILE
-  const [users, setUsers] = useState({ months: [], categories: [] })
+  const [users, setUsers] = useState({ months: [] })
       useEffect(() => {
-        axios.get('/api/users/profile', {
+         axios.get('/api/users/profile', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('user')}`
           }
         }
         )
           .then(res => {
-            console.log(res)
-            setUsers ({...users, months: res.data.months, categories: res.data.categories})
+            console.log(res.data)
+            setUsers({...users, months: res.data.months })
             console.log(users.months)
           })
       }, [])
@@ -95,7 +95,7 @@ const Reports = () => {
                 </TableHead>
                 <TableBody>
                   {users.months.map(month => (
-                    <StyledTableRow key={month.name}>
+                    <StyledTableRow key={month._id}>
                       <StyledTableCell component="th" scope="row">
                         <Button onClick={handleOpen}>{month.name}</Button>
                         <Modal
