@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react'
 import axios from 'axios'
-
+import Button from '@mui/material/Button'
 
 export default function DropDownMonth() {
   let January = 'January';
@@ -27,12 +27,18 @@ export default function DropDownMonth() {
   const handleChange = (event) => {
     setMonth(event.target.value);
     console.log(event.target.value)
-    axios.post('/api/months', event.target.value, {
+  };
+
+  const handleCreateMonth = () => {
+    axios.post('/api/months', { name: month }, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('user')}`
       }
+    }).then(res => {
+      console.log(res);
+      window.location = `/budget/${res.data._id}`
     })
-  };
+  }
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -59,6 +65,7 @@ export default function DropDownMonth() {
           <MenuItem value={December}>December</MenuItem>
         </Select>
       </FormControl>
+      <Button variant="outlined" onClick={handleCreateMonth}>Final Answer</Button>
     </Box>
   );
 }

@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import AboutUs from './pages/AboutUs'
+import CreateMonth from './pages/CreateMonth'
 
 import './App.css'
 
@@ -21,9 +22,10 @@ const App = () => {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Home />} />
-        <Route path='/budget' element={<Budget />} />
+        <Route path='/budget/:month' element={<Budget />} />
         <Route path='/reports' element={<Reports />} />
         <Route path='/AboutUs' element={<AboutUs />} />
+        <Route path='/create' element={<CreateMonth/>} />
       </Routes>
     </Router>
     </>

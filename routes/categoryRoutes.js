@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Category } = require('../models')
+const { User, Month, Category } = require('../models')
 const passport = require('passport')
 
 // get all
@@ -13,6 +13,7 @@ router.post('/categories', passport.authenticate('jwt'), async function (req, re
   console.log("req.body from POST /api/categories: ", req.body);
   const category = await Category.create({ ...req.body, user: req.user._id })
   await User.findByIdAndUpdate(req.user._id, { $push: { categories: category._id } })
+  await Month.findByIdAndUpdate(category.month._id, {$push: { categories: category._id } })
   res.json(category)
 })
 
