@@ -36,7 +36,7 @@ const AboutUsCard = () => {
       <Container className='cardDiv'>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card className='card' sx={{ maxWidth: 345 }}>
         <CardMedia
           component="img"
           alt="green iguana"
@@ -58,7 +58,7 @@ const AboutUsCard = () => {
       </Card>
         </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -80,7 +80,7 @@ const AboutUsCard = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -109,7 +109,7 @@ const AboutUsCard = () => {
       <Container className='cardDiv'>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -131,7 +131,7 @@ const AboutUsCard = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -153,7 +153,7 @@ const AboutUsCard = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
