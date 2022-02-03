@@ -7,6 +7,9 @@ import Select from '@mui/material/Select';
 import { useState } from 'react'
 import axios from 'axios'
 import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid';
+import './DropDownMonth.css';
+import Container from '@mui/material/Container';
 
 export default function DropDownMonth() {
   let January = 'January';
@@ -41,7 +44,12 @@ export default function DropDownMonth() {
   }
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <>
+
+    <Grid container spacing={2}>
+      <Grid item xs={0} md={2}></Grid>
+      <Grid item xs={12} md={8}>
+    <Box style={{ backgroundColor: "white"}} sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Month</InputLabel>
         <Select
@@ -65,7 +73,15 @@ export default function DropDownMonth() {
           <MenuItem value={December}>December</MenuItem>
         </Select>
       </FormControl>
-      <Button variant="outlined" onClick={handleCreateMonth}>Final Answer</Button>
     </Box>
+      <Grid item xs={0} md={2}></Grid>
+          </Grid>
+          </Grid>
+      <br></br><br></br><br></br>
+      
+      <Box textAlign='center'>
+      <Button className='sub' variant="contained" color="success" onClick={handleCreateMonth}>Submit</Button>
+      </Box>
+    </>
   );
 }
