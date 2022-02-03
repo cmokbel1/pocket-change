@@ -93,17 +93,17 @@ const Reports = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {/* {users.data.map((entry) => (
-                    <StyledTableRow key={entry.name}>
+                  {users.categories.map(category => (
+                    <StyledTableRow key={category.name}>
                       <StyledTableCell component="th" scope="row">
-                        {entry.name}
+                        {category.name}
                       </StyledTableCell>
-                      <StyledTableCell align="right">{entry.actualValue}</StyledTableCell>
-                      <StyledTableCell align="right">{entry.goalValue}</StyledTableCell>
-                      <StyledTableCell align="right">{entry.result}</StyledTableCell>
+                      <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
+                      <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
+                      <StyledTableCell align="right">{category.result}</StyledTableCell>
                       <StyledTableCell align="right"></StyledTableCell>
                     </StyledTableRow>
-                  ))} */}
+                  ))}
                 </TableBody>
               </Table>
             </TableContainer>
