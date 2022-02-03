@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  input: {
+    borderColor: 'blue',
+    borderStyle: 'solid',
+    borderWidth: '5px'
+  }
 }));
 
 const ContactForm = (props) => {
@@ -54,15 +59,13 @@ const ContactForm = (props) => {
         <Grid item xs={12} md={10}>
           <h5 className='tags'> Name </h5>
           <TextField
-            label="Required Name"
-            color="primary"
             focused
-            sx={{ input: { color: 'white' } }}
             required
             id="filled-required"
             value={contactFormState.name}
             onChange={handleInputChange}
             name="name"
+            className={classes.input}
           />
           <Grid item xs={0} md={1}>
           </Grid>
@@ -79,7 +82,6 @@ const ContactForm = (props) => {
           <TextField
             id="filled-required"
             label="Required Email"
-            color="primary"
             focused
             value={contactFormState.email}
             onChange={handleInputChange}
@@ -103,7 +105,6 @@ const ContactForm = (props) => {
             rows={6}
             id="filled-required"
             label="Required Message"
-            color="primary"
             focused
             value={contactFormState.message}
             onChange={handleInputChange}
@@ -122,3 +123,7 @@ const ContactForm = (props) => {
 };
 
 export default ContactForm;
+
+
+
+

@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import AboutUs from './pages/AboutUs'
+import Contact from './pages/Contact'
 import './App.css'
 
 const App = () => {

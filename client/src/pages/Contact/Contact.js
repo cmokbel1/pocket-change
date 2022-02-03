@@ -1,13 +1,6 @@
 import Navbar from '../../components/NavBar'
 import ContactForm from '../../components/ContactForm'
-import { FormControl, Input, Button, FormHelperText } from '@mui/material'
-import { ExpenseCard } from '../../components/ExpenseCard'
-import { DropDownMenu } from '../../components/DropDown'
-import axios from 'axios'
 import { React, useState } from 'react'
-import { Grid } from '@mui/material'
-import { categoryResult, calcSumTotal } from '../../utils/CategoryResult'
-import { calcAvail } from '../../utils/AvailableExpendatures'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
