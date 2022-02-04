@@ -68,9 +68,9 @@ const Reports = () => {
   };
 
   // defining modal state
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open, setOpen] = React.useState({});
+  const handleOpen = monthId => setOpen(prev => ({ ...prev, [monthId]: true }));
+  const handleClose = monthId => setOpen(prev => ({ ...prev, [monthId]: false }));
 
 
 
@@ -97,10 +97,10 @@ const Reports = () => {
                   {users.months.map(month => (
                     <StyledTableRow key={month._id}>
                       <StyledTableCell component="th" scope="row">
-                        <Button onClick={handleOpen}>{month.name}</Button>
+                        <Button onClick={() => handleOpen(month._id)}>{month.name}</Button>
                         <Modal
-                          open={open}
-                          onClose={handleClose}
+                          open={open[month._id]}
+                          onClose={() =>handleClose(month._id)}
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
                         >
