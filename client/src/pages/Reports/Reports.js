@@ -37,24 +37,46 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Reports = () => {
-
- //GRAB THE USER PROFILE
-  const [users, setUsers] = useState({ months: [] })
-      useEffect(() => {
-         axios.get('/api/users/profile', {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('user')}`
-          }
+  // BUTTON TO DELETE A MONTH
+  const handleDeleteMonth = (id) => {
+    console.log(id)
+    axios.delete(`/api/months/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    }).then(res => {
+      console.log(res)
+      axios.get('/api/users/profile', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('user')}`
         }
-        )
-          .then(res => {
-            console.log(res.data)
-            setUsers({...users, months: res.data.months })
-            console.log(users.months)
-          })
-      }, [])
+      }
+      )
+        .then(res => {
+          console.log(res.data)
+          setUsers({ ...users, months: res.data.months })
+          console.log(users.months)
+        })
+    })
+  }
 
-      // defining modal styles
+  //GRAB THE USER PROFILE
+  const [users, setUsers] = useState({ months: [] })
+  useEffect(() => {
+    axios.get('/api/users/profile', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    }
+    )
+      .then(res => {
+        console.log(res.data)
+        setUsers({ ...users, months: res.data.months })
+        console.log(users.months)
+      })
+  }, [])
+
+  // defining modal styles
   const style = {
     position: 'absolute',
     top: '50%',
@@ -71,8 +93,6 @@ const Reports = () => {
   const [open, setOpen] = React.useState({});
   const handleOpen = monthId => setOpen(prev => ({ ...prev, [monthId]: true }));
   const handleClose = monthId => setOpen(prev => ({ ...prev, [monthId]: false }));
-
-
 
   return (
     <>
@@ -97,10 +117,11 @@ const Reports = () => {
                   {users.months.map(month => (
                     <StyledTableRow key={month._id}>
                       <StyledTableCell component="th" scope="row">
-                        <Button onClick={() => handleOpen(month._id)}>{month.name}</Button>
+                        <Button onClick={() => handleOpen(month._id)} align="left">{month.name}</Button>
+                        <Button style={{ minWidth: 200 }} align="right" onClick={() => {handleDeleteMonth(month._id)}}>Delete</Button>
                         <Modal
                           open={open[month._id]}
-                          onClose={() =>handleClose(month._id)}
+                          onClose={() => handleClose(month._id)}
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
                         >
@@ -124,6 +145,8 @@ const Reports = () => {
                                         </TableHead>
                                         <TableBody>
                                           {month.categories.map(category => (
+                                            <>
+                                            
                                             <StyledTableRow key={category.name}>
                                               <StyledTableCell component="th" scope="row">
                                                 {category.name}
@@ -133,7 +156,15 @@ const Reports = () => {
                                               <StyledTableCell align="right">{category.result}</StyledTableCell>
                                               <StyledTableCell align="right"></StyledTableCell>
                                             </StyledTableRow>
+                                            </>
                                           ))}
+                                          <StyledTableRow>
+                                            <styledTableCell component="th" scope="row">Net</styledTableCell>
+                                            <StyledTableCell align="right"></StyledTableCell>
+                                            <StyledTableCell align="right">goal</StyledTableCell>
+                                            <StyledTableCell align="right">result</StyledTableCell>
+                                            <StyledTableCell align="right"></StyledTableCell>
+                                          </StyledTableRow>
                                         </TableBody>
                                       </Table>
                                     </TableContainer>

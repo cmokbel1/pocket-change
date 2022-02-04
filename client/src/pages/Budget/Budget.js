@@ -22,7 +22,6 @@ const Budget = () => {
     goalValue: 0,
     actualValue: 0,
     result: 0,
-    sum: 0,
     expenses: []
   })
 
