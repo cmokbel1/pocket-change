@@ -37,6 +37,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Reports = () => {
+  //defined totals for goal actual and result
+  const [resultTotal, setResultTotal] = useState(0
+    )
   // BUTTON TO DELETE A MONTH
   const handleDeleteMonth = (id) => {
     console.log(id)
@@ -72,7 +75,10 @@ const Reports = () => {
       .then(res => {
         console.log(res.data)
         setUsers({ ...users, months: res.data.months })
-        console.log(users.months)
+       
+        res.data.months.forEach(month => {
+          console.log("hello")
+        })
       })
   }, [])
 
@@ -144,9 +150,11 @@ const Reports = () => {
                                           </TableRow>
                                         </TableHead>
                                         <TableBody>
+
+
                                           {month.categories.map(category => (
                                             <>
-                                            
+
                                             <StyledTableRow key={category.name}>
                                               <StyledTableCell component="th" scope="row">
                                                 {category.name}
@@ -162,7 +170,7 @@ const Reports = () => {
                                             <styledTableCell component="th" scope="row">Net</styledTableCell>
                                             <StyledTableCell align="right"></StyledTableCell>
                                             <StyledTableCell align="right">goal</StyledTableCell>
-                                            <StyledTableCell align="right">result</StyledTableCell>
+                                            <StyledTableCell align="right">{resultTotal}</StyledTableCell>
                                             <StyledTableCell align="right"></StyledTableCell>
                                           </StyledTableRow>
                                         </TableBody>
