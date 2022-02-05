@@ -24,7 +24,13 @@ passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.SECRET
 }, ({ id }, cb) => User.findById(id)
-  .populate('categories')
+  .populate({
+    path: 'months',
+    populate: {
+    path: 'categories',
+    model:'category'
+    }
+  })
   .then(user => cb(null, user))
   .catch(err => cb(err))))
 

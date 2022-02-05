@@ -25,6 +25,11 @@ router.put('/months/:id', passport.authenticate('jwt'), async function (req, res
 })
 
 router.delete('/months/:id', passport.authenticate('jwt'), async function (req, res) {
+  let month = await Month.findById(req.params.id)
+  await Category.deleteMany({ month: month._id })
+  // await month.categories.forEach(category => {
+  //   Category.findByIdAndDelete(category._id)
+  // })
   await Month.findByIdAndDelete(req.params.id)
   res.sendStatus(200)
 })

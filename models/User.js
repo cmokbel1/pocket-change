@@ -8,10 +8,10 @@ const User = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'category'
     }],
-  month: {
+  months: [{
     type:Schema.Types.ObjectId,
     ref: 'month'
-  }
+  }]
 }, { timestamps: true })
 User.plugin(require('passport-local-mongoose'));
 

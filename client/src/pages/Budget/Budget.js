@@ -22,7 +22,6 @@ const Budget = () => {
     goalValue: 0,
     actualValue: 0,
     result: 0,
-    sum: 0,
     expenses: []
   })
 
@@ -33,7 +32,7 @@ const Budget = () => {
         'Authorization': `Bearer ${localStorage.getItem('user')}`
       }
     }).then(res => {
-      console.log(res);
+      console.log(res, res.data.name);
       setExpenseState({...expenseState, month: res.data.name})
     })
   }

@@ -13,6 +13,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button'
+import { Modal, Box, Typography } from '@mui/material'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -35,45 +37,74 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Reports = () => {
-
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-
-  //     const { data } = await axios.get("/api/users/profile", {
-  //       headers: {
-  //         'Authorization': `Bearer ${localStorage.getItem('user')}`
-  //       }
-  //     })
-
-  //     console.log("data from /api/users/profile: ", data);
-  //     setUsers(...users, { data: data.categories })
-  //     console.log(users.data)
-  //   }
-
-  //   fetchData();
-  // }, [])
-
-  const [users, setUsers] = useState({ categories: [] })
-      useEffect(() => {
-        axios.get('/api/users/profile', {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('user')}`
-          }
+  //defined totals for goal actual and result
+  const [resultTotal, setResultTotal] = useState(0
+    )
+  // BUTTON TO DELETE A MONTH
+  const handleDeleteMonth = (id) => {
+    console.log(id)
+    axios.delete(`/api/months/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    }).then(res => {
+      console.log(res)
+      axios.get('/api/users/profile', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('user')}`
         }
-        )
-          .then(res => {
-            console.log(res)
-            setUsers ({...users, categories: res.data.categories})
-            console.log(users.categories)
-          })
-      }, [])
+      }
+      )
+        .then(res => {
+          console.log(res.data)
+          setUsers({ ...users, months: res.data.months })
+          console.log(users.months)
+        })
+    })
+  }
+
+  //GRAB THE USER PROFILE
+  const [users, setUsers] = useState({ months: [] })
+  useEffect(() => {
+    axios.get('/api/users/profile', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    }
+    )
+      .then(res => {
+        console.log(res.data)
+        setUsers({ ...users, months: res.data.months })
+       
+        res.data.months.forEach(month => {
+          console.log("hello")
+        })
+      })
+  }, [])
+
+  // defining modal styles
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 1000,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
+  // defining modal state
+  const [open, setOpen] = React.useState({});
+  const handleOpen = monthId => setOpen(prev => ({ ...prev, [monthId]: true }));
+  const handleClose = monthId => setOpen(prev => ({ ...prev, [monthId]: false }));
 
   return (
     <>
       <NavBar></NavBar>
       <br></br>      <br></br>
-      <h1 style={{ color: "white", textAlign: "center", fontSize: "50px" }}>Budget Summary</h1>
+      <h1 style={{ color: "white", textAlign: "center", fontSize: "50px" }}>Budget Summaries</h1>
       <br></br>      <br></br>
 
       <Container>
@@ -85,23 +116,75 @@ const Reports = () => {
               <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <TableHead>
                   <TableRow>
-                    <StyledTableCell style={{ fontSize: "25px" }}>Categories</StyledTableCell>
-                    <StyledTableCell style={{ fontSize: "25px" }} align="right">Spent</StyledTableCell>
-                    <StyledTableCell style={{ fontSize: "25px" }} align="right">Goals</StyledTableCell>
-                    <StyledTableCell style={{ fontSize: "25px" }} align="right">Results</StyledTableCell>
-                    <StyledTableCell style={{ fontSize: "25px" }} align="right"></StyledTableCell>
+                    <StyledTableCell style={{ fontSize: "25px" }}>Month</StyledTableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {users.categories.map(category => (
-                    <StyledTableRow key={category.name}>
+                  {users.months.map(month => (
+                    <StyledTableRow key={month._id}>
                       <StyledTableCell component="th" scope="row">
-                        {category.name}
+                        <Button onClick={() => handleOpen(month._id)} align="left">{month.name}</Button>
+                        <Button style={{ minWidth: 200 }} align="right" onClick={() => {handleDeleteMonth(month._id)}}>Delete</Button>
+                        <Modal
+                          open={open[month._id]}
+                          onClose={() => handleClose(month._id)}
+                          aria-labelledby="modal-modal-title"
+                          aria-describedby="modal-modal-description"
+                        >
+                          <Box sx={style}>
+                            <Typography id="modal-modal-title" variant="h6" component="h2">
+                              <Container>
+                                < Grid container spacing={2} >
+                                  <Grid item xs={0} md={1}>
+                                  </Grid>
+                                  <Grid item xs={12} md={10}>
+                                    <TableContainer component={Paper}>
+                                      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                                        <TableHead>
+                                          <TableRow>
+                                            <StyledTableCell style={{ fontSize: "25px" }}>Categories</StyledTableCell>
+                                            <StyledTableCell style={{ fontSize: "25px" }} align="right">Spent</StyledTableCell>
+                                            <StyledTableCell style={{ fontSize: "25px" }} align="right">Goals</StyledTableCell>
+                                            <StyledTableCell style={{ fontSize: "25px" }} align="right">Results</StyledTableCell>
+                                            <StyledTableCell style={{ fontSize: "25px" }} align="right"></StyledTableCell>
+                                          </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+
+
+                                          {month.categories.map(category => (
+                                            <>
+
+                                            <StyledTableRow key={category.name}>
+                                              <StyledTableCell component="th" scope="row">
+                                                {category.name}
+                                              </StyledTableCell>
+                                              <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
+                                              <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
+                                              <StyledTableCell align="right">{category.result}</StyledTableCell>
+                                              <StyledTableCell align="right"></StyledTableCell>
+                                            </StyledTableRow>
+                                            </>
+                                          ))}
+                                          <StyledTableRow>
+                                            <styledTableCell component="th" scope="row">Net</styledTableCell>
+                                            <StyledTableCell align="right"></StyledTableCell>
+                                            <StyledTableCell align="right">goal</StyledTableCell>
+                                            <StyledTableCell align="right">{resultTotal}</StyledTableCell>
+                                            <StyledTableCell align="right"></StyledTableCell>
+                                          </StyledTableRow>
+                                        </TableBody>
+                                      </Table>
+                                    </TableContainer>
+                                  </Grid>
+                                  <Grid item xs={0} md={1}>
+                                  </Grid>
+                                </Grid >
+                              </Container >
+                            </Typography>
+                          </Box>
+                        </Modal>
                       </StyledTableCell>
-                      <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
-                      <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
-                      <StyledTableCell align="right">{category.result}</StyledTableCell>
-                      <StyledTableCell align="right"></StyledTableCell>
                     </StyledTableRow>
                   ))}
                 </TableBody>
@@ -120,3 +203,5 @@ const Reports = () => {
 }
 
 export default Reports
+
+
