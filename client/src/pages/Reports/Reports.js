@@ -1,20 +1,13 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import * as React from 'react';
+
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button'
-import { Modal, Box, Typography } from '@mui/material'
+
+
+import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper, Container, Grid, Button, Modal, Box, Typography } from '@mui/material'
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
