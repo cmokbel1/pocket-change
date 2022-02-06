@@ -1,9 +1,10 @@
-import NavBar from '../../components/NavBar'
+import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+
 import './Home.css'
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
@@ -11,6 +12,7 @@ import Footer from '../../components/Footer'
 import Logo from '../../Assets/Pocket_Change_logo_2.0.png'
 import Login from '../Login'
 import Register from '../Register'
+import NavBar from '../../components/NavBar'
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
