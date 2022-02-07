@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-
+import { ResultCalculator } from '../../components/ResultCalculator'
 
 import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper, Container, Grid, Button, Modal, Box, Typography } from '@mui/material';
 
@@ -143,7 +143,7 @@ const Reports = () => {
                                               <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
                                               <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
                                               <StyledTableCell align="right">{category.result}</StyledTableCell>
-                                              <StyledTableCell align="right"></StyledTableCell>
+                                                <StyledTableCell align="right"><ResultCalculator actualValue={category.actualValue} goalValue={category.goalValue} result={category.result} /></StyledTableCell>
                                             </StyledTableRow>
                                             </>
                                           ))}
