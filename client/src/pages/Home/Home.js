@@ -44,6 +44,13 @@ const Home = () => {
               }}>
               Get Started
               </Button>
+              <br /><br />
+              <Button className='continue' variant="contained" color="success" onClick={(e) => {
+                e.preventDefault();
+                window.location = '/Login';
+              }}>
+                Login
+              </Button>
               </div>
           </Grid>
           <Grid item xs={0} md={1} >
