@@ -1,12 +1,12 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import * as React from 'react';
 
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 
 
-import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper, Container, Grid, Button, Modal, Box, Typography } from '@mui/material'
+import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper, Container, Grid, Button, Modal, Box, Typography } from '@mui/material';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -43,9 +43,7 @@ const Reports = () => {
         setUsers({ ...users, months: res.data.months })
       })
   }
-  //defined totals for goal actual and result
-  const [resultTotal, setResultTotal] = useState(0
-    )
+
   // BUTTON TO DELETE A MONTH
   const handleDeleteMonth = (id) => {
     console.log(id)
@@ -151,9 +149,9 @@ const Reports = () => {
                                           ))}
                                           <StyledTableRow>
                                             <styledTableCell component="th" scope="row">Net</styledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
+                                            <StyledTableCell align="right">actual</StyledTableCell>
                                             <StyledTableCell align="right">goal</StyledTableCell>
-                                            <StyledTableCell align="right">{resultTotal}</StyledTableCell>
+                                            <StyledTableCell align="right">result</StyledTableCell>
                                             <StyledTableCell align="right"></StyledTableCell>
                                           </StyledTableRow>
                                         </TableBody>
