@@ -1,7 +1,9 @@
-import Navbar from '../../components/NavBar'
-import ContactForm from '../../components/ContactForm'
-import { React, useState } from 'react'
-import { makeStyles } from '@material-ui/core'
+import React from 'react';
+
+import Navbar from '../../components/NavBar';
+import ContactForm from '../../components/ContactForm';
+
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   paper: {

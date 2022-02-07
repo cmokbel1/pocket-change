@@ -1,6 +1,6 @@
 import * as React from 'react';
-import './AboutUsCard.css'
 
+import './AboutUsCard.css'
 import Jazz from '../../Assets/jazz.jpg'
 import Timothy from '../../Assets/IMG_0705.jpeg'
 import Malia from '../../Assets/Malia.jpg'

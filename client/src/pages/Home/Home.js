@@ -1,18 +1,13 @@
 import * as React from 'react';
 
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-
-import './Home.css'
-import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import Footer from '../../components/Footer'
 import Logo from '../../Assets/Pocket_Change_logo_2.0.png'
-import Login from '../Login'
-import Register from '../Register'
-import NavBar from '../../components/NavBar'
+import './Home.css'
+
+
+import { Container, Paper, Grid, styled, Button } from '@mui/material';
+
+
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,

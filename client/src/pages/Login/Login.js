@@ -1,19 +1,14 @@
-import LoginForm from "../../components/LoginForm"
-import "./Login.css";
-import { useState } from 'react'
-import UserAPI from '../../utils/UserAPI'
-import NavBar from '../../components/NavBar'
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import Footer from '../../components/Footer'
-import Logo from '../../Assets/small_logo.png'
-import Register from '../Register'
-import Home from '../../pages/Home'
+
+import Footer from '../../components/Footer';
+import Logo from '../../Assets/small_logo.png';
+import LoginForm from "../../components/LoginForm";
+import "./Login.css";
+
+import { Container, Grid } from '@mui/material';
+
+
+
 const Login = () => {
   return (
     <>

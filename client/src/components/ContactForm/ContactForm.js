@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import TextField from '@mui/material/TextField';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button'
-import Grid from '@mui/material/Grid';
+import { useState } from 'react';
+
 import './ContactForm.css';
-import { makeStyles } from '@material-ui/core'
+
+import { TextField, Container, Button, Grid }  from '@mui/material';
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   paper: {

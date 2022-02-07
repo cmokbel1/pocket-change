@@ -1,17 +1,16 @@
-import {
- useParams
-} from 'react-router-dom'
-import Navbar from '../../components/NavBar'
-import { FormControl, Input, Button, FormHelperText } from '@mui/material'
-import { ExpenseCard } from '../../components/ExpenseCard'
-//import DropDownYear from '../../components/DropDownYear'
-import axios from 'axios'
-import { React, useEffect, useState } from 'react'
-import { Grid } from '@mui/material'
-import { categoryResult, calcSumTotal } from '../../utils/CategoryResult'
-import { calcAvail } from '../../utils/AvailableExpenditures'
-import './Budget.css'
-import Footer from '../../components/Footer'
+import { React, useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
+import './Budget.css';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/NavBar';
+import { ExpenseCard } from '../../components/ExpenseCard';
+//import DropDownYear from '../../components/DropDownYear';
+import { categoryResult } from '../../utils/CategoryResult';
+import { calcAvail } from '../../utils/AvailableExpenditures';
+
+import { FormControl, Input, Button, FormHelperText, Grid } from '@mui/material';
 
 const Budget = () => {
   const params = useParams()
