@@ -30,6 +30,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Reports = () => {
+  // declare const for grabbing user profile
+  const userProfile = () => {
+    axios.get('/api/users/profile', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    }
+    )
+      .then(res => {
+        console.log(res.data)
+        setUsers({ ...users, months: res.data.months })
+      })
+  }
   //defined totals for goal actual and result
   const [resultTotal, setResultTotal] = useState(0
     )
@@ -42,37 +55,14 @@ const Reports = () => {
       }
     }).then(res => {
       console.log(res)
-      axios.get('/api/users/profile', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('user')}`
-        }
-      }
-      )
-        .then(res => {
-          console.log(res.data)
-          setUsers({ ...users, months: res.data.months })
-          console.log(users.months)
-        })
+      userProfile()
     })
   }
 
   //GRAB THE USER PROFILE
   const [users, setUsers] = useState({ months: [] })
   useEffect(() => {
-    axios.get('/api/users/profile', {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('user')}`
-      }
-    }
-    )
-      .then(res => {
-        console.log(res.data)
-        setUsers({ ...users, months: res.data.months })
-       
-        res.data.months.forEach(month => {
-          console.log("hello")
-        })
-      })
+    userProfile()
   }, [])
 
   // defining modal styles
