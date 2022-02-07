@@ -1,29 +1,17 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom'
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Grid from '@mui/material/Grid';
+import './AboutUsCard.css'
+
 import Jazz from '../../Assets/jazz.jpg'
 import Timothy from '../../Assets/IMG_0705.jpeg'
 import Malia from '../../Assets/Malia.jpg'
 import Rachel from '../../Assets/rachel01.jpg'
 import Oliver from '../../Assets/oliver.jpg'
 import Claude from '../../Assets/claude1.png'
-import './AboutUsCard.css'
+
+
+import { Typography, Container, Button, Card, CardActions, CardContent, CardMedia, Grid } from '@mui/material'
+
+
 
 // Import query me
 
