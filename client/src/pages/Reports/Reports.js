@@ -81,6 +81,14 @@ const Reports = () => {
   const handleOpen = monthId => setOpen(prev => ({ ...prev, [monthId]: true }));
   const handleClose = monthId => setOpen(prev => ({ ...prev, [monthId]: false }));
 
+  //RESULT CALCULATION STATES
+  let actualsArray = []
+  let goalsArray = []
+  let resultsArray = []
+
+  // const [goalsResult, setGoalsResult] = useState(0)
+  // const [resultsResult, setResultsResult] = useState(0)
+
   return (
     <>
       <NavBar></NavBar>
@@ -131,32 +139,34 @@ const Reports = () => {
                                           </TableRow>
                                         </TableHead>
                                         <TableBody>
-
-
                                           {month.categories.map(category => (
-                                            <>
+                                            actualsArray.push(category.actualValue),
+                                            goalsArray.push(category.goalValue),
+                                            resultsArray.push(category.result),
 
+                                            <>
+                                            
                                             <StyledTableRow key={category.name}>
                                               <StyledTableCell component="th" scope="row">
                                                 {category.name}
                                               </StyledTableCell>
-                                              <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
+                                                <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
                                               <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
                                               <StyledTableCell align="right">{category.result}</StyledTableCell>
-                                                <StyledTableCell align="right"><ResultCalculator actualValue={category.actualValue} goalValue={category.goalValue} result={category.result} /></StyledTableCell>
+                                                <StyledTableCell align="right"></StyledTableCell>
                                             </StyledTableRow>
                                             </>
-                                          ))}
+                                          ) )}
                                           <StyledTableRow>
                                             <styledTableCell component="th" scope="row">Net</styledTableCell>
-                                            <StyledTableCell align="right">actual</StyledTableCell>
-                                            <StyledTableCell align="right">goal</StyledTableCell>
-                                            <StyledTableCell align="right">result</StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={actualsArray}/></StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={goalsArray}/></StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={resultsArray}/></StyledTableCell>
                                             <StyledTableCell align="right"></StyledTableCell>
                                           </StyledTableRow>
                                         </TableBody>
                                       </Table>
-                                    </TableContainer>
+                                    </TableContainer> 
                                   </Grid>
                                   <Grid item xs={0} md={1}>
                                   </Grid>

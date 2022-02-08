@@ -1,19 +1,9 @@
 import { useState } from 'react'
+
 import UserAPI from '../../utils/UserAPI'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Container from '@mui/material/Container';
-import FilledInput from '@mui/material/FilledInput';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import Button from '@mui/material/Button'
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { palette } from '@mui/system';
-import BasicButton from './../BasicButton'
-import Grid from '@mui/material/Grid';
 import './RegisterForm.css';
+
+import { TextField, Container, Button, Grid } from '@mui/material';
 
 const RegisterForm = (props) => {
   const [registerState, setRegisterState] = useState({

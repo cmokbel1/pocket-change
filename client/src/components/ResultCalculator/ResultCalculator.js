@@ -1,23 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-function ResultCalculator(actualValue, goalValue, result) {
+function ResultCalculator(value) {
 
-  const [actualsResult, setActualsResult] = useState(0)
-  const [goalsResult, setGoalsResult] = useState(0)
-  const [resultsResult, setResultsResult] = useState(0)
-  
-  setActualsResult(actualsResult + actualValue)
-  setGoalsResult(goalsResult + goalValue)
-  setResultsResult(result + resultsResult)
-  
+  const [sumResult, setSumResult] = useState(0)
+
+  let sums = 0
+
+  value.value.forEach(num => {
+    sums += num
+  })
+
+
+  useEffect(() => {
+    setSumResult(sums)
+  }, [])
+
   return (
     <>
-    {actualsResult}
-    {goalsResult}
-    {resultsResult}
+      {sumResult}
     </>
   )
 
-  }
+}
 
 export default ResultCalculator
