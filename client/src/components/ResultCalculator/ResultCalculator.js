@@ -10,7 +10,6 @@ function ResultCalculator(value) {
     sums += num
   })
 
-
   useEffect(() => {
     setSumResult(sums)
   }, [])
