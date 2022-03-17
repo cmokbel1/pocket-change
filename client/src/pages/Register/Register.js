@@ -1,19 +1,15 @@
-import { useState } from 'react'
-import RegisterForm from "../../components/RegisterForm"
-import UserAPI from '../../utils/UserAPI'
-import "./Register.css";
-import NavBar from '../../components/NavBar'
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
+
+import RegisterForm from "../../components/RegisterForm"
+import "./Register.css";
 import Footer from '../../components/Footer'
 import Logo from '../../Assets/small_logo.png'
-import Login from '../Login'
-import './Register.css'
+
+
+import { Container, Paper, Grid, styled } from '@mui/material';
+
+
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),

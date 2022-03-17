@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+
+import { Stack, Button } from '@mui/material'
+
 export default function BasicButton() {
   return (
     <Stack spacing={2} direction="row">

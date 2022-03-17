@@ -1,20 +1,13 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button'
-import { Modal, Box, Typography } from '@mui/material'
+
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+import { ResultCalculator } from '../../components/ResultCalculator'
+
+import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper, Container, Grid, Button, Modal, Box, Typography } from '@mui/material';
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -37,35 +30,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Reports = () => {
-  //defined totals for goal actual and result
-  const [resultTotal, setResultTotal] = useState(0
-    )
-  // BUTTON TO DELETE A MONTH
-  const handleDeleteMonth = (id) => {
-    console.log(id)
-    axios.delete(`/api/months/${id}`, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('user')}`
-      }
-    }).then(res => {
-      console.log(res)
-      axios.get('/api/users/profile', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('user')}`
-        }
-      }
-      )
-        .then(res => {
-          console.log(res.data)
-          setUsers({ ...users, months: res.data.months })
-          console.log(users.months)
-        })
-    })
-  }
-
-  //GRAB THE USER PROFILE
-  const [users, setUsers] = useState({ months: [] })
-  useEffect(() => {
+  // declare const for grabbing user profile
+  const userProfile = () => {
     axios.get('/api/users/profile', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('user')}`
@@ -75,11 +41,26 @@ const Reports = () => {
       .then(res => {
         console.log(res.data)
         setUsers({ ...users, months: res.data.months })
-       
-        res.data.months.forEach(month => {
-          console.log("hello")
-        })
       })
+  }
+
+  // BUTTON TO DELETE A MONTH
+  const handleDeleteMonth = (id) => {
+    console.log(id)
+    axios.delete(`/api/months/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('user')}`
+      }
+    }).then(res => {
+      console.log(res)
+      userProfile()
+    })
+  }
+
+  //GRAB THE USER PROFILE
+  const [users, setUsers] = useState({ months: [] })
+  useEffect(() => {
+    userProfile()
   }, [])
 
   // defining modal styles
@@ -99,6 +80,14 @@ const Reports = () => {
   const [open, setOpen] = React.useState({});
   const handleOpen = monthId => setOpen(prev => ({ ...prev, [monthId]: true }));
   const handleClose = monthId => setOpen(prev => ({ ...prev, [monthId]: false }));
+
+  //RESULT CALCULATION STATES
+  let actualsArray = []
+  let goalsArray = []
+  let resultsArray = []
+
+  // const [goalsResult, setGoalsResult] = useState(0)
+  // const [resultsResult, setResultsResult] = useState(0)
 
   return (
     <>
@@ -150,32 +139,34 @@ const Reports = () => {
                                           </TableRow>
                                         </TableHead>
                                         <TableBody>
-
-
                                           {month.categories.map(category => (
-                                            <>
+                                            actualsArray.push(category.actualValue),
+                                            goalsArray.push(category.goalValue),
+                                            resultsArray.push(category.result),
 
+                                            <>
+                                            
                                             <StyledTableRow key={category.name}>
                                               <StyledTableCell component="th" scope="row">
                                                 {category.name}
                                               </StyledTableCell>
-                                              <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
+                                                <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
                                               <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
                                               <StyledTableCell align="right">{category.result}</StyledTableCell>
-                                              <StyledTableCell align="right"></StyledTableCell>
+                                                <StyledTableCell align="right"></StyledTableCell>
                                             </StyledTableRow>
                                             </>
-                                          ))}
+                                          ) )}
                                           <StyledTableRow>
                                             <styledTableCell component="th" scope="row">Net</styledTableCell>
-                                            <StyledTableCell align="right"></StyledTableCell>
-                                            <StyledTableCell align="right">goal</StyledTableCell>
-                                            <StyledTableCell align="right">{resultTotal}</StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={actualsArray}/></StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={goalsArray}/></StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={resultsArray}/></StyledTableCell>
                                             <StyledTableCell align="right"></StyledTableCell>
                                           </StyledTableRow>
                                         </TableBody>
                                       </Table>
-                                    </TableContainer>
+                                    </TableContainer> 
                                   </Grid>
                                   <Grid item xs={0} md={1}>
                                   </Grid>
