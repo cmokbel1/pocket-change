@@ -113,7 +113,7 @@ const Reports = () => {
                     <StyledTableRow key={month._id}>
                       <StyledTableCell component="th" scope="row">
                         <Button onClick={() => handleOpen(month._id)} align="left">{month.name}</Button>
-                        <Button style={{ minWidth: 200 }} align="right" onClick={() => {handleDeleteMonth(month._id)}}>Delete</Button>
+                        <Button style={{ minWidth: 200 }} align="right" onClick={() => { handleDeleteMonth(month._id) }}>Delete</Button>
                         <Modal
                           open={open[month._id]}
                           onClose={() => handleClose(month._id)}
@@ -139,34 +139,35 @@ const Reports = () => {
                                           </TableRow>
                                         </TableHead>
                                         <TableBody>
-                                          {month.categories.map(category => (
+                                          {month.categories.map((category, index) => (
                                             actualsArray.push(category.actualValue),
                                             goalsArray.push(category.goalValue),
                                             resultsArray.push(category.result),
 
                                             <>
-                                            
-                                            <StyledTableRow key={category.name}>
-                                              <StyledTableCell component="th" scope="row">
-                                                {category.name}
-                                              </StyledTableCell>
+
+                                              <StyledTableRow key={category.name + '-' + index}>
+                                                <StyledTableCell component="th" scope="row">
+                                                  {category.name}
+                                                </StyledTableCell>
                                                 <StyledTableCell align="right">{category.actualValue}</StyledTableCell>
-                                              <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
-                                              <StyledTableCell align="right">{category.result}</StyledTableCell>
+                                                <StyledTableCell align="right">{category.goalValue}</StyledTableCell>
+                                                <StyledTableCell align="right">{category.result}</StyledTableCell>
                                                 <StyledTableCell align="right"></StyledTableCell>
-                                            </StyledTableRow>
+                                              </StyledTableRow>
                                             </>
-                                          ) )}
+                                          ))}
                                           <StyledTableRow>
                                             <styledTableCell component="th" scope="row">Net</styledTableCell>
-                                            <StyledTableCell align="right"><ResultCalculator value={actualsArray}/></StyledTableCell>
-                                            <StyledTableCell align="right"><ResultCalculator value={goalsArray}/></StyledTableCell>
-                                            <StyledTableCell align="right"><ResultCalculator value={resultsArray}/></StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={actualsArray} /></StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={goalsArray} /></StyledTableCell>
+                                            <StyledTableCell align="right"><ResultCalculator value={resultsArray} /></StyledTableCell>
                                             <StyledTableCell align="right"></StyledTableCell>
                                           </StyledTableRow>
                                         </TableBody>
                                       </Table>
-                                    </TableContainer> 
+                                      {actualsArray = []}{resultsArray = []}{goalsArray = []}
+                                    </TableContainer>
                                   </Grid>
                                   <Grid item xs={0} md={1}>
                                   </Grid>
@@ -177,6 +178,7 @@ const Reports = () => {
                         </Modal>
                       </StyledTableCell>
                     </StyledTableRow>
+
                   ))}
                 </TableBody>
               </Table>

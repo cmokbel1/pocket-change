@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
 function ResultCalculator(value) {
-
+const redundancy = value.value
   const [sumResult, setSumResult] = useState(0)
 
   let sums = 0
 
-  value.value.forEach(num => {
+  redundancy.forEach(num => {
     sums += num
   })
 
